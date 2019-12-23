@@ -6,6 +6,7 @@
 *.swp
 Thumbs.db
 node_modules/*
+.htaccess
 
 # wordpress specific
 wp-config.php

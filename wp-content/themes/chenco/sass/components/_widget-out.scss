@@ -1,4 +1,15 @@
+.lwa {
+  margin: 0;
+  // visibility: hidden;
+}
+
+.login-modal {
+  display: none;
+}
+
 .lwa-modal {
+  position: fixed;
+  z-index: 9999;
   display: grid !important;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 2rem;
@@ -9,25 +20,42 @@
   width: 85%;
   height: 80%;
   margin: 0;
-  background: rgba(39, 52, 59, 0.55);
+  background: rgba(39, 52, 59, 0.8);
 
   tr {
     display: flex;
     flex-direction: column;
     border: 0;
+    background-color: transparent !important;
   }
   label,
   a,
   p {
     color: #fff;
   }
+
+  @include media('<=tablet') {
+    display: block !important;
+    padding: 1rem;
+  }
+}
+
+.lwa-info {
+  margin-top: 2rem;
+  font-family: $sans;
+
+  @include media('<=tablet') {
+    display: none;
+  }
 }
 
 .lwa-form {
   h1 {
     color: #fff;
+    margin-top: 0;
+    font-size: 1.5rem;
   }
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .lwa-submit {
@@ -35,7 +63,7 @@
 }
 
 .lwa-wp-submit {
-  background-color: #28343c !important;
+  background-color: $primary;
 }
 
 .widget-login-left {
@@ -43,9 +71,21 @@
   padding: 2rem;
 
   img {
-    margin-bottom: 3rem;
+    width: 250px;
   }
+
   div {
     margin-bottom: 20px;
   }
+
+  @include media('<=tablet') {
+    padding: 2rem 0 0 0;
+  }
+}
+
+.lwa-wp-submit {
+}
+
+.lwa td {
+  max-width: 300px;
 }

@@ -14,8 +14,8 @@ defined('ABSPATH') or die('Nope, not accessing this');
 
 function custom_cuar_add_search_acf_fields($args, $criteria)
 {
-  echo '<pre>', var_dump($args), '</pre>';
-  echo '<pre>', var_dump($criteria), '</pre>';
+  // echo '<pre>', var_dump($args), '</pre>';
+  // echo '<pre>', var_dump($criteria), '</pre>';
 
   // $args['meta_query'] = array(
   //   'relation'      => 'AND',

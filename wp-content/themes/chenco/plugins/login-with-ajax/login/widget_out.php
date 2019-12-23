@@ -14,16 +14,16 @@
   ?>
   <div class="lwa-modal" style="display:none;">
     <div class="widget-login-left">
-        <img src="/wp-content/uploads/2019/12/Chenco_White.png"/>
-        <div>
-          <p>INFO INFO INFO</p>
-          <p>Additional Info <br/> Goes Here 123456</p>
-        </div>
+      <img src="/wp-content/uploads/2019/12/Chenco_White.png" />
+      <div class="lwa-info">
+        <p>INFO INFO INFO</p>
+        <p>Additional Info <br /> Goes Here 123456</p>
+      </div>
     </div>
     <form name="lwa-form" class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
       <span class="lwa-status"></span>
       <table>
-      <h1 class="heading alt">Investor Login</h1>
+        <h1 class="heading alt">Investor Login</h1>
         <tr class="lwa-username">
           <td class="username_label">
             <label><?php esc_html_e('Email', 'login-with-ajax'); ?></label>
@@ -45,7 +45,7 @@
         </tr>
         <tr class="lwa-submit">
           <td class="lwa-submit-button">
-            <input type="submit" name="wp-submit" class="lwa-wp-submit"
+            <input type="submit" name="wp-submit" class="lwa-wp-submit btn"
               value="<?php esc_attr_e('SIGN IN', 'login-with-ajax'); ?>" tabindex="100" />
             <input type="hidden" name="lwa_profile_link"
               value="<?php echo !empty($lwa_data['profile_link']) ? 1 : 0; ?>" />

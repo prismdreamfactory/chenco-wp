@@ -1,7 +1,7 @@
 .front {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 720px auto auto;
+  grid-template-rows: 720px auto 600px;
   grid-template-areas:
     'top top top'
     'mid-left mid-right mid-right'

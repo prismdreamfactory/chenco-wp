@@ -109,42 +109,22 @@ function getParameterByName(name) {
    * Login Modal
    */
   const loginModal = () => {
-    // const $link = $('#menu-secondary a[data-name=login]');
-
-    // $link.on('click', function(e) {
-    //   e.preventDefault();
-    //   this.blur();
-
-    //   const href = '/customer-area/login/index.php';
-
-    //   $.get(href, function(html) {
-    //     $(html)
-    //       .find('.cuar-login-form')
-    //       .appendTo('body')
-    //       .modal();
-    //   });
-
-    // $.ajax({
-    //   url: href,
-    //   type: 'GET',
-    //   success: function(data) {
-    //     $('#content').html(
-    //       $(data)
-    //         .find('#content')
-    //         .html()
-    //     );
-    //   }
-    // });
-
     $('a.login-link').on('click', function(e) {
       const target = $('div.login-modal').data('modal');
 
       if (target && target.length > 0) {
         e.preventDefault();
+
+        // $('body').css('overflow', 'hidden');
+
         target.reveal({
           modalbgclass: 'lwa-modal-bg',
           dismissmodalclass: 'lwa-modal-close'
         });
+
+        // $('a.lwa-modal-close', '.lwa-modal-bg').on('click', function(e) {
+        //   $('body').css('overflow', 'auto');
+        // });
       }
     });
   };
