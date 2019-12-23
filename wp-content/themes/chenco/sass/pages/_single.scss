@@ -1,0 +1,22 @@
+.entry-meta {
+  display: none;
+}
+
+.entry-title {
+  @include media('<=tablet') {
+    font-size: 1.5rem;
+  }
+}
+
+.reply-title {
+  font-size: 1.1rem;
+}
+
+.single-width {
+  max-width: 850px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 550px;
+  }
+}

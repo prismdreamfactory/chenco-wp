@@ -1,0 +1,51 @@
+.lwa-modal {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  align-content: center;
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 80%;
+  margin: 0;
+  background: rgba(39, 52, 59, 0.55);
+
+  tr {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+  }
+  label,
+  a,
+  p {
+    color: #fff;
+  }
+}
+
+.lwa-form {
+  h1 {
+    color: #fff;
+  }
+  padding: 2rem;
+}
+
+.lwa-submit {
+  flex-direction: column-reverse !important;
+}
+
+.lwa-wp-submit {
+  background-color: #28343c !important;
+}
+
+.widget-login-left {
+  justify-self: end;
+  padding: 2rem;
+
+  img {
+    margin-bottom: 3rem;
+  }
+  div {
+    margin-bottom: 20px;
+  }
+}

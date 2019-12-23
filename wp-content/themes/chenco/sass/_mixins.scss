@@ -1,0 +1,61 @@
+$primary: #28343c; // dark blue
+$aegean: #25507b; //aegean blue
+$darkgrey: #898989;
+$lightgrey: #eaeaea;
+$blue: rgb(37, 79, 123);
+$orange: rgb(191, 144, 1);
+$dark: #3a3a3a;
+$light: #efefef;
+$offwhite: #f7f5f5;
+
+$office: rgb(37, 79, 123);
+$multifamily: rgb(191, 144, 1);
+$land: rgb(87, 135, 171);
+$industrial: rgb(121, 175, 153);
+
+$letter-spacing: 0.05em;
+
+$serif: 'Domine', serif;
+$sans: 'Maven Pro', sans-serif;
+
+@mixin button {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 16px;
+  color: #000 !important;
+  padding: 14px 25px;
+  border: 0 none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-align: center;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  background-color: #fff;
+}
+
+// @mixin h1 {
+//   font: {
+//     family: serif;
+//     size: 36px;
+//     letter-spacing: -10;
+//   }
+// }
+// @mixin h2 {
+//   font: {
+//     family: serif;
+//     size: 20px;
+//     letter-spacing: -10;
+//   }
+// }
+
+// @mixin h3 {
+//   font: {
+//     family: serif;
+//     size: 16px;
+//     letter-spacing: -10;
+//   }
+// }

@@ -1,0 +1,126 @@
+.home-slick {
+  padding: 0;
+}
+
+.slick-dotted.slick-slider {
+  margin: 0;
+}
+
+.slick-dots {
+  bottom: 1rem;
+  z-index: 1;
+
+  li {
+    button:before {
+      color: #fff;
+      font-size: 8px;
+    }
+
+    &.slick-active {
+      button:before {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.slick__container {
+  position: relative;
+
+  img {
+    object-fit: cover;
+
+    @include media('<=tablet') {
+      height: 500px;
+    }
+  }
+}
+
+.slick__heading {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+
+  h2 {
+    font-size: 3vw;
+
+    @include media('<=tablet') {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.slick__body {
+  position: absolute;
+  bottom: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  a {
+    text-transform: uppercase;
+  }
+
+  .slick__title {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .slick__caption {
+    font-weight: 300;
+    max-width: 600px;
+    text-align: center;
+
+    @include media('<=tablet') {
+      margin: 0.5rem;
+    }
+  }
+
+  @include media('<=tablet') {
+    bottom: 2rem;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+
+  &:hover {
+    transition: 0.3s ease;
+  }
+}
+
+.slick-prev {
+  left: 25px;
+
+  &:before {
+    content: '';
+    background: url(/wp-content/uploads/2019/08/icn_arrow_L.png) no-repeat;
+    background-size: contain;
+    height: 30px;
+    display: block;
+  }
+}
+
+.slick-next {
+  right: 25px;
+
+  &:before {
+    content: '';
+    background: url(/wp-content/uploads/2019/08/icn_arrow_R.png) no-repeat;
+    background-size: contain;
+    height: 30px;
+    display: block;
+  }
+}

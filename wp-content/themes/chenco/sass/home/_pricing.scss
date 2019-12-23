@@ -1,0 +1,121 @@
+.pricing {
+  .grid-container {
+    text-align: center;
+  }
+}
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'section1 section2 section3'
+    'footer1 footer2 footer3';
+  margin: 3rem 0 0 0;
+
+  @include media('≤tablet') {
+    grid-template-columns: 1fr;
+    grid-template-areas: unset;
+  }
+}
+
+.pricing__group {
+  position: relative;
+  display: grid;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  padding: 1rem 2rem;
+  border: 1px solid #eee;
+  background: #fff;
+  cursor: pointer;
+
+  h3 {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    z-index: 1;
+    transition: 0.3s ease;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .btn {
+      background-color: #000;
+      border: 2px solid #000;
+
+    }
+  }
+
+  .pricing__main {
+    min-height: 300px;
+  }
+
+  &:nth-child(1) .pricing__main {
+    grid-row: 1;
+  }
+
+  &:nth-child(1) .pricing__cta {
+    grid-row: 2;
+  }
+
+  &:nth-child(2) .pricing__main {
+    grid-row: 1;
+  }
+
+  &:nth-child(2) .pricing__cta {
+    grid-row: 2;
+  }
+
+  &:nth-child(3) .pricing__main {
+    grid-row: 1;
+  }
+
+  &:nth-child(3) .pricing__cta {
+    grid-row: 2;
+  }
+}
+
+.pricing__list {
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  font-weight: 300;
+}
+
+.pricing__cta {
+  max-width: 300px;
+  border: 0;
+  margin: 0;
+
+  span {
+    border: 0;
+  }
+}
+
+.pricing__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:after {
+    content: '';
+    background: url(/wp-content/uploads/2019/08/Yellow.svg) no-repeat;
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &:nth-child(n + 4) {
+    &:after {
+      content: '';
+      background: url(/wp-content/uploads/2019/08/Ember.svg) no-repeat;
+    }
+  }
+
+  &:nth-child(n + 6) {
+    &:after {
+      content: '';
+      background: url(/wp-content/uploads/2019/08/Red.svg) no-repeat;
+    }
+  }
+}

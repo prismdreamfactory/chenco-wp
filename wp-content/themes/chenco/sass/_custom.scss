@@ -1,0 +1,329 @@
+.grid-container {
+  box-sizing: border-box;
+  max-width: 100% !important;
+
+  .page-hero & {
+    padding: 0 1.5rem;
+  }
+
+  @include media('≤tablet') {
+    .page-hero &,
+    .pricing &,
+    .mission &,
+    .featured &,
+    .newsletter & {
+      display: block !important;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+.post {
+  padding: 2rem;
+}
+
+body {
+  background: #fff;
+}
+
+.site-content {
+  padding: 0 !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent !important;
+  padding: 0 2rem;
+
+  @include media('≤tablet') {
+    padding: 0 1rem;
+  }
+}
+
+#page.container {
+  padding: 0;
+}
+
+.page__header {
+  max-width: 75vh;
+
+  h1 {
+    font-family: $serif;
+    color: $aegean;
+  }
+
+  @include media('<=tablet') {
+    max-width: 100%;
+  }
+}
+
+.navigation-branding .site-logo img {
+  height: 80px;
+  padding: 0;
+  margin: 0;
+
+  @include media('≤tablet') {
+    height: 50px;
+  }
+}
+
+section {
+  padding: 2rem 0;
+}
+
+.page-hero {
+  h1 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    line-height: 1;
+
+    @include media('≤tablet') {
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    color: #fff;
+
+    @include media('≤tablet') {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  max-width: 6rem;
+  font-size: 1rem;
+  padding: 0.5rem 2.5rem;
+  background-color: $aegean;
+  color: #fff;
+  cursor: pointer;
+
+  &.alt {
+    background-color: #000;
+  }
+}
+
+a,
+a:visited {
+  &.btn {
+    color: #fff;
+  }
+}
+
+.entry-title {
+  font-family: $serif;
+  color: $aegean;
+}
+
+date {
+  margin-top: 2rem;
+  display: inline-block;
+  font-family: $sans;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  a {
+    line-height: 1.2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    transition: 0.3s ease;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 1);
+      text-decoration: none;
+    }
+  }
+
+  &:after {
+    content: '›';
+    margin-left: 0.5rem;
+    color: #fff;
+  }
+
+  &.mod--dark {
+    a {
+      border-bottom: 1px solid rgba(30, 115, 190, 0);
+
+      &:hover {
+        border-color: rgba(30, 115, 190, 1);
+      }
+    }
+
+    &:after {
+      color: #1e73be;
+    }
+  }
+
+  &.mod--underlined {
+    a {
+      border-bottom: 1px solid rgba(30, 115, 190, 1);
+    }
+  }
+}
+
+/* table resets */
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: $sans;
+  font-weight: 500;
+  color: $dark;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead {
+  background-color: $aegean;
+  color: #fff;
+}
+
+table,
+tr {
+  border: 2px solid $darkgrey;
+}
+thead th {
+  color: #fff;
+}
+
+th {
+  font-weight: 700;
+}
+
+th,
+td {
+  padding: 0.5rem 1rem;
+}
+
+tbody {
+  th,
+  td {
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 767px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td,
+  th {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  th:before,
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  td:nth-of-type(1):before {
+    content: 'Date';
+  }
+  td:nth-of-type(2):before {
+    content: 'Investor';
+  }
+  td:nth-of-type(3):before {
+    content: 'Investment';
+  }
+  td:nth-of-type(4):before {
+    content: 'Document Name';
+    font-weight: 700;
+  }
+  td:nth-of-type(5):before {
+    content: 'Document Type';
+  }
+  td:nth-of-type(6):before {
+    content: 'Download';
+  }
+
+  tr:nth-of-type(odd) {
+    background: $light;
+  }
+}
+
+select {
+  background: #fafafa;
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 80px;
+}
+
+.select2-container--default .select2-selection--single {
+  height: 40px;
+  background-color: #fafafa;
+  border-color: #cccccc;
+  border-radius: 0;
+
+  .select2-selection__rendered {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 35px;
+}
+
+.lwa {
+  margin: 0;
+}
+
+.login-modal {
+  display: none;
+}

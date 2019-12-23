@@ -1,0 +1,57 @@
+.bascom-filter-container {
+  display: none;
+  grid-template-columns: 90px 0fr 0fr 110px;
+  grid-column-gap: 0.5rem;
+  margin: 5rem 0;
+  p {
+    margin: 0;
+  }
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-row-gap: 1rem;
+    input {
+      border: 1px solid #bbb;
+    }
+  }
+}
+
+.bascom__item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 6fr;
+  padding: 3rem 0;
+  border-top: 1px solid #bbb;
+
+  h3 {
+    padding: 1rem;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+  }
+
+  @include media('<tablet') {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+.bascom__item__description {
+  display: flex;
+  flex-direction: column;
+
+  @include media('<tablet') {
+    max-width: 400px;
+    align-items: center;
+  }
+}
+
+.bascom-info {
+  max-width: 140px;
+  p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+}

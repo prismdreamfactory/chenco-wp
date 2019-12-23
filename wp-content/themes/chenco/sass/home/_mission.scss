@@ -1,0 +1,40 @@
+.mission {
+  padding: 8rem 0;
+
+  @include media('<=tablet') {
+    padding: 4rem 0;
+  }
+
+  .grid-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+.mission__heading {
+  width: 50%;
+  text-align: left;
+
+  @include media('≤tablet') {
+    width: 100%;
+  }
+}
+
+.mission__description {
+  width: 50%;
+  max-width: 400px;
+  padding-left: 2rem;
+
+  @include media('≤tablet') {
+    width: 100%;
+    padding: 0;
+  }
+}

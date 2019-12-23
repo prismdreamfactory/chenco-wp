@@ -1,0 +1,3 @@
+[submodule "wp-content/themes/chenco"]
+	path = wp-content/themes/chenco
+	url = git@github.com:prismdreamfactory/chenco.git

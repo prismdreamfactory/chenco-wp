@@ -1,0 +1,50 @@
+/*
+Theme Name:     Chenco
+Description:    Chenco Website
+Author:         eric@prismdreamfactory.com
+Author URI:     prismdreamfactory.com
+Template:       generatepress
+Version:        0.1.0
+*/
+
+@import 'normalize';
+
+@import 'include-media';
+
+@import 'mixins';
+
+@import 'typography';
+
+@import 'components/navigation';
+
+@import 'components/tabs';
+
+@import 'components/footer';
+
+@import 'pages/our-firm';
+
+@import 'pages/partners';
+
+@import 'pages/team';
+
+@import 'pages/contact';
+
+@import 'pages/front-page';
+
+@import 'pages/bascom';
+
+@import 'pages/customer-area';
+
+@import 'pages/content';
+
+@import 'pages/sidebar-left';
+
+@import 'pages/sitemap';
+
+@import 'pages/single';
+
+@import 'components/widget-out';
+
+@import 'map';
+
+@import 'custom';

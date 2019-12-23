@@ -1,0 +1,320 @@
+.investor-portal {
+  h1 {
+    font-family: $serif;
+    color: $aegean;
+    margin: 2rem 3rem 2rem 0;
+    font-weight: 400;
+    font-size: 3rem;
+    text-transform: capitalize;
+
+    @include media('<=tablet') {
+      margin: 1rem 0;
+      font-size: 1.75rem;
+    }
+  }
+  h2 {
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    bottom: -5px;
+
+    @include media('<=tablet') {
+      font-size: 1.1rem;
+    }
+  }
+  h3 {
+    font-size: 1.5rem;
+
+    @include media('<=tablet') {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.investor__container {
+  position: relative;
+  background: #f4f4f4;
+  min-height: 100vh;
+
+  @include media('<=tablet') {
+    min-height: 100%;
+  }
+}
+
+.investor__main {
+  position: relative;
+  left: 220px;
+  width: calc(100% - 220px);
+  padding: 30px;
+  box-sizing: border-box;
+
+  @include media('<=tablet') {
+    left: 0;
+    width: 100%;
+    padding: 2rem 1rem;
+    min-height: 80vh;
+  }
+}
+
+.table__scroll {
+  // overflow-x: auto;
+  width: 100%;
+}
+
+.investor__search {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.cuar-search-form {
+  display: flex;
+  align-items: flex-end;
+
+  @include media('<=tablet') {
+    display: block;
+    width: 100%;
+  }
+
+  label {
+    font-family: $sans;
+    font-weight: 700;
+  }
+
+  input {
+    margin-right: 1rem;
+
+    @include media('<=tablet') {
+      margin: 0;
+    }
+  }
+
+  .select2 {
+    margin-right: 1rem;
+
+    @include media('<=tablet') {
+      width: 100% !important;
+      margin: 0;
+    }
+  }
+}
+
+.investor__files {
+  th,
+  td {
+    white-space: nowrap;
+  }
+}
+
+.investor__sidebar {
+  position: absolute;
+  height: 100%;
+  width: 220px;
+  background-color: $aegean;
+  color: #fff;
+  padding: 30px;
+  box-sizing: border-box;
+
+  @include media('<=tablet') {
+    left: -220px;
+  }
+}
+
+.investor__header {
+  display: flex;
+  align-items: center;
+
+  @include media('<=tablet') {
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+
+.investor__nav {
+  > ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      a {
+        color: #fff;
+      }
+    }
+
+    > li {
+      a {
+        font-family: $serif;
+      }
+    }
+  }
+
+  ul.sub-menu {
+    list-style: none;
+
+    li {
+      a {
+        font-family: $sans;
+      }
+    }
+  }
+}
+
+.investor__mobile {
+  background: $aegean;
+  display: none;
+  padding: 1rem;
+
+  .nav,
+  .dropdown-menu {
+    padding: 0;
+    list-style: none;
+    // margin: 0;
+  }
+
+  .nav {
+    margin: 0;
+  }
+
+  li {
+    // text-align: center;
+  }
+
+  a {
+    color: #fff !important;
+    font-weight: 500;
+    font-family: $sans !important;
+  }
+
+  @include media('<=tablet') {
+    display: block;
+  }
+}
+
+.investor__header {
+  @include media('<=tablet') {
+    display: none;
+  }
+}
+
+#menu-wp-customer-area-menu-1 {
+  list-style: none;
+  margin: 0;
+
+  li {
+    a {
+      color: #fff;
+    }
+  }
+
+  > li {
+    a {
+      font-family: $serif;
+    }
+  }
+
+  ul.dropdown-menu {
+    list-style: none;
+
+    li {
+      a {
+        font-family: $sans;
+      }
+    }
+  }
+}
+
+.menu-toggle,
+#site-navigation.toggled .menu {
+  border-bottom: 5px solid #fff !important;
+}
+
+.pagination {
+  padding: 2rem 0;
+  font-family: $sans;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination__current {
+  font-weight: 700;
+}
+
+.pagination__nav {
+  list-style: none;
+  margin: 0;
+
+  li {
+    float: left;
+    margin-left: 1rem;
+    font-weight: 700;
+
+    &.active {
+      a {
+        color: $aegean;
+      }
+    }
+
+    a {
+      color: $darkgrey;
+    }
+  }
+}
+
+.help-block {
+  display: block;
+  font-family: $sans;
+}
+
+.panel-heading {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: $aegean;
+}
+
+.panel-body {
+  font-family: $sans;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  input {
+    min-width: 300px;
+
+    @include media('<=tablet') {
+      min-width: 100%;
+    }
+
+    &[type='checkbox'] {
+      min-width: 0;
+    }
+  }
+  .submit-container {
+    margin-top: 2rem;
+
+    input {
+      background-color: $aegean;
+    }
+  }
+}
+
+.alert {
+  position: relative;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  background: $orange;
+  color: #fff;
+}
+
+body.customer-area-active
+  #cuar-js-content-container
+  .customer-account
+  .cuar-field.cuar-readonly-field {
+  border: none;
+}
+
+body.customer-area-active .cuar-css-wrapper .pull-right {
+  @include media('<=tablet') {
+    float: left;
+  }
+}
