@@ -1622,6 +1622,9 @@ body.customer-area-active
 .lwa td {
   max-width: 300px; }
 
+.lwa-loading {
+  background: transparent !important; }
+
 .map {
   padding: 0; }
 
