@@ -67,6 +67,11 @@ $search = cuar_addon('customer-search');
 <?php $search->print_form_footer(); ?>
 </div> */ ?>
 
+<form method="post">
+  <input type="text" name="query" />
+  <input type="submit" name="search" value="Search" class="btn" />
+</form>
+
 <div class="table__scroll">
   <table class="investor__files" summary="Investments">
     <thead>

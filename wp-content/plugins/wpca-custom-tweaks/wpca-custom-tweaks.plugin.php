@@ -58,3 +58,26 @@ function remove_some_profile_fields($fields)
   return $fields;
 }
 add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fields');
+
+
+function cuar_custom_sorting_order($args)
+{
+  echo '<pre>', var_dump($args), '</pre>';
+
+  print_r($_POST);
+
+  $new_args = $args;
+
+  // The next line says that the sort order will be by the date of the last modification
+  // You could also sort by any field of the WordPress post table, like 'title'
+  $new_args['orderby'] = 'modified';
+
+  // This line says that we want to sort by descending order (opposite of 'ASC')
+  $new_args['order'] = 'DESC';
+  return $new_args;
+}
+
+// You can change the page slug to another one, for instance 'customer-private-pages' or 'customer-conversations'
+$page_slug = 'customer-private-files';
+
+add_filter('cuar/core/page/query-args?slug=' . $page_slug, 'cuar_custom_sorting_order');
