@@ -1884,6 +1884,9 @@ body.customer-area-active
       width: 100%;
       padding: 0 1.5rem; } }
 
+.blocker {
+  z-index: 1000; }
+
 .post {
   padding: 2rem; }
 
