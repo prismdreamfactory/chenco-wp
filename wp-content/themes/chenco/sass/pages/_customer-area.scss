@@ -64,6 +64,43 @@
 .investor__search {
   display: flex;
   padding: 1rem 0;
+
+  .form-group {
+    margin-bottom: 0;
+
+    input {
+      min-width: 0;
+    }
+  }
+
+  form {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  label {
+    font-family: $sans;
+    font-weight: 700;
+  }
+
+  input,
+  select,
+  .select2 {
+    font-family: $sans;
+    // max-width: 250px;
+    margin-right: 1rem;
+  }
+
+  .control-label {
+    display: block;
+  }
+
+  .form-submit {
+    input {
+      max-width: none;
+      background-color: $aegean;
+    }
+  }
 }
 
 .cuar-search-form {
