@@ -33,6 +33,7 @@ function generatepress_parent_theme_enqueue_styles()
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', array('jquery'), false, false);
   wp_enqueue_script('countto', '//cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js', array('jquery'), false, false);
   wp_enqueue_script('datepicker', '//cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js', array(), false, false);
+  wp_enqueue_script('datepicker-english', '//cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.min.js', array(), false, false);
   wp_enqueue_script('modal', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', array(), false, false);
   wp_enqueue_script('chenco-js', get_stylesheet_directory_uri() . '/script.js', array('datepicker', 'countto', 'google-maps', 'slick', 'modal'));
 }

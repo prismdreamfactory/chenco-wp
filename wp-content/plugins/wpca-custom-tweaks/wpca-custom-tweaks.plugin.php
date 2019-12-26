@@ -12,24 +12,6 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 defined('ABSPATH') or die('Nope, not accessing this');
 
-function custom_cuar_add_search_acf_fields($args, $criteria)
-{
-  // echo '<pre>', var_dump($args), '</pre>';
-  // echo '<pre>', var_dump($criteria), '</pre>';
-
-  // $args['meta_query'] = array(
-  //   'relation'      => 'AND',
-  //   $args['meta_query'],
-  //   array(
-  //     'key'       => 'document_type',
-  //     'value'     => 'Monthly Report',
-  //     'compare'   => 'LIKE'
-  //   ),
-  // );
-  return $args;
-}
-add_filter('cuar/search/content/query-args', 'custom_cuar_add_search_acf_fields', 2, 90);
-
 /**
  * REDIRECTS
  */
@@ -60,24 +42,86 @@ function remove_some_profile_fields($fields)
 add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fields');
 
 
-function cuar_custom_sorting_order($args)
+function custom_cuar_add_search_acf_fields($args, $criteria)
 {
   echo '<pre>', var_dump($args), '</pre>';
+  echo '<pre>', var_dump($criteria), '</pre>';
 
-  print_r($_POST);
+  // $args['meta_query'] = array(
+  //   'relation'      => 'AND',
+  //   $args['meta_query'],
+  //   array(
+  //     'key'       => 'document_type',
+  //     'value'     => 'Monthly Report',
+  //     'compare'   => 'LIKE'
+  //   ),
+  // );
+
+  return $args;
+}
+add_filter('cuar/search/content/query-args', 'custom_cuar_add_search_acf_fields', 2, 90);
+
+function cuar_custom_search($args)
+{
+  echo '<pre>', var_dump($args), '</pre>';
+  echo '<pre>', var_dump($_POST), '</pre>';
 
   $new_args = $args;
 
-  // The next line says that the sort order will be by the date of the last modification
-  // You could also sort by any field of the WordPress post table, like 'title'
-  $new_args['orderby'] = 'modified';
 
-  // This line says that we want to sort by descending order (opposite of 'ASC')
-  $new_args['order'] = 'DESC';
+  if (!empty($_POST)) {
+    $new_args['s'] = $_POST['document_name'];
+    $new_args['orderby'] = $_POST['orderby'];
+    $new_args['order'] = $_POST['order'];
+    // $new_args['posts_per_page'] = $_POST['posts_per_page'] * 1;
+
+    if (!empty($_POST['file_date'])) {
+      $date_range = $_POST['file_date'];
+      $current_date = date("m/d/Y");
+
+      preg_match('/^\d*\/\d*\/\d*/', $date_range, $start_date_match);
+      preg_match('/^\d*\/\d*\/\d*\s-\s(\d*\/\d*\/\d*)$/', $date_range, $end_date_match);
+
+      $start_date = $start_date_match[0];
+      $end_date = empty($end_date_match) ? $end_date_match[1] : $current_date;
+
+      $new_args['date_query'] = array(
+        array(
+          'column' => 'post_published',
+          'after'     => $start_date,
+          'before'    => $end_date,
+          'inclusive' => true,
+        ),
+      );
+    }
+
+    // $new_args['meta_key'] = 'post_date';
+    // $new_args['meta_query'] = array(
+    //   'relation' => 'AND',
+    //   array(
+    //     'key' => 'post_date',
+    //     'value' => array($start, $end),
+    //     'compare' => 'BETWEEN',
+    //     'type' => 'DATE'
+    //   )
+    // );
+
+
+
+    // $new_args['meta_query'] = array(
+    //   'relation'      => 'AND',
+    //   $new_args['meta_query'],
+    //   array(
+    //     'key'       => 'document_type',
+    //     'value'     => $_POST['document_type'],
+    //     'compare'   => 'LIKE'
+    //   ),
+    // );
+  }
+
   return $new_args;
 }
 
 // You can change the page slug to another one, for instance 'customer-private-pages' or 'customer-conversations'
 $page_slug = 'customer-private-files';
-
-add_filter('cuar/core/page/query-args?slug=' . $page_slug, 'cuar_custom_sorting_order');
+add_filter('cuar/core/page/query-args?slug=' . $page_slug, 'cuar_custom_search');
