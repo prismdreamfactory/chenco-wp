@@ -1271,13 +1271,27 @@ address {
   padding: 1rem 0; }
   .investor__search .form-group {
     margin-bottom: 0; }
-    .investor__search .form-group input {
+    .investor__search .form-group input,
+    .investor__search .form-group .select2 {
       min-width: 0; }
+      @media (max-width: 768px) {
+        .investor__search .form-group input,
+        .investor__search .form-group .select2 {
+          width: 100% !important; } }
+    @media (max-width: 768px) {
+      .investor__search .form-group {
+        margin-bottom: 1rem; }
+        .investor__search .form-group:last-child {
+          margin-top: 2rem; } }
   .investor__search form {
     display: -webkit-box;
     display: flex;
     -webkit-box-align: end;
     align-items: flex-end; }
+    @media (max-width: 768px) {
+      .investor__search form {
+        display: block;
+        width: 100%; } }
   .investor__search label {
     font-family: "Maven Pro", sans-serif;
     font-weight: 700; }

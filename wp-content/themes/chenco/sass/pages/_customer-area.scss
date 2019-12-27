@@ -68,14 +68,32 @@
   .form-group {
     margin-bottom: 0;
 
-    input {
+    input,
+    .select2 {
       min-width: 0;
+
+      @include media('<=tablet') {
+        width: 100% !important;
+      }
+    }
+
+    @include media('<=tablet') {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-top: 2rem;
+      }
     }
   }
 
   form {
     display: flex;
     align-items: flex-end;
+
+    @include media('<=tablet') {
+      display: block;
+      width: 100%;
+    }
   }
 
   label {
