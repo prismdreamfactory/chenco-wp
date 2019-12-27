@@ -231,6 +231,22 @@ tbody {
   }
 }
 
+// .table-sort:after {
+//   content: ' ';
+//   position: relative;
+//   left: 2px;
+//   border: 8px solid transparent;
+// }
+
+// .table-sort:after {
+//   top: 10px;
+//   border-top-color: silver;
+// }
+
+// .table-sort {
+//   padding-right: 10px;
+// }
+
 @media only screen and (max-width: 767px),
   (min-device-width: 768px) and (max-device-width: 1024px) {
   .investor__files {
@@ -313,6 +329,10 @@ select {
   box-sizing: border-box;
   max-width: 100%;
   min-width: 80px;
+}
+
+.select2-results__option {
+  font-family: $sans;
 }
 
 .select2-container--default .select2-selection--single {

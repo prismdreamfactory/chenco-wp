@@ -2128,6 +2128,9 @@ select {
   max-width: 100%;
   min-width: 80px; }
 
+.select2-results__option {
+  font-family: "Maven Pro", sans-serif; }
+
 .select2-container--default .select2-selection--single {
   height: 40px;
   background-color: #fafafa;
