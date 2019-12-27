@@ -42,24 +42,24 @@ function remove_some_profile_fields($fields)
 add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fields');
 
 
-function custom_cuar_add_search_acf_fields($args, $criteria)
-{
-  echo '<pre>', var_dump($args), '</pre>';
-  echo '<pre>', var_dump($criteria), '</pre>';
+// function custom_cuar_add_search_acf_fields($args, $criteria)
+// {
+//   echo '<pre>', var_dump($args), '</pre>';
+//   echo '<pre>', var_dump($criteria), '</pre>';
 
-  // $args['meta_query'] = array(
-  //   'relation'      => 'AND',
-  //   $args['meta_query'],
-  //   array(
-  //     'key'       => 'document_type',
-  //     'value'     => 'Monthly Report',
-  //     'compare'   => 'LIKE'
-  //   ),
-  // );
+//   // $args['meta_query'] = array(
+//   //   'relation'      => 'AND',
+//   //   $args['meta_query'],
+//   //   array(
+//   //     'key'       => 'document_type',
+//   //     'value'     => 'Monthly Report',
+//   //     'compare'   => 'LIKE'
+//   //   ),
+//   // );
 
-  return $args;
-}
-add_filter('cuar/search/content/query-args', 'custom_cuar_add_search_acf_fields', 2, 90);
+//   return $args;
+// }
+// add_filter('cuar/search/content/query-args', 'custom_cuar_add_search_acf_fields', 2, 90);
 
 function cuar_custom_search($args)
 {
@@ -68,24 +68,33 @@ function cuar_custom_search($args)
 
   $new_args = $args;
 
-
   if (!empty($_POST)) {
     $new_args['s'] = $_POST['document_name'];
     $new_args['orderby'] = $_POST['orderby'];
     $new_args['order'] = $_POST['order'];
+
+    if ($_POST['document_type'] !== 'all') {
+      $new_args['tax_query'] = array(
+        array(
+          'taxonomy' => 'cuar_private_file_category',
+          'field' => 'slug',
+          'terms'    => $_POST['document_type']
+        ),
+      );
+    }
     // $new_args['posts_per_page'] = $_POST['posts_per_page'] * 1;
+
+    // Save selected form values to session
+    $_SESSION['selected_document_type'] = $_POST['document_type'];
 
     if (!empty($_POST['file_date'])) {
       $date_range = $_POST['file_date'];
 
-      preg_match('/^\d*-\d*-\d*/', $date_range, $start_date_match);
-      preg_match('/^\d*-\d*-\d*\s-\s(\d*-\d*-\d*)$/', $date_range, $end_date_match);
+      preg_match('/^\d+-\d+-\d+/', $date_range, $start_date_match);
+      preg_match('/^\d+-\d+-\d+\s-\s(\d+-\d+-\d+)$/', $date_range, $end_date_match);
 
-      $start_date = strtotime($start_date_match[0]);
-      $end_date = !empty($end_date_match) ? strtotime($end_date_match[1]) : strtotime('now');
-
-      var_dump($start_date_match);
-      var_dump($end_date_match);
+      $start_date = $start_date_match[0];
+      $end_date = !empty($end_date_match) ? $end_date_match[1] : date('d-m-Y');
 
       $new_args['date_query'] = array(
         array(
@@ -96,29 +105,6 @@ function cuar_custom_search($args)
         ),
       );
     }
-
-    // $new_args['meta_key'] = 'post_date';
-    // $new_args['meta_query'] = array(
-    //   'relation' => 'AND',
-    //   array(
-    //     'key' => 'post_date',
-    //     'value' => array($start, $end),
-    //     'compare' => 'BETWEEN',
-    //     'type' => 'DATE'
-    //   )
-    // );
-
-
-
-    // $new_args['meta_query'] = array(
-    //   'relation'      => 'AND',
-    //   $new_args['meta_query'],
-    //   array(
-    //     'key'       => 'document_type',
-    //     'value'     => $_POST['document_type'],
-    //     'compare'   => 'LIKE'
-    //   ),
-    // );
   }
 
   return $new_args;

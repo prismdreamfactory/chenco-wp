@@ -25,15 +25,6 @@
 global $current_user;
 global $post;
 
-$terms = get_terms(array(
-  'taxonomy'   => 'cuar_private_file_category',
-  'orderby'    => 'count',
-  'hide_empty' => false,
-  'fields'     => 'all'
-));
-
-// echo '<pre>', var_dump($terms), '</pre>';
-
 // $current_addon_slug = 'customer-private-files';
 // $current_addon_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, 'fa fa-file');
 // $current_addon = cuar_addon($current_addon_slug);
