@@ -77,13 +77,15 @@ function cuar_custom_search($args)
 
     if (!empty($_POST['file_date'])) {
       $date_range = $_POST['file_date'];
-      $current_date = date("m/d/Y");
 
-      preg_match('/^\d*\/\d*\/\d*/', $date_range, $start_date_match);
-      preg_match('/^\d*\/\d*\/\d*\s-\s(\d*\/\d*\/\d*)$/', $date_range, $end_date_match);
+      preg_match('/^\d*-\d*-\d*/', $date_range, $start_date_match);
+      preg_match('/^\d*-\d*-\d*\s-\s(\d*-\d*-\d*)$/', $date_range, $end_date_match);
 
-      $start_date = $start_date_match[0];
-      $end_date = empty($end_date_match) ? $end_date_match[1] : $current_date;
+      $start_date = strtotime($start_date_match[0]);
+      $end_date = !empty($end_date_match) ? strtotime($end_date_match[1]) : strtotime('now');
+
+      var_dump($start_date_match);
+      var_dump($end_date_match);
 
       $new_args['date_query'] = array(
         array(
