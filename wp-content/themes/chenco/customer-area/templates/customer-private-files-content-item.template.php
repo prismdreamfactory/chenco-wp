@@ -32,16 +32,16 @@ global $post;
 $current_addon_slug = 'customer-private-files';
 $current_addon = cuar_addon($current_addon_slug);
 
-$file_count = cuar_get_the_attached_file_count($post->ID);
+// $file_count = cuar_get_the_attached_file_count($post->ID);
 
-$extra_class = ' ' . get_post_type();
-$extra_class = apply_filters('cuar/templates/list-item/extra-class?post-type=' . get_post_type(), $extra_class, $post);
+// $extra_class = ' ' . get_post_type();
+// $extra_class = apply_filters('cuar/templates/list-item/extra-class?post-type=' . get_post_type(), $extra_class, $post);
 
-$current_addon_slug = 'customer-private-files';
-$thumb_icon = $file_count == 0 ? 'fa fa-file-o' : ($file_count == 1 ? 'fa fa-file' : 'fa fa-file');
-$thumb_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, $thumb_icon, $post);
-$thumb_header = apply_filters('cuar/private-content/view/header?addon=' . $current_addon_slug, $file_count, $post);
-$thumb_sub_header = apply_filters('cuar/private-content/view/header?addon=' . $current_addon_slug, _n('FILE', 'FILES', $file_count, 'cuar'), $post);
+// $current_addon_slug = 'customer-private-files';
+// $thumb_icon = $file_count == 0 ? 'fa fa-file-o' : ($file_count == 1 ? 'fa fa-file' : 'fa fa-file');
+// $thumb_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, $thumb_icon, $post);
+// $thumb_header = apply_filters('cuar/private-content/view/header?addon=' . $current_addon_slug, $file_count, $post);
+// $thumb_sub_header = apply_filters('cuar/private-content/view/header?addon=' . $current_addon_slug, _n('FILE', 'FILES', $file_count, 'cuar'), $post);
 ?>
 
 <?php
@@ -49,6 +49,17 @@ $attachments = cuar_get_the_attached_files($post->ID);
 $attachment_count = count($attachments);
 /* only one file per download */
 $file = current($attachments);
+
+// $terms = get_terms(array(
+//   'taxonomy'   => 'cuar_private_file_category',
+//   'orderby'    => 'count',
+//   'hide_empty' => false,
+//   'fields'     => 'all'
+// ));
+
+$file_categories = get_the_terms($post->ID, 'cuar_private_file_category');
+$file_category = $file_categories[0];
+// echo '<pre>' . $file_category->name . '</pre>';
 ?>
 
 <tr>
@@ -57,7 +68,7 @@ $file = current($attachments);
   <td><?= cuar_get_the_owner(); ?></td>
   <td>Investment</td>
   <td><?php the_title(); ?></td>
-  <td><?php the_field('document_type') ?></td>
+  <td><?= $file_category->name; ?></td>
   <td class="cuar-actions">
     <a href="<?php cuar_the_attached_file_link($post->ID, $file); ?>" title="<?php esc_attr_e('Get file', 'cuar'); ?>"
       class="btn__download">

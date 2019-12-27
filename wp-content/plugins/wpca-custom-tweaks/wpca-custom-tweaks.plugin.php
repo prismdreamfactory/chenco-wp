@@ -63,15 +63,25 @@ add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fie
 
 function cuar_custom_search($args)
 {
-  echo '<pre>', var_dump($args), '</pre>';
-  echo '<pre>', var_dump($_POST), '</pre>';
+  // echo '<pre>', var_dump($args), '</pre>';
+  // echo '<pre>', var_dump($_POST), '</pre>';
 
   $new_args = $args;
 
   if (!empty($_POST)) {
-    $new_args['s'] = $_POST['document_name'];
-    $new_args['orderby'] = $_POST['orderby'];
-    $new_args['order'] = $_POST['order'];
+    if (isset($_POST['document_name'])) {
+      $new_args['s'] = $_POST['document_name'];
+    }
+
+    if (isset($_POST['sortby'])) {
+      $new_args['orderby'] = $_POST['sortby'];
+      $_SESSION['selected_sortby'] = $_POST['sortby'];
+    }
+
+    if (isset($_POST['order'])) {
+      $new_args['order'] = $_POST['order'];
+      $_SESSION['selected_order'] = $_POST['order'];
+    }
 
     if ($_POST['document_type'] !== 'all') {
       $new_args['tax_query'] = array(
@@ -82,10 +92,11 @@ function cuar_custom_search($args)
         ),
       );
     }
+    $_SESSION['selected_document_type'] = $_POST['document_type'];
     // $new_args['posts_per_page'] = $_POST['posts_per_page'] * 1;
 
-    // Save selected form values to session
-    $_SESSION['selected_document_type'] = $_POST['document_type'];
+
+
 
     if (!empty($_POST['file_date'])) {
       $date_range = $_POST['file_date'];

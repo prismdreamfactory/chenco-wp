@@ -31,7 +31,6 @@ global $post;
 // $post_type = $current_addon->get_friendly_post_type();
 
 $search = cuar_addon('customer-search');
-// var_dump($search->criteria);
 ?>
 
 <div class="investor__header">

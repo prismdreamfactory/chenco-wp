@@ -23,6 +23,7 @@ $terms = get_terms(array(
         data-multiple-dates-separator=" - " data-language="en" data-date-format="dd-mm-yyyy" name="file_date" />
     </div>
 
+
     <div class="form-group">
       <label class="control-label">Document Type</label>
       <select name="document_type">
@@ -38,30 +39,41 @@ $terms = get_terms(array(
       </select>
     </div>
 
+    <?php /*
     <div class="form-group">
       <label class="control-label">Document Name</label>
       <input type="text" name="document_name" />
     </div>
+    */ ?>
 
     <?php /* <div class="form-group">
       <label class="control-label">Investment</label>
       <select name="investment"></select>
     </div> */ ?>
 
+
     <div class="form-group">
       <label class="control-label">Sort By</label>
-      <select name="orderby">
-        <option value="date">Date</option>
-        <option value="title">Document Name</option>
+      <select name="sortby">
+        <option value="date" <?php if (($_SESSION['selected_sortby']) == 'date') echo 'selected="selected"'; ?>>Date
+        </option>
+        <option value="modified" <?php if (($_SESSION['selected_sortby']) == 'modified') echo 'selected="selected"'; ?>>
+          Modified</option>
+        <option value="title" <?php if (($_SESSION['selected_sortby']) == 'title') echo 'selected="selected"'; ?>>
+          Document Name</option>
       </select>
     </div>
+
     <div class="form-group">
       <label class="control-label">Sort Order</label>
       <select name="order">
-        <option value="ASC">Ascending</option>
-        <option value="DESC">Descending</option>
+        <option value="ASC" <?php if (($_SESSION['selected_order']) == 'ASC') echo 'selected="selected"'; ?>>Ascending
+        </option>
+        <option value="DESC" <?php if (($_SESSION['selected_order']) == 'DESC') echo 'selected="selected"'; ?>>
+          Descending</option>
       </select>
     </div>
+
 
     <?php /* <div class="form-group">
       <label class="control-label">Limit</label>
