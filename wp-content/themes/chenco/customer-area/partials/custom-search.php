@@ -46,10 +46,12 @@ $terms = get_terms(array(
     </div>
     */ ?>
 
-    <?php /* <div class="form-group">
+    <div class="form-group">
       <label class="control-label">Investment</label>
-      <select name="investment"></select>
-    </div> */ ?>
+      <select name="investment">
+        <option>Any</option>
+      </select>
+    </div>
 
 
     <div class="form-group">
