@@ -1139,10 +1139,7 @@ address {
     margin: 0;
     color: #797979;
     font-family: "Maven Pro", sans-serif;
-    width: 150px; }
-  .front-news-item p,
-  .front-news-item a {
-    font-size: 0.9rem; }
+    width: 200px; }
   .front-news-item a {
     font-family: "Domine", serif;
     text-transform: capitalize;

@@ -132,21 +132,45 @@ function getParameterByName(name) {
   /**
    * Google map jQuery selectors and coordinates
    */
-
   const center = {
     usa: [38.901187, -110.914306],
     asia: [28.441223, -238.391588],
     global: [40.141496, -168.588005]
   };
-  const regionCenters = {
-    norcal: [39.781569, -122.19576],
-    socal: [32.155, -119.033081],
-    hawaii: [31.906707, -132.501246],
-    south: [30.705239, -98.67815],
-    mountain: [39.05847, -105.706326],
-    midwest: [41.65778, -90.853814],
-    southeast: [31.082342, -82.767718],
-    northeast: [38.56669, -76.621757]
+  const regions = {
+    Northern_California: {
+      coords: [37.481569, -122.19576],
+      zoom: 8
+    },
+    Southern_California: {
+      coords: [33.155, -118.033081],
+      zoom: 8
+    },
+    Hawaii: {
+      coords: [31.906707, -132.501246],
+      zoom: 6,
+      coordsAlt: [21.289373, -157.91748]
+    },
+    South: {
+      coords: [30.705239, -98.67815],
+      zoom: 7
+    },
+    Mountain: {
+      coords: [39.05847, -105.706326],
+      zoom: 7
+    },
+    Midwest: {
+      coords: [41.65778, -90.853814],
+      zoom: 8
+    },
+    Southeast: {
+      coords: [28.082342, -82.767718],
+      zoom: 7
+    },
+    Northeast: {
+      coords: [40.56669, -76.621757],
+      zoom: 7
+    }
   };
   const countryNames = {
     usa: 'United States',
@@ -171,8 +195,8 @@ function getParameterByName(name) {
     const args = {
       minZoom: 3,
       maxZoom: 9,
-      zoom: 4,
-      center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
+      zoom: 3,
+      center: new google.maps.LatLng(center['global'][0], center['global'][1]),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       streetViewControl: false,
@@ -215,31 +239,68 @@ function getParameterByName(name) {
     });
 
     /* zoom event */
-    // google.maps.event.addListener(map, 'zoom_changed', function() {
-    //   let zoomLevel = map.getZoom();
-    //   removeMarkers(map.markers);
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+      let zoomLevel = map.getZoom();
 
-    //   if (zoomLevel === 5) {
-    //     for (let center in regionCenters) {
-    //       const coordinates = regionCenters[center];
+      console.log(zoomLevel);
 
-    //       const marker = new google.maps.Marker({
-    //         position: new google.maps.LatLng(coordinates[0], coordinates[1]),
-    //         map: map,
-    //         icon: document.location.origin + `/wp-content/themes/chenco/assets/circle.svg`
-    //       });
+      // Remove markers
+      for (let i = 0; i < map.markers.length; i++) {
+        // google.maps.event.clearListeners(map.markers);
+        map.markers[i].setMap(null);
+      }
+      map.markers = [];
 
-    //       // add to array
-    //       map.markers.push(marker);
-    //     }
-    //   } else {
-    //     addMarkers($currentMarkers, map);
-    //   }
-    // });
+      if (zoomLevel === 5) {
+        for (let region in regions) {
+          const coordinates = regions[region]['coords'];
+          const zoom = regions[region]['zoom'];
+
+          const marker = new google.maps.Marker({
+            position: new google.maps.LatLng(coordinates[0], coordinates[1]),
+            map: map,
+            icon: `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
+          });
+
+          // add to array
+          map.markers.push(marker);
+
+          google.maps.event.addListener(marker, 'mouseover', function() {
+            marker.setIcon(
+              `${document.location.origin}/wp-content/themes/chenco/assets/${region}_A.png`
+            );
+          });
+
+          google.maps.event.addListener(marker, 'mouseout', function() {
+            marker.setIcon(
+              `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
+            );
+          });
+
+          google.maps.event.addListener(marker, 'click', function() {
+            !regions[region]['coordsAlt']
+              ? map.setCenter(new google.maps.LatLng(coordinates[0], coordinates[1]))
+              : map.setCenter(
+                  new google.maps.LatLng(
+                    regions[region]['coordsAlt'][0],
+                    regions[region]['coordsAlt'][1]
+                  )
+                );
+            map.setZoom(zoom);
+          });
+        }
+      } else {
+        addMarkers($currentMarkers, map);
+      }
+    });
 
     map.addListener(
       'bounds_changed',
-      debounced(200, () => calculateLegend(map, legendStats))
+      debounced(200, () => {
+        if (map.getZoom() > 5) {
+          return calculateLegend(map, legendStats);
+        }
+      })
     );
 
     return map;
@@ -335,7 +396,7 @@ function getParameterByName(name) {
 
     // marker svg allowing options
     const createMarker = color => {
-      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="${color}"/></svg>`;
+      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="${color}"/></svg>`;
 
       return svg;
     };
@@ -405,7 +466,7 @@ function getParameterByName(name) {
 
         $region.text(countryNames[country]);
 
-        country === 'global' ? map.setZoom(4) : map.setZoom(5);
+        country === 'global' ? map.setZoom(3) : map.setZoom(5);
         map.setCenter(new google.maps.LatLng(center[country][0], center[country][1]));
       });
     });
