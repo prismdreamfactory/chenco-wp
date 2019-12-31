@@ -68,7 +68,7 @@ $file_category = $file_categories[0];
   <td><?= cuar_get_the_owner(); ?></td>
   <td>Investment</td>
   <td><?php the_title(); ?></td>
-  <td><?= $file_category->name; ?></td>
+  <td><?php if (isset($file_category)) echo $file_category->name; ?></td>
   <td class="cuar-actions">
     <a href="<?php cuar_the_attached_file_link($post->ID, $file); ?>" title="<?php esc_attr_e('Get file', 'cuar'); ?>"
       class="btn__download">
