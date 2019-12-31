@@ -20,11 +20,12 @@ $terms = get_terms(array(
     <div class="form-group">
       <label class="control-label">Date Range</label>
       <input type="text" class="datepicker-here" data-language='en' data-range="true"
-        data-multiple-dates-separator=" - " data-language="en" data-date-format="dd-mm-yyyy" name="file_date" />
+        data-multiple-dates-separator=" - " data-language="en" data-date-format="dd-mm-yyyy" name="file_date"
+        value="<?php if (isset($_SESSION['file_date'])) echo $_SESSION['file_date']; ?>" />
     </div>
 
 
-    <div class="form-group">
+    <div class=" form-group">
       <label class="control-label">Document Type</label>
       <select name="document_type">
         <option value="all" <?php if (($_SESSION['selected_document_type']) == 'all') echo 'selected="selected"'; ?>>

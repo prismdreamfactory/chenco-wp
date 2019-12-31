@@ -19,13 +19,21 @@ function cuar_change_default_customer_page($redirect_to)
 {
   return 'customer-private-files';
 }
-add_filter('cuar/routing/redirect/root-page-to-slug?slug=' . 'customer-home', 'cuar_change_default_customer_page');
+add_filter('cuar/routing/redirect/root-page-to-slug?slug=customer-home', 'cuar_change_default_customer_page');
 
 function cuar_change_default_dashboard_page($redirect_to)
 {
-  return 'customer-home';
+
+  die('hey');
+  // return 'customer-private-files';
 }
-add_filter('cuar/routing/redirect/root-page-to-slug?slug=' . 'customer-dashboard', 'cuar_change_default_dashboard_page');
+add_filter('cuar/routing/redirect/root-page-to-slug?slug=customer-dashboard', 'cuar_change_default_dashboard_page');
+
+function cuar_change_default_search_page($redirect_to)
+{
+  return 'customer-private-files';
+}
+add_filter('cuar/routing/redirect/root-page-to-slug?slug=customer-search', 'cuar_change_default_search_page');
 
 function cuar_get_custom_logout_redirect_url($current_url = null, $redirect_slug = 'customer-dashboard', $redirect_url = null)
 {
@@ -64,7 +72,7 @@ add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fie
 function cuar_custom_search($args)
 {
   // echo '<pre>', var_dump($args), '</pre>';
-  // echo '<pre>', var_dump($_POST), '</pre>';
+  echo '<pre>', var_dump($_POST), '</pre>';
 
   $new_args = $args;
 
@@ -112,6 +120,8 @@ function cuar_custom_search($args)
           'inclusive' => true,
         ),
       );
+
+      $_SESSION['file_date'] = $date_range;
     }
 
     if (!empty($_POST['investment'])) {
@@ -124,6 +134,8 @@ function cuar_custom_search($args)
       //   'compare'   => 'LIKE'
       // ),
       // );
+
+      // $_SESSION['investment'] = $_POST['investment];
     }
   }
 
