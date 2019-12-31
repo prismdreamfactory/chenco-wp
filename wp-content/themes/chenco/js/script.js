@@ -192,17 +192,30 @@ function getParameterByName(name) {
     const $currentMarkers = $(`.marker[data-current=1]`);
     const $historicalMarkers = $(`.marker[data-current=0]`);
 
-    const args = {
-      minZoom: 3,
-      maxZoom: 9,
-      zoom: 3,
-      center: new google.maps.LatLng(center['global'][0], center['global'][1]),
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: false,
-      streetViewControl: false,
-      // disableDefaultUI: true,
-      styles
-    };
+    const args =
+      $(window).width() <= 768
+        ? {
+            minZoom: 2,
+            maxZoom: 9,
+            zoom: 2,
+            center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            streetViewControl: false,
+            // disableDefaultUI: true,
+            styles
+          }
+        : {
+            minZoom: 3,
+            maxZoom: 9,
+            zoom: 3,
+            center: new google.maps.LatLng(center['global'][0], center['global'][1]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            streetViewControl: false,
+            // disableDefaultUI: true,
+            styles
+          };
 
     // Create map
     const map = new google.maps.Map($el[0], args);
@@ -239,67 +252,67 @@ function getParameterByName(name) {
     });
 
     /* zoom event */
-    google.maps.event.addListener(map, 'zoom_changed', function() {
-      let zoomLevel = map.getZoom();
+    // google.maps.event.addListener(map, 'zoom_changed', function() {
+    //   let zoomLevel = map.getZoom();
 
-      console.log(zoomLevel);
+    //   console.log(zoomLevel);
 
-      // Remove markers
-      for (let i = 0; i < map.markers.length; i++) {
-        // google.maps.event.clearListeners(map.markers);
-        map.markers[i].setMap(null);
-      }
-      map.markers = [];
+    //   // Remove markers
+    //   for (let i = 0; i < map.markers.length; i++) {
+    //     // google.maps.event.clearListeners(map.markers);
+    //     map.markers[i].setMap(null);
+    //   }
+    //   map.markers = [];
 
-      if (zoomLevel === 5) {
-        for (let region in regions) {
-          const coordinates = regions[region]['coords'];
-          const zoom = regions[region]['zoom'];
+    //   if (zoomLevel === 5) {
+    //     for (let region in regions) {
+    //       const coordinates = regions[region]['coords'];
+    //       const zoom = regions[region]['zoom'];
 
-          const marker = new google.maps.Marker({
-            position: new google.maps.LatLng(coordinates[0], coordinates[1]),
-            map: map,
-            icon: `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
-          });
+    //       const marker = new google.maps.Marker({
+    //         position: new google.maps.LatLng(coordinates[0], coordinates[1]),
+    //         map: map,
+    //         icon: `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
+    //       });
 
-          // add to array
-          map.markers.push(marker);
+    //       // add to array
+    //       map.markers.push(marker);
 
-          google.maps.event.addListener(marker, 'mouseover', function() {
-            marker.setIcon(
-              `${document.location.origin}/wp-content/themes/chenco/assets/${region}_A.png`
-            );
-          });
+    //       google.maps.event.addListener(marker, 'mouseover', function() {
+    //         marker.setIcon(
+    //           `${document.location.origin}/wp-content/themes/chenco/assets/${region}_A.png`
+    //         );
+    //       });
 
-          google.maps.event.addListener(marker, 'mouseout', function() {
-            marker.setIcon(
-              `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
-            );
-          });
+    //       google.maps.event.addListener(marker, 'mouseout', function() {
+    //         marker.setIcon(
+    //           `${document.location.origin}/wp-content/themes/chenco/assets/${region}_I.png`
+    //         );
+    //       });
 
-          google.maps.event.addListener(marker, 'click', function() {
-            !regions[region]['coordsAlt']
-              ? map.setCenter(new google.maps.LatLng(coordinates[0], coordinates[1]))
-              : map.setCenter(
-                  new google.maps.LatLng(
-                    regions[region]['coordsAlt'][0],
-                    regions[region]['coordsAlt'][1]
-                  )
-                );
-            map.setZoom(zoom);
-          });
-        }
-      } else {
-        addMarkers($currentMarkers, map);
-      }
-    });
+    //       google.maps.event.addListener(marker, 'click', function() {
+    //         !regions[region]['coordsAlt']
+    //           ? map.setCenter(new google.maps.LatLng(coordinates[0], coordinates[1]))
+    //           : map.setCenter(
+    //               new google.maps.LatLng(
+    //                 regions[region]['coordsAlt'][0],
+    //                 regions[region]['coordsAlt'][1]
+    //               )
+    //             );
+    //         map.setZoom(zoom);
+    //       });
+    //     }
+    //   } else {
+    //     addMarkers($currentMarkers, map);
+    //   }
+    // });
 
     map.addListener(
       'bounds_changed',
       debounced(200, () => {
-        if (map.getZoom() > 5) {
-          return calculateLegend(map, legendStats);
-        }
+        // if (map.getZoom() > 5) {
+        return calculateLegend(map, legendStats);
+        // }
       })
     );
 
@@ -395,8 +408,9 @@ function getParameterByName(name) {
     };
 
     // marker svg allowing options
-    const createMarker = color => {
-      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="${color}"/></svg>`;
+    const createMarker = (color, size) => {
+      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size /
+        2}" cy="${size / 2}" r="${size / 2}" fill="${color}"/></svg>`;
 
       return svg;
     };
@@ -405,7 +419,8 @@ function getParameterByName(name) {
     const marker = new google.maps.Marker({
       position: latlng,
       map: map,
-      icon: createMarker(icons[type]),
+      icon:
+        $(window).width() <= 768 ? createMarker(icons[type], 10) : createMarker(icons[type], 16),
       title: $marker.data('stats').toString()
     });
 
