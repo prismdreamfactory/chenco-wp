@@ -10,8 +10,8 @@
 
   <div class="map__tabs">
     <div class="map__tab font--alt" data-center="global">Global</div>
-    <div class="map__tab font--alt mod--active" data-center="usa">U.S. Properties</div>
-    <div class="map__tab font--alt" data-center="asia">Asia Properties</div>
+    <div class="map__tab font--alt mod--active" data-center="usa">U.S. <span>Properties</span></div>
+    <div class="map__tab font--alt" data-center="asia">Asia <span>Properties</span></div>
   </div>
 
   <div class="map-wrapper">
@@ -27,28 +27,28 @@
       while ($loop->have_posts()) : $loop->the_post(); ?>
 
       <?php if (have_rows('location')) : the_row();
-            $lat = get_sub_field('latitude');
-            $lng = get_sub_field('longitude');
-            $type = get_field('asset_type');
-            $units = get_field('units');
-            $sqft = get_field('sqft');
-            $acres = get_field('acres');
+          $lat = get_sub_field('latitude');
+          $lng = get_sub_field('longitude');
+          $type = get_field('asset_type');
+          $units = get_field('units');
+          $sqft = get_field('sqft');
+          $acres = get_field('acres');
 
-            $current = get_field('current_property', false, false);
+          $current = get_field('current_property', false, false);
 
-            if ($type['value'] == 'O') {
-              $officeSqft = get_field('sqft');
-              $indSqft = '';
-            } elseif ($type['value'] == 'Ind') {
-              $officeSqft = '';
-              $indSqft = get_field('sqft');
-            } else {
-              $officeSqft = '';
-              $indSqft = '';
-            }
+          if ($type['value'] == 'O') {
+            $officeSqft = get_field('sqft');
+            $indSqft = '';
+          } elseif ($type['value'] == 'Ind') {
+            $officeSqft = '';
+            $indSqft = get_field('sqft');
+          } else {
+            $officeSqft = '';
+            $indSqft = '';
+          }
 
-            $stats = $officeSqft . "," . get_field('units') . "," . get_field('acres') . "," . $indSqft;
-            ?>
+          $stats = $officeSqft . "," . get_field('units') . "," . get_field('acres') . "," . $indSqft;
+        ?>
 
       <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>"
         data-type="<?= $type['label'] ?>" data-current="<?= $current; ?>" data-stats="<?= $stats ?>">

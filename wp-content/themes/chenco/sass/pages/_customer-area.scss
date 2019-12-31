@@ -64,6 +64,61 @@
 .investor__search {
   display: flex;
   padding: 1rem 0;
+
+  .form-group {
+    margin-bottom: 0;
+
+    input,
+    .select2 {
+      min-width: 0;
+
+      @include media('<=tablet') {
+        width: 100% !important;
+      }
+    }
+
+    @include media('<=tablet') {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    align-items: flex-end;
+
+    @include media('<=tablet') {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  label {
+    font-family: $sans;
+    font-weight: 700;
+  }
+
+  input,
+  select,
+  .select2 {
+    font-family: $sans;
+    // max-width: 250px;
+    margin-right: 1rem;
+  }
+
+  .control-label {
+    display: block;
+  }
+
+  .form-submit {
+    input {
+      max-width: none;
+      background-color: $aegean;
+    }
+  }
 }
 
 .cuar-search-form {
@@ -141,6 +196,8 @@
     }
 
     > li {
+      margin-bottom: 1rem;
+
       a {
         font-family: $serif;
       }

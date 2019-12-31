@@ -8,6 +8,10 @@ Thumbs.db
 node_modules/*
 .htaccess
 
+# customer-area
+storage/
+wp-content/customer-area/*
+
 # wordpress specific
 wp-config.php
 wp-content/uploads/

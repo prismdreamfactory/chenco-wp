@@ -23,6 +23,7 @@
 
 <?php
 global $current_user;
+global $post;
 
 // $current_addon_slug = 'customer-private-files';
 // $current_addon_icon = apply_filters('cuar/private-content/view/icon?addon=' . $current_addon_slug, 'fa fa-file');
@@ -30,7 +31,6 @@ global $current_user;
 // $post_type = $current_addon->get_friendly_post_type();
 
 $search = cuar_addon('customer-search');
-// var_dump($search->criteria);
 ?>
 
 <div class="investor__header">
@@ -40,32 +40,7 @@ $search = cuar_addon('customer-search');
 
 <h3>Documents</h3>
 
-<?php /*<div class="investor__search">
-
- <?php $search->print_form_header(); ?>
-
-<div class="form-group">
-  <div class="control-container">
-    <div class="input-group input-hero input-hero-sm">
-      <span class="input-group-addon">
-        <i class="fa fa-search"></i>
-      </span>
-      <input type="text" name="cuar_query" id="cuar_query" class="form-control"
-        placeholder="<?php esc_attr_e('Search something ...', 'cuarse'); ?>"
-        value="<?php echo $search->criteria['query']; ?>" />
-    </div>
-  </div>
-</div>
-
-<div class="form-group hidden">
-  <div class="submit-container">
-    <input type="submit" name="cuar_do_search" value="<?php _e("Search", 'cuarse'); ?>"
-      class="btn btn-primary pull-right" />
-  </div>
-</div>
-
-<?php $search->print_form_footer(); ?>
-</div> */ ?>
+<?php include(dirname(__DIR__) . '/partials/custom-search.php'); ?>
 
 <div class="table__scroll">
   <table class="investor__files" summary="Investments">

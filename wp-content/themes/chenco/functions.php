@@ -21,7 +21,7 @@ function generatepress_parent_theme_enqueue_styles()
   wp_enqueue_style('select2-style', '//cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css', '4.0.12', false);
   wp_enqueue_style('slick-style', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css', '1.8.1', false);
   wp_enqueue_style('slick-theme', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css', '1.8.1', false);
-  // wp_enqueue_style('fancybox-style', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', '3.5.7', 'all');
+  wp_enqueue_style('datepicker-style', '//cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css', '2.2.3', false);
   wp_enqueue_style('modal-style', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css', '0.9.1', false);
   wp_enqueue_style('generatepress-style', get_template_directory_uri() . '/style.css');
   wp_enqueue_style('chenco-style', get_stylesheet_directory_uri() . '/style.css', 'all', true);
@@ -32,9 +32,10 @@ function generatepress_parent_theme_enqueue_styles()
   wp_enqueue_script('select2', '//cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js', array('jquery'), false, false);
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js', array('jquery'), false, false);
   wp_enqueue_script('countto', '//cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js', array('jquery'), false, false);
-  // wp_enqueue_script('fancybox', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array(), false, false);
+  wp_enqueue_script('datepicker', '//cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js', array(), false, false);
+  wp_enqueue_script('datepicker-english', '//cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.min.js', array(), false, false);
   wp_enqueue_script('modal', '//cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js', array(), false, false);
-  wp_enqueue_script('chenco-js', get_stylesheet_directory_uri() . '/script.js', array('countto', 'google-maps', 'slick', 'modal'));
+  wp_enqueue_script('chenco-js', get_stylesheet_directory_uri() . '/script.js', array('datepicker', 'countto', 'google-maps', 'slick', 'modal'));
 }
 
 /**
@@ -130,38 +131,6 @@ function custom_rewrite_basic()
   add_rewrite_rule('investor-portal/files/my-files/', 'customer-area/files/my-files/index.php', 'top');
 }
 add_action('init', 'custom_rewrite_basic');
-
-/**
- * Hook into investor navigation link to open modal
- */
-// add_filter('nav_menu_link_attributes', 'menu_atts', 10, 3);
-// function menu_atts($atts, $item, $args)
-// {
-//   // The ID of the target menu item
-//   $menu_target = 937;
-
-//   // inspect $item
-//   if ($item->ID == $menu_target) {
-//     $atts['rel'] = 'modal:open';
-//     $atts['data-name'] = 'login';
-//   }
-//   return $atts;
-// }
-
-// add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
-// function add_login_logout_link($items, $args)
-// {
-//   if ($args->theme_location == 'secondary') {
-//     ob_start();
-//     wp_loginout('customer-area');
-//     $loginoutlink = ob_get_contents();
-//     ob_end_clean();
-//     $investorloginoutlink = preg_replace('/(<a href=".*")>(Log .*>)/', '$1 class="login-link">Investor $2', $loginoutlink);
-//     $items .= '<li>' . $investorloginoutlink . '</li>';
-//   }
-//   return $items;
-// }
-
 
 /**
  * https: //snippets.webaware.com.au/snippets/wordpress-login-link-with-a-popup-form/

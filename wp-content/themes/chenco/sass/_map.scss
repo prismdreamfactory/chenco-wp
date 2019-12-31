@@ -32,6 +32,12 @@
   &:hover {
     color: rgba(255, 255, 255, 1);
   }
+
+  @include media('<=tablet') {
+    span {
+      display: none;
+    }
+  }
 }
 .map__tab.mod--active {
   color: #fff;
@@ -43,6 +49,13 @@
   right: 0;
   font-family: $sans;
   max-width: 365px;
+
+  @include media('<=tablet') {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+  }
 
   h3 {
     font-size: 2rem;
@@ -155,6 +168,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+
+  @include media('<=tablet') {
+    left: 0;
+    right: 0;
+  }
 }
 .map__switch-item {
   background-color: rgba(39, 52, 59, 0.75);
@@ -171,6 +189,10 @@
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
 
+  @include media('<=tablet') {
+    padding-left: 20px;
+  }
+
   i {
     position: relative;
     left: -40px;
@@ -183,6 +205,10 @@
       position: absolute;
       left: -10px;
       background-size: contain;
+    }
+
+    @include media('<=tablet') {
+      display: none;
     }
   }
 
@@ -217,7 +243,8 @@
   height: 80vh;
 
   @include media('<=tablet') {
-    height: 700px;
+    min-height: 350px;
+    height: 350px;
   }
 }
 
