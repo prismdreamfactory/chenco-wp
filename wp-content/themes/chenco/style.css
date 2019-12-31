@@ -1358,8 +1358,10 @@ address {
   margin: 0; }
   .investor__nav > ul li a {
     color: #fff; }
-  .investor__nav > ul > li a {
-    font-family: "Domine", serif; }
+  .investor__nav > ul > li {
+    margin-bottom: 1rem; }
+    .investor__nav > ul > li a {
+      font-family: "Domine", serif; }
 
 .investor__nav ul.sub-menu {
   list-style: none; }
@@ -1632,6 +1634,9 @@ body.customer-area-active
     color: #fff;
     margin-top: 0;
     font-size: 1.5rem; }
+
+.lwa-remember strong {
+  color: #fff; }
 
 .lwa-submit {
   -webkit-box-orient: vertical !important;
@@ -1980,7 +1985,8 @@ section {
   padding: 0.5rem 2.5rem;
   background-color: #25507b;
   color: #fff;
-  cursor: pointer; }
+  cursor: pointer;
+  max-width: 100%; }
   .btn.alt {
     background-color: #000; }
 
