@@ -72,7 +72,7 @@ add_filter('cuar/core/user-profile/get_profile_fields', 'remove_some_profile_fie
 function cuar_custom_search($args)
 {
   // echo '<pre>', var_dump($args), '</pre>';
-  echo '<pre>', var_dump($_POST), '</pre>';
+  // echo '<pre>', var_dump($_POST), '</pre>';
 
   $new_args = $args;
 
