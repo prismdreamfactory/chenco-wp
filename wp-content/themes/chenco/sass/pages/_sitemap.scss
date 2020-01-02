@@ -21,6 +21,11 @@
 .sitemap-side-container {
   display: flex;
   justify-content: flex-start;
+  padding-bottom: 3rem;
+
+  aside {
+    padding: 1rem 3rem 1rem 0;
+  }
 
   @include media('<tablet') {
     flex-direction: column-reverse;
@@ -53,6 +58,8 @@
 }
 
 .sitemap {
+  padding: 1rem;
+
   ul {
     list-style-type: none;
     padding: 0;

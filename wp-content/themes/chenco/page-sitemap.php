@@ -3,7 +3,7 @@
 /* Template Name: Sitemap Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -18,13 +18,13 @@ get_header(); ?>
      */
     do_action('generate_before_main_content'); ?>
 
-    <div class="sitemap-main">
+    <div class="container sitemap-main">
       <div class="page__header">
         <h1 class="heading">Sitemap</h1>
       </div>
 
       <?php while (have_posts()) : the_post(); ?>
-      <div class="container sitemap-side-container">
+      <div class="sitemap-side-container">
         <aside class="sitemap-aside">
           <h4 class="sitemap-side-title">Global Offices</h4>
           <div class="sitemap-side">
