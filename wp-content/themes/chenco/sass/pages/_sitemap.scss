@@ -1,8 +1,4 @@
 .sitemap-aside {
-  h4 {
-    text-transform: capitalize;
-    font-weight: 800;
-  }
   border-right: 1px solid #ccc;
   padding-right: 3rem;
 
@@ -34,6 +30,7 @@
 
 .sitemap-side-title {
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .sitemap-side {
@@ -54,6 +51,10 @@
   h4,
   p {
     margin: 0;
+  }
+
+  h4 {
+    font-weight: 800;
   }
 }
 

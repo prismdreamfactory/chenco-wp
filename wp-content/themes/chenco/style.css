@@ -1494,9 +1494,6 @@ body.customer-area-active
 .sitemap-aside {
   border-right: 1px solid #ccc;
   padding-right: 3rem; }
-  .sitemap-aside h4 {
-    text-transform: capitalize;
-    font-weight: 800; }
   @media (max-width: 767px) {
     .sitemap-aside {
       padding: 0;
@@ -1525,7 +1522,8 @@ body.customer-area-active
       flex-direction: column-reverse; } }
 
 .sitemap-side-title {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-weight: 500; }
 
 .sitemap-side {
   display: grid;
@@ -1541,6 +1539,9 @@ body.customer-area-active
 .sitemap-side-item h4,
 .sitemap-side-item p {
   margin: 0; }
+
+.sitemap-side-item h4 {
+  font-weight: 800; }
 
 .sitemap {
   padding: 1rem; }
