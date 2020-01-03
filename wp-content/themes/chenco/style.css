@@ -1055,7 +1055,10 @@ address {
         font-size: 1.5rem; } }
   .front h4 {
     color: #25507b;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-size: 0.8rem; }
+  .front a {
+    letter-spacing: 1px; }
   @media (max-width: 768px) {
     .front {
       display: block; } }
@@ -1077,7 +1080,11 @@ address {
 .front-hero-content {
   margin: 9rem; }
   .front-hero-content .btn {
-    background-color: #000; }
+    background-color: #28343c; }
+  .front-hero-content a {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem; }
   @media (max-width: 768px) {
     .front-hero-content {
       margin: 0; }
@@ -1112,6 +1119,8 @@ address {
   grid-area: mid-right;
   padding: 3rem;
   background: #f2f2f2; }
+  .front-news h4 {
+    color: #000; }
   .front-news span {
     display: block;
     border-bottom: 1px solid #8395a0; }
@@ -1134,7 +1143,7 @@ address {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  padding: 1.2rem 0; }
+  padding: 0.9rem 0; }
   .front-news-item p {
     margin: 0;
     color: #797979;
@@ -1159,9 +1168,16 @@ address {
   padding: 3rem; }
   .front-project a,
   .front-project a:visited {
-    color: #fff; }
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem; }
   .front-project h1 {
     color: #26517c; }
+  .front-project h4 {
+    color: #000; }
+  .front-project .btn {
+    background-color: #28343c; }
 
 .bascom-filter-container {
   display: none;

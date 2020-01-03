@@ -22,6 +22,11 @@
   h4 {
     color: $aegean;
     text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  a {
+    letter-spacing: 1px;
   }
 
   @include media('<=tablet') {
@@ -61,7 +66,13 @@
   margin: 9rem;
 
   .btn {
-    background-color: #000;
+    background-color: #28343c;
+  }
+
+  a {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem;
   }
 
   @include media('<=tablet') {
@@ -109,6 +120,11 @@
   grid-area: mid-right;
   padding: 3rem;
   background: #f2f2f2;
+
+  h4 {
+    color: #000;
+  }
+
   span {
     display: block;
     border-bottom: 1px solid #8395a0;
@@ -136,7 +152,7 @@
 .front-news-item {
   display: flex;
   align-items: center;
-  padding: 1.2rem 0;
+  padding: 0.9rem 0;
 
   p {
     margin: 0;
@@ -174,8 +190,18 @@
   a,
   a:visited {
     color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem;
   }
   h1 {
     color: #26517c;
+  }
+  h4 {
+    color: #000;
+  }
+
+  .btn {
+    background-color: #28343c;
   }
 }
