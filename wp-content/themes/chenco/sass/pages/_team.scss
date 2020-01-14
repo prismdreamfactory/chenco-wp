@@ -16,8 +16,13 @@
 }
 
 .team__item {
+  h5 {
+    font-family: $serif;
+  }
+
   h6 {
     font-size: 0.8rem;
+    color: #a4a4a4;
   }
 }
 
@@ -28,7 +33,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 95%;
   padding: 5% 5%;
   background-color: rgba(39, 52, 59, 0.75);
   color: #fff;
@@ -78,10 +82,35 @@
 }
 
 .team__modal-left {
+  font-size: 0.9rem;
+
   img {
     max-width: 100%;
+    padding: 1rem 0;
   }
   p {
     margin: 0;
+    font-size: 0.8rem;
+    font-family: $sans;
+  }
+}
+
+.team__modal-left-info {
+  padding: 0.5rem 0;
+}
+
+.team__modal-right {
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 0.8rem;
   }
 }

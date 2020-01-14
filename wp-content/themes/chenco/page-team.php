@@ -3,7 +3,7 @@
 /* Template Name: Team Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -60,12 +60,14 @@ get_header(); ?>
         <div class="team__modal-left">
           <?php the_post_thumbnail(); ?>
           <a href="javascript:">Connect with me</a>
-          <p><?php the_field('years'); ?> years at Chenco</p>
-          <p>Joined in <?php the_field('join_date'); ?></p>
+          <div class="team__modal-left-info">
+            <p><?php the_field('years'); ?> years at Chenco</p>
+            <p>Joined in <?php the_field('join_date'); ?></p>
+          </div>
         </div>
         <div class="team__modal-right">
           <h3><?php the_title(); ?></h3>
-          <h4><?php the_field('role'); ?> / <span><?php the_field('location'); ?></h4>
+          <h4><?php the_field('role'); ?></h4>
           <p><?php the_content(); ?></p>
         </div>
       </div>

@@ -55,7 +55,7 @@ body {
 }
 
 .page__header {
-  max-width: 75vh;
+  max-width: 48rem;
 
   h1 {
     font-family: $serif;
@@ -357,6 +357,8 @@ select {
   }
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
   height: 35px;
 }

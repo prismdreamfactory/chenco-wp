@@ -826,8 +826,8 @@ address {
 
 .partners__section--top {
   display: grid;
-  grid-template-columns: 60% 30%;
-  grid-column-gap: 10%; }
+  grid-template-columns: 67% 30%;
+  grid-column-gap: 7%; }
   @media (max-width: 768px) {
     .partners__section--top {
       display: block; } }
@@ -852,6 +852,8 @@ address {
 
 .partners__section--bottom {
   margin-top: 2rem; }
+  .partners__section--bottom a {
+    background-color: #28333c; }
   .partners__section--bottom h2 {
     font-family: "Maven Pro", sans-serif;
     text-transform: uppercase;
@@ -862,6 +864,14 @@ address {
 
 .operators {
   background: #f2f2f2; }
+  .operators .slick-prev:before {
+    content: '❮';
+    color: #a4a4a4;
+    font-size: 2rem; }
+  .operators .slick-next:before {
+    content: '❯';
+    color: #a4a4a4;
+    font-size: 2rem; }
   .operators .slick-list {
     box-sizing: border-box; }
   .operators .slick-slide {
@@ -902,8 +912,12 @@ address {
     .team-container {
       grid-template-columns: 1fr 1fr; } }
 
+.team__item h5 {
+  font-family: "Domine", serif; }
+
 .team__item h6 {
-  font-size: 0.8rem; }
+  font-size: 0.8rem;
+  color: #a4a4a4; }
 
 .modal {
   width: 95%;
@@ -912,7 +926,6 @@ address {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 95%;
   padding: 5% 5%;
   background-color: rgba(39, 52, 59, 0.75);
   color: #fff;
@@ -953,11 +966,29 @@ address {
     .team__modal {
       grid-template-columns: 1fr; } }
 
-.team__modal-left img {
-  max-width: 100%; }
+.team__modal-left {
+  font-size: 0.9rem; }
+  .team__modal-left img {
+    max-width: 100%;
+    padding: 1rem 0; }
+  .team__modal-left p {
+    margin: 0;
+    font-size: 0.8rem;
+    font-family: "Maven Pro", sans-serif; }
 
-.team__modal-left p {
-  margin: 0; }
+.team__modal-left-info {
+  padding: 0.5rem 0; }
+
+.team__modal-right h3 {
+  font-size: 1.5rem; }
+
+.team__modal-right h4 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500; }
+
+.team__modal-right p {
+  font-size: 0.8rem; }
 
 .contact h2 {
   font-family: "Maven Pro", sans-serif; }
@@ -1200,7 +1231,10 @@ address {
   padding: 3rem 0;
   border-top: 1px solid #bbb; }
   .bascom__item h3 {
-    padding: 1rem; }
+    padding: 1rem;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: 500;
+    color: #28343c; }
   .bascom__item img {
     width: 80px;
     height: 80px; }
@@ -2012,7 +2046,7 @@ body {
   padding: 0; }
 
 .page__header {
-  max-width: 75vh; }
+  max-width: 48rem; }
   .page__header h1 {
     font-family: "Domine", serif;
     color: #25507b; }
@@ -2228,5 +2262,7 @@ select {
     align-items: center;
     height: 100%; }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow {
   height: 35px; }

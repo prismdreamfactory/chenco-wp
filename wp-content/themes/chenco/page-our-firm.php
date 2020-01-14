@@ -3,7 +3,7 @@
 /* Template Name: Our Firm Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -150,7 +150,7 @@ get_header(); ?>
 
     <?php endwhile;
 
-    /**
+    /*
      * generate_after_main_content hook.
      *
      * @since 0.1

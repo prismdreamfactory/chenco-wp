@@ -84,8 +84,8 @@
 
 .partners__section--top {
   display: grid;
-  grid-template-columns: 60% 30%;
-  grid-column-gap: 10%;
+  grid-template-columns: 67% 30%;
+  grid-column-gap: 7%;
 
   @include media('≤tablet') {
     display: block;
@@ -119,6 +119,9 @@
 .partners__section--bottom {
   margin-top: 2rem;
 
+  a {
+    background-color: #28333c;
+  }
   h2 {
     font-family: $sans;
     text-transform: uppercase;
@@ -131,6 +134,17 @@
 
 .operators {
   background: #f2f2f2;
+
+  .slick-prev:before {
+    content: '❮';
+    color: #a4a4a4;
+    font-size: 2rem;
+  }
+  .slick-next:before {
+    content: '❯';
+    color: #a4a4a4;
+    font-size: 2rem;
+  }
 
   .slick-list {
     // padding: 0 50px;
