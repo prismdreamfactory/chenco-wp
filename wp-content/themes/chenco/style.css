@@ -1669,6 +1669,13 @@ body.customer-area-active
 .map-wrapper {
   padding: 0;
   position: relative; }
+  @media (max-width: 768px) {
+    .map-wrapper {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column; } }
 
 .map__tabs {
   display: -webkit-box;
@@ -1865,8 +1872,10 @@ body.customer-area-active
   height: 80vh; }
   @media (max-width: 768px) {
     #map {
-      min-height: 350px;
-      height: 350px; } }
+      min-height: 400px;
+      height: 400px;
+      -webkit-box-ordinal-group: 4;
+      order: 3; } }
 
 .gm-style .gm-style-iw-d {
   overflow: hidden !important; }

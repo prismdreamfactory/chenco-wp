@@ -5,6 +5,11 @@
 .map-wrapper {
   padding: 0;
   position: relative;
+
+  @include media('<=tablet') {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .map__tabs {
@@ -243,8 +248,9 @@
   height: 80vh;
 
   @include media('<=tablet') {
-    min-height: 350px;
-    height: 350px;
+    min-height: 400px;
+    height: 400px;
+    order: 3;
   }
 }
 

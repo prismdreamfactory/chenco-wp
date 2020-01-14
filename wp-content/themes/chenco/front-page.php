@@ -77,7 +77,7 @@ get_header(); ?>
           <?php
           $loop = new WP_Query(
             array(
-              // 'taxonomy' => 'corporate-releases',
+              'category_name' => 'corporate-releases',
               'posts_per_page' => 2,
             )
           );
@@ -97,6 +97,7 @@ get_header(); ?>
           <?php
           $loop = new WP_Query(
             array(
+              'category_name' => 'uncategorized',
               'posts_per_page' => 2,
             )
           );
