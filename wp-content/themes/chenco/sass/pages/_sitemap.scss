@@ -1,8 +1,4 @@
 .sitemap-aside {
-  h4 {
-    text-transform: capitalize;
-    font-weight: 800;
-  }
   border-right: 1px solid #ccc;
   padding-right: 3rem;
 
@@ -21,6 +17,11 @@
 .sitemap-side-container {
   display: flex;
   justify-content: flex-start;
+  padding-bottom: 3rem;
+
+  aside {
+    padding: 1rem 3rem 1rem 0;
+  }
 
   @include media('<tablet') {
     flex-direction: column-reverse;
@@ -29,6 +30,7 @@
 
 .sitemap-side-title {
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .sitemap-side {
@@ -50,9 +52,15 @@
   p {
     margin: 0;
   }
+
+  h4 {
+    font-weight: 800;
+  }
 }
 
 .sitemap {
+  padding: 1rem;
+
   ul {
     list-style-type: none;
     padding: 0;
