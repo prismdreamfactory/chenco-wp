@@ -61,28 +61,28 @@ class LoginWithAjaxWidget extends WP_Widget {
             	</select>
 			</p>
 			<?php endif; ?>
-			<p><strong><?php esc_html_e('Logged In','login-with-ajax'); ?></strong></p>
-			<p>
+		    <p><strong><?php esc_html_e('Logged Out','login-with-ajax'); ?></strong></p>
+		    <p>
 				<label for="<?php echo $this->get_field_id('title'); ?>"><?php echo sprintf(esc_html__('Title (%s)', 'login-with-ajax'),esc_html__('Logged In','login-with-ajax')); ?>: </label>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($instance['title']); ?>" />
 			</p>
             <p>
                 <label for="<?php echo $this->get_field_id('remember'); ?>"><?php esc_html_e('Show Recover Password?', 'login-with-ajax'); ?> </label>
             	<select class="widefat" id="<?php echo $this->get_field_id('remember'); ?>" name="<?php echo $this->get_field_name('remember'); ?>" >
-            		<option value="0" <?php echo ($instance['remember'] == 0) ? 'selected="selected"':""; ?>><?php echo esc_html_e('No Link','login-with-ajax'); ?></option>
-            		<option value="1" <?php echo ($instance['remember'] == 1) ? 'selected="selected"':""; ?>><?php echo esc_html_e('Show link with AJAX form','login-with-ajax'); ?></option>
-            		<option value="2" <?php echo ($instance['remember'] == 2) ? 'selected="selected"':""; ?>><?php echo esc_html_e('Show direct link','login-with-ajax'); ?></option>
+            		<option value="0" <?php echo ($instance['remember'] == 0) ? 'selected="selected"':""; ?>><?php esc_html_e('No Link','login-with-ajax'); ?></option>
+            		<option value="1" <?php echo ($instance['remember'] == 1) ? 'selected="selected"':""; ?>><?php esc_html_e('Show link with AJAX form','login-with-ajax'); ?></option>
+            		<option value="2" <?php echo ($instance['remember'] == 2) ? 'selected="selected"':""; ?>><?php esc_html_e('Show direct link','login-with-ajax'); ?></option>
             	</select>
     		</p>
     		<p>
                 <label for="<?php echo $this->get_field_id('registration'); ?>"><?php esc_html_e('AJAX Registration?', 'login-with-ajax'); ?> </label>
             	<select class="widefat" id="<?php echo $this->get_field_id('registration'); ?>" name="<?php echo $this->get_field_name('registration'); ?>" >
-            		<option value="0" <?php echo ($instance['registration'] == 0) ? 'selected="selected"':""; ?>><?php echo esc_html_e('No Link','login-with-ajax'); ?></option>
-            		<option value="1" <?php echo ($instance['registration'] == 1) ? 'selected="selected"':""; ?>><?php echo esc_html_e('Show link with AJAX form','login-with-ajax'); ?></option>
-            		<option value="2" <?php echo ($instance['registration'] == 2) ? 'selected="selected"':""; ?>><?php echo esc_html_e('Show direct link','login-with-ajax'); ?></option>
+            		<option value="0" <?php echo ($instance['registration'] == 0) ? 'selected="selected"':""; ?>><?php esc_html_e('No Link','login-with-ajax'); ?></option>
+            		<option value="1" <?php echo ($instance['registration'] == 1) ? 'selected="selected"':""; ?>><?php esc_html_e('Show link with AJAX form','login-with-ajax'); ?></option>
+            		<option value="2" <?php echo ($instance['registration'] == 2) ? 'selected="selected"':""; ?>><?php esc_html_e('Show direct link','login-with-ajax'); ?></option>
             	</select>
 			</p>
-			<p><strong><?php esc_html_e('Logged Out','login-with-ajax'); ?></strong></p>	
+	        <p><strong><?php esc_html_e('Logged In','login-with-ajax'); ?></strong></p>
 			<p>
 				<label for="<?php echo $this->get_field_id('title_loggedin'); ?>"><?php echo sprintf(esc_html__('Title (%s)', 'login-with-ajax'),esc_html__('Logged Out','login-with-ajax')); ?>: </label>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title_loggedin'); ?>" value="<?php echo esc_attr($instance['title_loggedin']); ?>" />

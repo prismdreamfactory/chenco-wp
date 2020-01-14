@@ -6,7 +6,7 @@
 */
 ?>
 	<div class="lwa lwa-default"><?php //class must be here, and if this is a template, class name should be that of template directory ?>
-        <form class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
+        <form class="lwa-form" action="<?php echo esc_url(LoginWithAjax::$url_login); ?>" method="post">
         	<div>
         	<span class="lwa-status"></span>
             <table>

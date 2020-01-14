@@ -4,12 +4,12 @@ Plugin Name: Login With Ajax
 Plugin URI: http://wordpress.org/extend/plugins/login-with-ajax/
 Description: Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area.
 Author: Marcus Sykes
-Version: 3.1.8.1
+Version: 3.1.9
 Author URI: http://msyk.es/?utm_source=login-with-ajax&utm_medium=plugin-header&utm_campaign=plugins
 Tags: Login, Ajax, Redirect, BuddyPress, MU, WPMU, sidebar, admin, widget
 Text Domain: login-with-ajax
 
-Copyright (C) 2019 Pixelite SL
+Copyright (C) 2020 Pixelite SL
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-define('LOGIN_WITH_AJAX_VERSION', '3.1.8.1');
+define('LOGIN_WITH_AJAX_VERSION', '3.1.9');
 class LoginWithAjax {
 
 	/**
@@ -87,9 +87,9 @@ class LoginWithAjax {
 		self::find_templates( get_stylesheet_directory().'/plugins/login-with-ajax/' );
 
 		//Generate URLs for login, remember, and register
-		self::$url_login = self::template_link(site_url('wp-login.php', 'login_post'));
+		self::$url_login = self::template_link(wp_login_url());
 		self::$url_register = self::template_link(self::getRegisterLink());
-		self::$url_remember = self::template_link(site_url('wp-login.php?action=lostpassword', 'login_post'));
+		self::$url_remember = self::template_link(add_query_arg('action', 'lostpassword', wp_login_url()));
 
 		//Make decision on what to display
 		if ( !empty($_REQUEST["lwa"]) ) { //AJAX Request
@@ -156,9 +156,7 @@ class LoginWithAjax {
 	public static function login(){
 		$return = array(); //What we send back
 		if( !empty($_REQUEST['log']) && !empty($_REQUEST['pwd']) && trim($_REQUEST['log']) != '' && trim($_REQUEST['pwd'] != '') ){
-			$credentials = array('user_login' => $_REQUEST['log'], 'user_password'=> $_REQUEST['pwd'], 'remember' => !empty($_REQUEST['rememberme']));
-			$loginResult = wp_signon($credentials);
-			$user_role = 'null';
+			$loginResult = wp_signon();
 			if ( strtolower(get_class($loginResult)) == 'wp_user' ) {
 				//User login successful
 				self::$current_user = $loginResult;
@@ -174,7 +172,7 @@ class LoginWithAjax {
 				//If the widget should just update with ajax, then supply the URL here.
 				if( !empty(self::$data['no_login_refresh']) && self::$data['no_login_refresh'] == 1 ){
 					//Is this coming from a template?
-					$query_vars = ( !empty($_REQUEST['template']) ) ? "&template={$_REQUEST['template']}" : '';
+					$query_vars = ( !empty($_REQUEST['template']) ) ? "&template=".esc_attr($_REQUEST['template']) : '';
 					$query_vars .= ( !empty($_REQUEST['lwa_profile_link']) ) ? "&lwa_profile_link=1" : '';
 					$return['widget'] = get_bloginfo('wpurl')."?login-with-ajax-widget=1$query_vars";
 					$return['message'] = __("Login successful, updating...",'login-with-ajax');
@@ -271,9 +269,9 @@ class LoginWithAjax {
 	    if ( function_exists('bp_get_signup_page') && (empty($_REQUEST['action']) || ($_REQUEST['action'] != 'deactivate' && $_REQUEST['action'] != 'deactivate-selected')) ) { //Buddypress
 	    	$register_link = bp_get_signup_page();
 	    }elseif ( is_multisite() ) { //MS
-	    	$register_link = site_url('wp-signup.php', 'login');
+	    	$register_link = apply_filters( 'wp_signup_location', network_site_url( 'wp-signup.php' ) );
 	    } else {
-	    	$register_link = site_url('wp-login.php?action=register', 'login');
+	    	$register_link = wp_registration_url();
 	    }
 	    return $register_link;
 	}
@@ -285,7 +283,7 @@ class LoginWithAjax {
 	public static function logoutRedirect(){
 		$redirect = self::getLogoutRedirect();
 		if($redirect != ''){
-			wp_redirect($redirect);
+			wp_safe_redirect($redirect);
 			exit();
 		}
 	}
@@ -298,7 +296,7 @@ class LoginWithAjax {
 			$redirect = $data['logout_redirect'];
 		}
 		//WPML global redirect
-		$lang = !empty($_REQUEST['lang']) ? $_REQUEST['lang']:'';
+		$lang = !empty($_REQUEST['lang']) ? sanitize_text_field($_REQUEST['lang']):'';
 		$lang = apply_filters('lwa_lang', $lang);
 		if( !empty($lang) ){
 			if( isset($data["logout_redirect_".$lang]) ){
@@ -349,7 +347,7 @@ class LoginWithAjax {
 			$redirect = $data["login_redirect"];
 		}
 		//WPML global redirect
-		$lang = !empty($_REQUEST['lang']) ? $_REQUEST['lang']:'';
+		$lang = !empty($_REQUEST['lang']) ? sanitize_text_field($_REQUEST['lang']):'';
 		$lang = apply_filters('lwa_lang', $lang);
 		if( !empty($lang) && isset($data["login_redirect_".$lang]) ){
 			$redirect = $data["login_redirect_".$lang];
@@ -366,6 +364,7 @@ class LoginWithAjax {
 			}
 			//Do user string replacements
 			$redirect = str_replace('%USERNAME%', $user->user_login, $redirect);
+			$redirect = str_replace('%USERNICENAME%', $user->user_nicename, $redirect);
 		}
 		//Do string replacements
 		$redirect = str_replace("%LASTURL%", wp_get_referer(), $redirect);

@@ -7,7 +7,7 @@
 ?>
 <div class="lwa lwa-divs-only">
 	<span class="lwa-status"></span>
-	<form class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
+	<form class="lwa-form" action="<?php echo esc_url(LoginWithAjax::$url_login); ?>" method="post">
 		<div class="lwa-username">
 			<label><?php esc_html_e( 'Username','login-with-ajax' ) ?></label>
 			<input type="text" name="log" id="lwa_user_login" class="input" />

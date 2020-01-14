@@ -1,19 +1,20 @@
 === Login With Ajax ===
 Contributors: netweblogic
 Tags: login, ajax, ajax login, registration, redirect redirect, buddypress, multi site, sidebar, admin, widget
-Text Domain: events-manager
+Text Domain: login-with-ajax
 Requires at least: 4.8
 Tested up to: 5.3
-Stable tag: 3.1.8.1
+Stable tag: 3.1.9
 Requires PHP: 5.2
 License: GPLv2 or later
 
 Add smooth ajax login/registration effects and choose where users get redirected upon log in/out. Supports SSL, MultiSite, and BuddyPress.
 
 == Description ==
+[](http://coderisk.com/wp/plugin/login-with-ajax/RIPS-mI-qmnCald)
 
 Login With Ajax is for sites that need user logins or registrations and would like to avoid the normal wordpress login pages, this plugin adds the capability of placing a login widget in the sidebar with smooth AJAX login effects.
-[](http://coderisk.com/wp/plugin/login-with-ajax/RIPS-mI-qmnCald)
+
 Some of the features:
 
 * AJAX-powered, no screen refreshes! 
@@ -163,6 +164,14 @@ For further questions and answers (or to submit one yourself) go to our [https:/
 
 
 == Changelog ==
+= 3.1.9 =
+* added precautionary security sanitization/escaping of input data on admin pages and settings,
+* added USERNICENAME for login redirects for url-friendly usernames
+* fixed styling of template dropdown in admin page
+* fixed invalid/confirmed status boxes getting class/style names confused on login failures/success attempts
+* changed wp_redirect usage to wp_safe_redirect for extra security precaution
+* changed use of site_url with wp_login_url where appropriate allowing for better plugin compatibility
+
 = 3.1.8.1 =
 * fixed translations from translate.wordpress.org not loading properly (languages must be translated %95 or more),
 * fixed settings pages save button not working in 3.1.8 release

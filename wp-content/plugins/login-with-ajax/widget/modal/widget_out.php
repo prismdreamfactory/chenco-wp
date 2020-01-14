@@ -11,7 +11,7 @@
 		//FOOTER - once the page loads, this will be moved automatically to the bottom of the document.
 		?>
 		<div class="lwa-modal" style="display:none;">
-	        <form name="lwa-form" class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
+	        <form name="lwa-form" class="lwa-form" action="<?php echo esc_url(LoginWithAjax::$url_login); ?>" method="post">
 	        	<span class="lwa-status"></span>
 	            <table>
 	                <tr class="lwa-username">
