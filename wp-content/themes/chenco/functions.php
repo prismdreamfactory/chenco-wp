@@ -124,13 +124,11 @@ function chenco_menu_item_description($item_output, $item, $depth, $args)
   return $item_output;
 }
 
-function custom_rewrite_basic()
-{
-  // add_rewrite_rule('investor-portal/(.*)/', 'customer-area/$matches[1]/index.php', 'top');
-  // add_rewrite_rule('customer-area/(.*)', 'investor-portal/$matches[1]/index.php', 'top');
-  add_rewrite_rule('investor-portal/files/my-files/', 'customer-area/files/my-files/index.php', 'top');
-}
-add_action('init', 'custom_rewrite_basic');
+// function custom_rewrite_basic()
+// {
+// add_rewrite_rule('investor-portal/(.*)/', 'customer-area/$matches[1]/index.php', 'top');
+// }
+// add_action('init', 'custom_rewrite_basic');
 
 /**
  * https: //snippets.webaware.com.au/snippets/wordpress-login-link-with-a-popup-form/
