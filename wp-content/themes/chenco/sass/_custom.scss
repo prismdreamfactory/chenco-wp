@@ -42,6 +42,10 @@ body {
   }
 }
 
+.container--minheight {
+  min-height: 60vh;
+}
+
 #page.container {
   padding: 0;
 }

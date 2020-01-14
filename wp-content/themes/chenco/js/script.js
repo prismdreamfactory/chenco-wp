@@ -420,7 +420,7 @@ function getParameterByName(name) {
       position: latlng,
       map: map,
       icon:
-        $(window).width() <= 768 ? createMarker(icons[type], 10) : createMarker(icons[type], 16),
+        $(window).width() <= 768 ? createMarker(icons[type], 10) : createMarker(icons[type], 14),
       title: $marker.data('stats').toString()
     });
 
