@@ -55,10 +55,10 @@ get_header(); ?>
 
           <div class="front-summary-link">
             <div class="link">
-              <a href="/our-firm">Value-Based Investing</a>
+              <a href="/our-firm">Our Approach</a>
             </div>
             <div class="link">
-              <a href="/partners">Reliabe Partners</a>
+              <a href="/partners">Reliable Partners</a>
             </div>
             <div class="link">
               <a href="/portfolio">Investment Portfolio</a>

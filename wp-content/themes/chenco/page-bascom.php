@@ -3,7 +3,7 @@
 /* Template Name: Bascom Operators Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -44,8 +44,6 @@ get_header(); ?>
           <div class="bascom__item__description">
             <p><?php the_sub_field('description'); ?></p>
             <div class="bascom-info">
-              <p><?php the_sub_field('address'); ?></p>
-              <p>+<?php the_sub_field('phone'); ?></p>
               <p><?php the_sub_field('website'); ?></p>
             </div>
           </div>

@@ -72,7 +72,7 @@
   grid-template-columns: 1fr 1fr 1fr;
 
   .edge__middle & {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
   @include media('<tablet') {

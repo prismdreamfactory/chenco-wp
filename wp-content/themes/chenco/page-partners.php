@@ -3,7 +3,7 @@
 /* Template Name: Partners Page */
 
 if (!defined('ABSPATH')) {
-  exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -54,11 +54,11 @@ get_header(); ?>
                     <p><?php the_sub_field('details'); ?></p>
                   </div>
                   <div class="partners__contact">
-                    <h4>TEAM LEAD</h4>
-                    <p><?php the_sub_field('team_lead_name'); ?></p>
+                  <img src="<?php the_sub_field('logo'); ?>" />
 
                     <div class="partners__address">
-                      <address><?php the_sub_field('address'); ?> <br> +<?php the_sub_field('phone'); ?></address>
+                    <h4>HEADQUARTERS</h4>
+                      <address><?php the_sub_field('address'); ?></address>
                       <a href="javascript:"><?php the_sub_field('website'); ?></a>
                     </div>
                   </div>

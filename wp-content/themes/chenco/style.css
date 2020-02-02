@@ -668,7 +668,7 @@ address {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; }
   .edge__middle .edge__items {
-    grid-template-columns: 1fr 1fr 1fr 1fr; }
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
   @media (max-width: 767px) {
     .edge__items {
       display: block; } }
@@ -848,7 +848,8 @@ address {
   line-height: 1; }
 
 .partners__address {
-  line-height: 1.6; }
+  line-height: 1.6;
+  padding: 1rem 0; }
 
 .partners__section--bottom {
   margin-top: 2rem; }
@@ -1255,11 +1256,9 @@ address {
       -webkit-box-align: center;
       align-items: center; } }
 
-.bascom-info {
-  max-width: 140px; }
-  .bascom-info p {
-    font-size: 0.8rem;
-    margin: 0; }
+.bascom-info p {
+  font-size: 0.8rem;
+  margin: 0; }
 
 .investor-portal h1 {
   font-family: "Domine", serif;
@@ -2020,9 +2019,6 @@ body.customer-area-active
 
 .blocker {
   z-index: 1000; }
-
-.post {
-  padding: 2rem; }
 
 body {
   background: #fff; }
