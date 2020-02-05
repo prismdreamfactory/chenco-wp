@@ -598,7 +598,8 @@ address {
     float: right; }
     #menu-footer li a {
       color: #333;
-      font-family: "Domine", serif; }
+      font-family: "Domine", serif;
+      font-size: 0.9rem; }
 
 @media (max-width: 1024px) {
   .footer-widget-1 {
@@ -751,17 +752,34 @@ address {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
-  background: url("/wp-content/uploads/2019/12/SliderImage1.jpg");
   background-size: cover;
+  background-position: center;
   color: #fff;
-  text-align: center;
+  text-align: left;
   min-height: 70vh;
   margin-top: -1px; }
+  .businesses__section h3 {
+    font-family: "Maven Pro", sans-serif;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: 700;
+    margin-top: 2rem; }
+    .businesses__section h3:after {
+      margin-left: 2rem;
+      background: #fff;
+      height: 1px;
+      -webkit-box-flex: 1;
+      flex: 1;
+      content: ''; }
   .businesses__section p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 2rem; }
   .businesses__section .container {
     max-width: 800px; }
+  .businesses__section .our_businesses__item {
+    margin: 2rem; }
 
 .partners .tabs-nav {
   display: grid;

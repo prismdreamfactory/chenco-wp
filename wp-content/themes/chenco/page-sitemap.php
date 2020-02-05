@@ -3,7 +3,7 @@
 /* Template Name: Sitemap Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -29,28 +29,35 @@ get_header(); ?>
           <h4 class="sitemap-side-title">Global Offices</h4>
           <div class="sitemap-side">
             <div class="sitemap-side-item">
-              <h4>Irvine</h4>
-              <p>26 Corporate Park Drive</p>
-              <p>Suite 200</p>
-              <p>Irvine, California 92606, USA</p>
+              <h4>TAIWAN</h4>
+              <p>SF, #248, Sec. 3</p>
+              <p>Nanjing E. Rd</p>
+              <p>Taipei 105, Taiwan</p>
             </div>
             <div class="sitemap-side-item">
-              <h4>Irvine</h4>
-              <p>26 Corporate Park Drive</p>
-              <p>Suite 200</p>
-              <p>Irvine, California 92606, USA</p>
+              <h4>BEIJING</h4>
+              <p>Suite 1901, China World</p>
+              <p>Office 2</p>
+              <p>No. 1 Jian Guo Men Wai Ave.,</p>
+              <p>Chaoyang District,</p>
+              <p>Beijing 1000004, China</p>
             </div>
             <div class="sitemap-side-item">
-              <h4>Irvine</h4>
-              <p>26 Corporate Park Drive</p>
-              <p>Suite 200</p>
-              <p>Irvine, California 92606, USA</p>
+              <h4>SHANGHAI</h4>
+              <p>Suite 1702A, 17/F,</p>
+              <p>Lippo Plaza, No. 222 Huaihai Middle Road,</p>
+              <p>Huangpu District,</p>
+              <p>Shanghai 200021, China</p>
             </div>
             <div class="sitemap-side-item">
-              <h4>Irvine</h4>
-              <p>26 Corporate Park Drive</p>
-              <p>Suite 200</p>
-              <p>Irvine, California 92606, USA</p>
+              <h4>SEOUL</h4>
+              <p>19/F, 159-9
+                <p>Samseong-dong, Gangnam-gu,</p>
+                <p>Seoul, South Korea</p>
+            </div>
+            <div class="sitemap-side-item">
+              <h4>HONG KONG</h4>
+              <p>On hold for now</p>
             </div>
           </div>
         </aside>

@@ -163,19 +163,40 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url('/wp-content/uploads/2019/12/SliderImage1.jpg');
+  // background: url('/wp-content/uploads/2019/12/SliderImage1.jpg');
   background-size: cover;
+  background-position: center;
   color: #fff;
-  text-align: center;
+  text-align: left;
   min-height: 70vh;
   margin-top: -1px;
 
+  h3 {
+    font-family: $sans;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-top: 2rem;
+
+    &:after {
+      margin-left: 2rem;
+      background: #fff;
+      height: 1px;
+      flex: 1;
+      content: '';
+    }
+  }
+
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
   }
 
   .container {
     max-width: 800px;
+  }
+
+  .our_businesses__item {
+    margin: 2rem;
   }
 }

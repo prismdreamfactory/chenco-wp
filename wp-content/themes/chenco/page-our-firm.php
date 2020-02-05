@@ -3,7 +3,7 @@
 /* Template Name: Our Firm Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -135,11 +135,13 @@ get_header(); ?>
           </section>
         </div>
         <div class="tab-content" data-content="4">
-          <section class="businesses__section">
+          <section class="businesses__section" style="background-image:url(<?= the_field('our_businesses_image'); ?>);">
             <div class="container">
-              <h2 class="firm__heading heading alt center">Our Businesses</h2>
+              <div class="our_businesses__item">
+                <h2 class="firm__heading heading alt center">Our Businesses</h2>
 
-              <?php the_field('our_businesses_text'); ?>
+                <?php the_field('our_businesses_text'); ?>
+              </div>
             </div>
           </section>
         </div>
