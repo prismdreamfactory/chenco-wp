@@ -2038,6 +2038,9 @@ body.customer-area-active
 .blocker {
   z-index: 1000; }
 
+.inside-article {
+  margin: 2rem 0; }
+
 body {
   background: #fff; }
 
@@ -2276,7 +2279,5 @@ select {
     align-items: center;
     height: 100%; }
 
-.select2-container--default
-.select2-selection--single
-.select2-selection__arrow {
+.select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 35px; }
