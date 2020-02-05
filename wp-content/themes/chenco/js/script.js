@@ -65,6 +65,33 @@ function getParameterByName(name) {
     }
   };
 
+  const ourFirm = countTonumber => {
+    const $edgeCircles = $('.edge__circle');
+
+    $edgeCircles.each(function(index) {
+      const $number = $(this).find('.edge__circle-number');
+      const countToNumber = $number.html();
+
+      $number.countTo({
+        from: 0,
+        to: countToNumber,
+        speed: 500,
+        refreshInterval: 50,
+        // formatter: function(value, options) {
+        //   value = value.toFixed(options.decimals);
+        //   value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        //   return value;
+        // },
+        onUpdate: function(value) {
+          console.debug(this);
+        },
+        onComplete: function(value) {
+          console.debug(this);
+        }
+      });
+    });
+  };
+
   const initTabs = () => {
     // get url parameter to select active tab
     const activeTab = getParameterByName('tab');
@@ -92,6 +119,12 @@ function getParameterByName(name) {
           $(this)
             .parent()
             .removeClass('tabs-nav--alt');
+        } else if ($(this).data('tab') === 2) {
+          $(this)
+            .parent()
+            .addClass('tabs-nav--alt');
+
+          ourFirm();
         } else {
           $(this)
             .parent()
