@@ -47,13 +47,17 @@
 
   span,
   img {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   &.active {
     span,
     img {
       opacity: 1;
+    }
+
+    .tab__text {
+      color: $aegean;
     }
 
     &:before,
@@ -107,6 +111,7 @@
 
 .tab__icon {
   margin-bottom: 1rem;
+  max-height: 60px;
 }
 
 .tab-content {

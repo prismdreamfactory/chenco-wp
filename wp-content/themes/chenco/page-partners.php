@@ -3,7 +3,7 @@
 /* Template Name: Partners Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -35,8 +35,9 @@ get_header(); ?>
             <li
               class="tab tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
               data-tab="<?php echo get_row_index(); ?>">
-              <div class="tab__image-wrap"><img src="<?php the_sub_field('logo'); ?>"
-                  class="tab__logo tab__logo-<?php echo get_row_index(); ?>" /></div>
+              <img src="<?php the_sub_field('icon'); ?>" class="tab__icon" />
+              <span class="tab__text"><?php the_sub_field('name'); ?></span>
+
             </li>
             <?php endwhile; ?>
           </ul>
@@ -54,12 +55,19 @@ get_header(); ?>
                     <p><?php the_sub_field('details'); ?></p>
                   </div>
                   <div class="partners__contact">
-                  <img src="<?php the_sub_field('logo'); ?>" />
+                    <img src="<?php the_sub_field('logo'); ?>" />
 
                     <div class="partners__address">
-                    <h4>HEADQUARTERS</h4>
+                      <h4>HEADQUARTERS</h4>
                       <address><?php the_sub_field('address'); ?></address>
-                      <a href="javascript:"><?php the_sub_field('website'); ?></a>
+                      <?php $link = get_sub_field('website');
+                          if ($link) :
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                          ?>
+                      <a href="<?php echo esc_url($link_url); ?>" target="_blank" rel=”noopener”
+                        rel=”noreferrer”><?php echo esc_html($link_title); ?></a>
+                      <?php endif; ?>
                     </div>
                   </div>
                 </div>

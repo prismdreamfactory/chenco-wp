@@ -63,9 +63,13 @@ get_header(); ?>
                     <?php if (have_rows('our_edge_top_row')) : ?>
                     <?php while (have_rows('our_edge_top_row')) : the_row(); ?>
                     <div class="edge__stat">
-                      <?php if (get_sub_field('image')) : ?>
-                      <img src="<?php the_sub_field('image'); ?>" />
-                      <?php endif; ?>
+
+                      <div class="edge__circle"
+                        style="background-image: url(/wp-content/uploads/2020/02/stat-circle.png);">
+                        <span class="edge__circle-number"><?php the_sub_field('stat_number'); ?></span>
+                        <span class="edge__circle-label"><?php the_sub_field('stat_label'); ?></span>
+                      </div>
+
                       <h2>
                         <?php the_sub_field('text'); ?>
                       </h2>

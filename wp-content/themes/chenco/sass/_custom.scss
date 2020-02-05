@@ -19,6 +19,25 @@
   }
 }
 
+.entry-header {
+  // display: flex;
+  // align-items: center;
+
+  h2 {
+    margin: 0;
+
+    a {
+      font-size: 1.2rem;
+    }
+  }
+
+  h4 {
+    &:after {
+      content: none;
+    }
+  }
+}
+
 .blocker {
   z-index: 1000;
 }
@@ -29,6 +48,9 @@
 .inside-article {
   margin: 2rem 0;
 }
+// .inside-article--news {
+//   margin: 2rem 0;
+// }
 
 body {
   background: #fff;

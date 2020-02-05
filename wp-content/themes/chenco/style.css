@@ -517,10 +517,12 @@ address {
   text-align: center; }
   .tab span,
   .tab img {
-    opacity: 0.6; }
+    opacity: 0.5; }
   .tab.active span,
   .tab.active img {
     opacity: 1; }
+  .tab.active .tab__text {
+    color: #25507b; }
   .tab.active:before, .tab.active:after {
     content: '';
     position: absolute;
@@ -554,7 +556,8 @@ address {
   background: #f7f5f5; }
 
 .tab__icon {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  max-height: 60px; }
 
 .tab-content {
   display: none;
@@ -673,6 +676,32 @@ address {
   @media (max-width: 767px) {
     .edge__items {
       display: block; } }
+
+.edge__circle {
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  color: #25507b;
+  margin-bottom: 1rem; }
+
+.edge__circle-number {
+  font-size: 7.5rem;
+  line-height: 1;
+  margin: 0; }
+
+.edge__circle-label {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em; }
 
 .edge__stat {
   display: -webkit-box;
@@ -992,7 +1021,7 @@ address {
     padding: 1rem 0; }
   .team__modal-left p {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: "Maven Pro", sans-serif; }
 
 .team__modal-left-info {
@@ -1007,7 +1036,7 @@ address {
   font-weight: 500; }
 
 .team__modal-right p {
-  font-size: 0.8rem; }
+  font-size: 0.9rem; }
 
 .contact h2 {
   font-family: "Maven Pro", sans-serif; }
@@ -2034,6 +2063,14 @@ body.customer-area-active
       display: block !important;
       width: 100%;
       padding: 0 1.5rem; } }
+
+.entry-header h2 {
+  margin: 0; }
+  .entry-header h2 a {
+    font-size: 1.2rem; }
+
+.entry-header h4:after {
+  content: none; }
 
 .blocker {
   z-index: 1000; }
