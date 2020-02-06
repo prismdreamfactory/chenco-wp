@@ -4,8 +4,8 @@ Contributors:       vprat, marvinlabs, tlartaud
 Donate link:        http://www.marvinlabs.com/donate/
 Tags:               private files,client area,customer area,client portal,customer portal,user files,secure area,crm,project,project management,access control,files
 Requires at least:  4.7
-Tested up to:       5.0.0
-Stable tag:         7.7.7
+Tested up to:       5.3.2
+Stable tag:         7.8.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,9 +105,34 @@ feel free to fork the project and send us pull requests!
 
 == Changelog ==
 
+= 7.8.1 (2020/01/17) =
+
+* Fix: warnings in projects settings admin page
+
+= 7.8.0 (2020/01/14) =
+
+* New: frontend editor enhancements
+* Fix: Gutenberg Parent pages's dropdown disappear when WPCA is active
+* Fix: wrong border color shown on account details page
+* Fix: post owner fields PHP warnings
+* Fix: issue where grid collection were not sized correctly on page load
+
+** Add-on changes **
+
+* **Collaboration** - New: Frontend Summernote editor - disabled auto paragraph generation when pressing enter
+* **Collaboration** - New: Frontend Summernote editor - shortcodes can now be used
+* **Collaboration** - New: Frontend Summernote editor - new compatibility with [embed] shortcode, that allows to embed content from other sites
+* **Collaboration** - Fix: disable key navigation for wizard steps (was conflicting with moving caret using arrow keys)
+* **Conversations** - Fix: disable key navigation for wizard steps (was conflicting with moving caret using arrow keys)
+* **Projects** - Fix: disable key navigation for wizard steps (was conflicting with moving caret using arrow keys)
+* **Tasks** - Fix: disable key navigation for wizard steps (was conflicting with moving caret using arrow keys)
+* **Design Extras** - Tweak: Support for new styles from WP Customer Area 7.8.0
+* **Authentication Forms** - Fix: translated message could not be translated "An email has been sent with the instructions to...."
+* **Smart Groups** - Fix: illegal string warnings when no group has yet been created
+
 = 7.7.7 (2019/11/06) =
 
-* Tweak: enhancing security by removing some unused files from PHP librairies
+* Tweak: enhancing security by removing some unused files from PHP libraries
 * Tweak: updated JS dependencies
 
 = 7.7.6 (2019/11/05) =

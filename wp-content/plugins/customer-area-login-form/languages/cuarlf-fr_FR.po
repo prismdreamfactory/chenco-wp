@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP Customer Area - Authentication Forms\n"
 "Report-Msgid-Bugs-To: http://github.com/marvinlabs/customer-area-build-"
 "environment/issues\n"
-"POT-Creation-Date: 2018-09-14 13:55:43+00:00\n"
+"POT-Creation-Date: 2020-01-13 17:21:04+00:00\n"
 "PO-Revision-Date: 2018-04-26 17:14+0200\n"
 "Last-Translator: Thomas Lartaud <contact@thomaslartaud.com>\n"
 "Language-Team: MarvinLabs\n"
@@ -38,6 +38,15 @@ msgstr "Vous devez recopier le code affichée dans l'image."
 #: src/php/customer-register/customer-register-addon.class.php:96
 msgid "The code you entered is not correct."
 msgstr "Le code saisi n'est pas correct."
+
+#: src/php/customer-forgot-password/customer-forgot-password-addon.class.php:71
+msgid ""
+"An email has been sent with the instructions to reset your password. You can "
+"then go to the <a href=\"%1$s\" class=\"alert-link\">login page</a>"
+msgstr ""
+"Un courriel a été envoyé avec les instructions pour réinitialiser votre mot "
+"de passe. Vous pourrez ensuite vous rendre sur la <a href=\"%1$s\" class="
+"\"alert-link\">page de connexion</a>"
 
 #: src/php/customer-forgot-password/templates/customer-forgot-password-content.template.php:23
 #: src/php/login-forms-page-addon.class.php:165
@@ -130,6 +139,15 @@ msgstr "Les inscriptions sont désactivées"
 #: src/php/customer-register/customer-register-addon.class.php:113
 msgid "You must enter a valid username and a valid email address."
 msgstr "Vous devez saisir un nom d'utilisateur et une adresse mél valides"
+
+#: src/php/customer-register/customer-register-addon.class.php:119
+msgid ""
+"An email has been sent with the instructions to activate your account. You "
+"can then go to the <a href=\"%1$s\" class=\"alert-link\">login page</a>"
+msgstr ""
+"Un courriel a été envoyé avec des instructions pour activer votre compte. "
+"Vous pourrez ensuite vous rendre sur la <a href=\"%1$s\" class=\"alert-link"
+"\">page de connexion</a>"
 
 #: src/php/customer-register/templates/customer-register-content.template.php:24
 msgid "Create an account"
@@ -403,23 +421,6 @@ msgid "Integrate the login and registration forms to your website"
 msgstr ""
 "Intégrez les fomulaires de connexion et de création de compte directement à "
 "votre site"
-
-#~ msgid ""
-#~ "An email has been sent with the instructions to reset your password. You "
-#~ "can then go to the <a href=\"%1$s\" class=\"alert-link\">login page</a>"
-#~ msgstr ""
-#~ "Un courriel a été envoyé avec les instructions pour réinitialiser votre "
-#~ "mot de passe. Vous pourrez ensuite vous rendre sur la <a href=\"%1$s\" "
-#~ "class=\"alert-link\">page de connexion</a>"
-
-#~ msgid ""
-#~ "An email has been sent with the instructions to activate your account. "
-#~ "You can then go to the <a href=\"%1$s\" class=\"alert-link\">login page</"
-#~ "a>"
-#~ msgstr ""
-#~ "Un courriel a été envoyé avec des instructions pour activer votre compte. "
-#~ "Vous pourrez ensuite vous rendre sur la <a href=\"%1$s\" class=\"alert-"
-#~ "link\">page de connexion</a>"
 
 #~ msgid "Forgot your password?"
 #~ msgstr "Oubli du mot de passe ?"

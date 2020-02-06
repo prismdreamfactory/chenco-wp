@@ -673,7 +673,7 @@ if (!class_exists('CUAR_Settings')) :
         public function validate_role($input, &$validated, $option_id)
         {
             $role = $input[$option_id];
-            if (isset($role) && ($role == "cuar_any" || null != get_role($input[$option_id])))
+            if (isset($role) && ($role === "cuar_any" || null !== get_role($input[$option_id])))
             {
                 $validated[$option_id] = $input[$option_id];
             }

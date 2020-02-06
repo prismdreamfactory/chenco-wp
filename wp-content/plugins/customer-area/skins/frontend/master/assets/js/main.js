@@ -180,11 +180,11 @@
                 }
 
                 // Start Trays Engine directly or wait for Mixitup Collection to be initialized
-                if ($collectionContainer.length) {
-                    $wrapperJS.on('cuar:mixitup:initialized', traysEngine);
-                } else {
+                //if ($collectionContainer.length) {
+                //    $wrapperJS.on('cuar:mixitup:initialized', traysEngine);
+                //} else {
                     traysEngine();
-                }
+                //}
 
                 // Define the Trays Engine
                 function traysEngine() {
@@ -269,20 +269,20 @@
 
                                 setTimeout(function () {
                                     if ($('#cuar-js-page-content-wrapper').height() <= $('#cuar-js-tray-scroller-wrapper').height()) {
-                                        console.log('first case: content smaller than sidebar');
+                                        //console.log('first case: content smaller than sidebar');
                                         trayScroll.height($('#cuar-js-page-content').outerHeight());
 
                                     } else {
                                         if ($(window).innerHeight() >= ($('#cuar-js-page-content-wrapper').height() + heightEls )) {
-                                            console.log('second case: content taller than sidebar AND whole area smaller than the window height');
+                                            //console.log('second case: content taller than sidebar AND whole area smaller than the window height');
                                             trayScroll.height(trayHeight - (trayScroll.outerHeight(true) - trayScroll.innerHeight()));
                                         } else {
-                                            console.log('third case: content taller than sidebar BUT the whole area is taller than the window height');
+                                            //console.log('third case: content taller than sidebar BUT the whole area is taller than the window height');
                                             trayScroll.height($('#cuar-js-page-content-wrapper').height());
                                         }
                                     }
                                     setTimeout(function () {
-                                        console.log('lets rebuild the scroll !');
+                                        //console.log('lets rebuild the scroll !');
                                         trayScroll.scroller();
                                     }, 200);
                                 }, 800);
@@ -318,12 +318,12 @@
                             $('#cuar-js-page-content-wrapper').on("webkitTransitionEnd transitionend oTransitionEnd trayRemakeAll", function (event) {
                                 var cntWidth = $('#cuar-js-content-container').innerWidth();
                                 if (($('body').hasClass('disable-tray-rescale') && cntWidth < 700) || cntWidth < 550) {
-                                    console.log('wont relayout the sidebar, screen too small');
+                                    //console.log('wont relayout the sidebar, screen too small');
                                 } else {
                                     if (event.type === 'trayRemakeAll' || ((event.type === 'webkitTransitionEnd' || event.type === 'transitionend' || event.type === 'oTransitionEnd') && (typeof event.target.id !== 'undefined' && event.target.id === 'cuar-js-page-content-wrapper'))) {
-                                        console.log('main content has been resized !');
+                                        //console.log('main content has been resized !');
                                         if (traysWorking === false) {
-                                            console.log('starting relayout trays after main content resize !');
+                                            //console.log('starting relayout trays after main content resize !');
                                             trayRemakeAll();
                                         }
                                     }
@@ -347,7 +347,9 @@
                                 $(window).resize(resizeScroll);
 
                                 // End of tray script : define the trays has initialized once
-                                traysInitialized = true;
+                                setTimeout(function () {
+                                    traysInitialized = true;
+                                }, 200);
                             }
 
                             // Scroll lock all fixed content overflow
@@ -359,6 +361,8 @@
                             // Set the content height
                             trayCenter.height(trayHeight + 50); // 25 + 25 = trayCenter padding-top + padding-bottom
                         }
+                        //console.log('cuar:tray:initialized');
+                        $(wrapperJS).trigger('cuar:tray:initialized');
                     }
 
                     // Perform a custom animation if tray-nav has data attribute
@@ -648,8 +652,10 @@
                 runHelpers();
                 runHeader();
                 runFormElements();
+                $(wrapperJS).on('cuar:tray:initialized', function(e){
+                    runCollection();
+                });
                 runTrays();
-                runCollection();
             }
 
         }

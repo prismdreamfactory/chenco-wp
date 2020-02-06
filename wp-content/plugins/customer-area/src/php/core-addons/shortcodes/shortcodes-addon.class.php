@@ -40,6 +40,23 @@ class CUAR_ShortcodesAddOn extends CUAR_AddOn
     {
         include(CUAR_INCLUDES_DIR . '/core-addons/shortcodes/shortcodes/menu-shortcode.class.php');
         include(CUAR_INCLUDES_DIR . '/core-addons/shortcodes/shortcodes/protected-content-shortcode.class.php');
+
+        add_filter('do_shortcode_tag', array(&$this, 'wrap_embed_iframe'), 10, 2);
+    }
+
+    /**
+     * Wrap the output of any [embed] shortcode into a div
+     *
+     * @param string $output The output from the shortcode
+     * @param string $tag The name of the shortcode
+     *
+     * @return string The modified output
+     */
+    public function wrap_embed_iframe( $output, $tag ) {
+        if ( $tag !== 'embed' || ! ( cuar_is_customer_area_page( get_queried_object_id()) || cuar_is_customer_area_private_content( get_the_ID() ) )) {
+            return $output;
+        }
+        return '<div class="cuar-embed-wrapper">' . $output . '</div>';
     }
 }
 

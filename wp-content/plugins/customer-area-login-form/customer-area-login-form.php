@@ -3,7 +3,7 @@
 	Plugin Name: 	WP Customer Area - Authentication Forms
 	Description: 	Integrate the login and registration forms to your website
 	Plugin URI: 	http://wp-customerarea.com
-	Version: 		5.1.2
+	Version: 		5.1.3
 	Author: 		MarvinLabs
 	Author URI: 	http://www.marvinlabs.com
 	Text Domain: 	cuarlf
@@ -23,7 +23,7 @@ if (cuar_is_main_plugin_missing()) return;
 
 define( 'CUARLF_STORE_ITEM_NAME', 	'Customer Area – Login & Register Forms' );
 define( 'CUARLF_STORE_ITEM_ID', 	4253 );
-define( 'CUARLF_PLUGIN_VERSION', 	'5.1.2' );
+define( 'CUARLF_PLUGIN_VERSION', 	'5.1.3' );
 
 define( 'CUARLF_PLUGIN_DIR', 	WP_PLUGIN_DIR . '/customer-area-login-form' );
 define( 'CUARLF_LANGUAGE_DIR', 	'customer-area-login-form/languages' );

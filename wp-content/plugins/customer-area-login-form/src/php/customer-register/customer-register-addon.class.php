@@ -116,8 +116,7 @@ if ( !class_exists('CUAR_CustomerRegisterAddOn')) :
             }
 
             $lf_addon = $this->plugin->get_addon('login-forms');
-            $this->form_messages[] = sprintf(__('An email has been sent with the instructions to activate your account. '
-                . 'You can then go to the <a href="%1$s" class="alert-link">login page</a>', 'cuarlf'), $lf_addon->get_login_url());
+            $this->form_messages[] = sprintf(__('An email has been sent with the instructions to activate your account. You can then go to the <a href="%1$s" class="alert-link">login page</a>', 'cuarlf'), $lf_addon->get_login_url());
             $this->should_print_form = false;
         }
     }

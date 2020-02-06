@@ -7,9 +7,13 @@ License URI: 		http://wp-customerarea.com/terms-and-conditions/
 Donate link: 		http://www.marvinlabs.com/donate/
 Requires at least:  4.7
 Tested up to:       5.0.0
-Stable tag:         5.1.2
+Stable tag:         5.1.3
 
 == Changelog ==
+
+= 5.1.3 (2020/01/14) =
+
+* Fix: translated message could not be translated "An email has been sent with the instructions to...."
 
 = 5.1.2 (2018/12/14) =
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Smush 3.4.1\n"
+"Project-Id-Version: Smush 3.4.2\n"
 "Report-Msgid-Bugs-To: https://wpmudev.org\n"
-"POT-Creation-Date: 2020-01-13 04:03:37+00:00\n"
+"POT-Creation-Date: 2020-01-15 05:36:08+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -275,33 +275,33 @@ msgstr ""
 msgid "User can not modify options"
 msgstr ""
 
-#: app/class-media-library.php:179
+#: app/class-media-library.php:178
 msgid "Filter by Smush status"
 msgstr ""
 
-#: app/class-media-library.php:181 app/class-media-library.php:242
+#: app/class-media-library.php:180 app/class-media-library.php:241
 msgid "Smush: All images"
 msgstr ""
 
-#: app/class-media-library.php:182 app/class-media-library.php:243
+#: app/class-media-library.php:181 app/class-media-library.php:242
 msgid "Smush: Bulk ignored"
 msgstr ""
 
-#: app/class-media-library.php:245
+#: app/class-media-library.php:244
 msgid "Smush Stats"
 msgstr ""
 
-#: app/class-media-library.php:246
+#: app/class-media-library.php:245
 msgid "Select an image to view Smush stats."
 msgstr ""
 
-#: app/class-media-library.php:247
+#: app/class-media-library.php:246
 #: core/integrations/nextgen/class-stats.php:557
 #: core/modules/class-smush.php:553
 msgid "Image size"
 msgstr ""
 
-#: app/class-media-library.php:248
+#: app/class-media-library.php:247
 #: core/integrations/nextgen/class-stats.php:558
 #: core/modules/class-smush.php:554
 msgid "Savings"
@@ -650,7 +650,7 @@ msgid ""
 msgstr ""
 
 #: app/modals/restore-images.php:113 core/integrations/class-nextgen.php:621
-#: core/modules/class-backup.php:303
+#: core/modules/class-backup.php:307
 msgid "Unable to restore image"
 msgstr ""
 
@@ -2364,7 +2364,7 @@ msgstr ""
 msgid "images optimized"
 msgstr ""
 
-#: core/class-core.php:399 core/modules/class-dir.php:1146
+#: core/class-core.php:399 core/modules/class-dir.php:1161
 msgid "Choose directory"
 msgstr ""
 
@@ -2477,11 +2477,11 @@ msgid ""
 "deleted."
 msgstr ""
 
-#: core/integrations/class-nextgen.php:519 core/modules/class-backup.php:154
+#: core/integrations/class-nextgen.php:519 core/modules/class-backup.php:158
 msgid "Error in processing restore action, Fields empty."
 msgstr ""
 
-#: core/integrations/class-nextgen.php:529 core/modules/class-backup.php:163
+#: core/integrations/class-nextgen.php:529 core/modules/class-backup.php:167
 msgid "Image not restored, Nonce verification failed."
 msgstr ""
 
@@ -2635,7 +2635,7 @@ msgid ""
 "Smush%2$s feature to compress them, they just won’t be served from the CDN."
 msgstr ""
 
-#: core/modules/class-cdn.php:279 core/modules/class-dir.php:1152
+#: core/modules/class-cdn.php:279 core/modules/class-dir.php:1167
 msgid "Updating Stats"
 msgstr ""
 
@@ -2681,41 +2681,45 @@ msgstr ""
 msgid "Could not find image id in last scanned images"
 msgstr ""
 
-#: core/modules/class-dir.php:262
+#: core/modules/class-dir.php:253
+msgid "Potential Phar PHP Object Injection detected"
+msgstr ""
+
+#: core/modules/class-dir.php:273
 msgid "Image couldn't be optimized"
 msgstr ""
 
-#: core/modules/class-dir.php:447 core/modules/class-dir.php:462
-#: core/modules/class-dir.php:628 core/modules/class-dir.php:745
+#: core/modules/class-dir.php:458 core/modules/class-dir.php:473
+#: core/modules/class-dir.php:639 core/modules/class-dir.php:756
 msgid "Unauthorized"
 msgstr ""
 
-#: core/modules/class-dir.php:568
+#: core/modules/class-dir.php:579
 msgid "There was a problem getting the selected directories"
 msgstr ""
 
-#: core/modules/class-dir.php:731
+#: core/modules/class-dir.php:742
 msgid "We could not find any images in the selected directory."
 msgstr ""
 
-#: core/modules/class-dir.php:753
+#: core/modules/class-dir.php:764
 msgid "Empty Directory Path"
 msgstr ""
 
-#: core/modules/class-dir.php:1059
+#: core/modules/class-dir.php:1074
 #. translators: %s: total number of images
 msgid "You've smushed %d images in total."
 msgstr ""
 
-#: core/modules/class-dir.php:1140
+#: core/modules/class-dir.php:1155
 msgid "Directory Smush Savings"
 msgstr ""
 
-#: core/modules/class-dir.php:1143
+#: core/modules/class-dir.php:1158
 msgid "Smush images that aren't located in your uploads folder."
 msgstr ""
 
-#: core/modules/class-dir.php:1145
+#: core/modules/class-dir.php:1160
 msgid "Select a directory you'd like to Smush."
 msgstr ""
 

@@ -2,6 +2,28 @@
 
 <?php
 $whats_new = array(
+    '7.8' => array(
+        'blog_post' => 'http://wp-customerarea.com' . __('/whats-new-in-wp-customer-area-7-8-0', 'cuar'),
+        'codename'  => 'Leonard Cohen',
+        'tagline'   => __('Enhanced display control', 'cuar'),
+        'blocks'    => array(
+            array(
+                'title' => __('Frontend editor enhancements', 'cuar'),
+                'text'  => __('We decided to make some changes in the advanced frontend editor. It will not generate paragraph tags itself anymore, WP will (see wpautop function). It will now allow shortcode to be used, like the embed shortcode (so that you can insert videos and more). It will now remove any HTML data when pasting content to make the use of it simpler (HTML pasting is still allowed in code view).',
+                    'cuar'),
+            ),
+            array(
+                'title' => __('Content queries', 'cuar'),
+                'text'  => __('Many of you have let us know that it is embarrassing to have on pages of content, only the posts assigned to the connected user. We listened to you, and we added on the pages "My files", "My pages" (etc.) the possibility to add the contents created by the current connected user: Uncheck the checkbox in Settings -> WP Customer Area -> {private content type} -> Frontend Integration -> Content queries.',
+                    'cuar'),
+            ),
+            array(
+                'title' => __('Design enhancements and bug fixes', 'cuar'),
+                'text'  => __('Since our 7.7.0 version, there have been many improvements on the design, but also many patches: 8 new features and over 26 issues fixes and tweaks. For instance, we made security updates and improvements regarding our dependencies. We also made some minor design adjustments.',
+                    'cuar'),
+            ),
+        )
+    ),
     '7.7' => array(
         'blog_post' => 'http://wp-customerarea.com' . __('/whats-new-in-wp-customer-area-7-7-0', 'cuar'),
         'codename'  => 'Janis Joplin',
@@ -19,7 +41,7 @@ $whats_new = array(
             ),
             array(
                 'title' => __('Design enhancements and bug fixes', 'cuar'),
-                'text'  => __('Since our 7.5.0 version, there have been many improvements on the design, but also many patches: 11 new features and over 21 issues fixes and tweaks. For instance, we optimized our code to allow a faster page load speed (check our readme file for more information).',
+                'text'  => __('Since our 7.6.0 version, there have been many improvements on the design, but also many patches: 11 new features and over 21 issues fixes and tweaks. For instance, we optimized our code to allow a faster page load speed (check our readme file for more information).',
                     'cuar'),
             ),
         )

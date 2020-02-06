@@ -71,6 +71,15 @@ if ( !class_exists('CUAR_PaymentsCheckoutAddOn')) :
 
         public function print_page_content($args = array(), $shortcode_content = '')
         {
+            // Bail if doing ajax
+            if (defined('DOING_AJAX') && DOING_AJAX) return;
+
+            // Bail if doing rest
+            if (defined('REST_REQUEST') && REST_REQUEST) return;
+
+            // Bail if not on frontend
+            if (is_admin()) return;
+
             if (isset($_SESSION['cuar_checkout_data']) && !empty($_SESSION['cuar_checkout_data']))
             {
                 $form_data = $_SESSION['cuar_checkout_data'];
