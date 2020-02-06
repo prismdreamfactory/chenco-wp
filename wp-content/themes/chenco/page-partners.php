@@ -74,13 +74,18 @@ get_header(); ?>
 
                 <?php if (get_row_index() == 1) : ?>
                 <div class="partners__section--bottom">
-                  <h2>Bascom Operators</h2>
+                  <?php while (have_rows('bascom')) : the_row(); ?>
+                  <h2><?php the_sub_field('bascom_heading'); ?></h2>
+                  <?php endwhile; ?>
                   <div class="slick operators">
                     <?php while (have_rows('bascom_operators')) : the_row(); ?>
                     <img src="<?php the_sub_field('bascom_logo'); ?>" />
                     <?php endwhile; ?>
                   </div>
-                  <a href="/bascom-operators" class="btn">Learn More</a>
+                  <?php while (have_rows('bascom')) : the_row(); ?>
+                  <?php $link = get_sub_field('bascom_link'); ?>
+                  <a href="<?= $link['url'] ?>" class="btn"><?= $link['title'] ?></a>
+                  <?php endwhile; ?>
                 </div>
                 <?php endif; ?>
 

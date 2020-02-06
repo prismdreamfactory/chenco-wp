@@ -604,12 +604,12 @@ address {
 .footer-widget-1 img {
   max-width: 150px !important; }
 
-#menu-footer {
+.footer-widget-2 .menu {
   float: right; }
-  #menu-footer li {
+  .footer-widget-2 .menu li {
     margin-left: 2rem;
     float: right; }
-    #menu-footer li a {
+    .footer-widget-2 .menu li a {
       color: #333;
       font-family: "Domine", serif;
       font-size: 0.9rem; }
@@ -628,9 +628,9 @@ address {
     width: 100% !important; }
   .footer-widget-1 {
     margin-bottom: 1rem !important; }
-  #menu-footer {
+  .footer-widget-2 .menu {
     float: left; }
-    #menu-footer li {
+    .footer-widget-2 .menu li {
       float: none;
       margin-left: 0; } }
 

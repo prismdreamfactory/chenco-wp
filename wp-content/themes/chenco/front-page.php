@@ -71,7 +71,7 @@ get_header(); ?>
       <div class="front-news">
 
         <div class="front__news__section">
-          <h4 class="heading">Corporate Releases</h4>
+          <h4 class="heading"><?php the_field('news_label'); ?></h4>
           <?php
           $loop = new WP_Query(
             array(
@@ -91,7 +91,7 @@ get_header(); ?>
         </div>
 
         <div class="front__news__section">
-          <h4 class="heading">Recent News</h4>
+          <h4 class="heading"><?php the_field('news_label_2'); ?></h4>
           <?php
           $loop = new WP_Query(
             array(

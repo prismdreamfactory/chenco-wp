@@ -65,7 +65,7 @@ function getParameterByName(name) {
     }
   };
 
-  const ourFirm = countTonumber => {
+  const ourFirm = () => {
     const $edgeCircles = $('.edge__circle');
 
     $edgeCircles.each(function(index) {
