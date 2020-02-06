@@ -35,7 +35,9 @@ get_header(); ?>
 
             <h1><?php the_sub_field('heading'); ?></h1>
             <h3><?php the_sub_field('text'); ?></h3>
-            <a href="<?php the_sub_field('link'); ?>" class="btn">Learn More</a>
+
+            <?php $link = get_sub_field('link'); ?>
+            <a href="<?= $link['url']; ?>" class="btn"><?= $link['title']; ?></a>
 
           </div>
 
@@ -48,24 +50,20 @@ get_header(); ?>
       <div class="front-summary">
         <div class="front-summary-text">
 
-          <h4 class="heading alt">Value-Based Investing</h4>
+          <h4 class="heading alt"><?php the_field('subtitle'); ?></h4>
           <h2>
             <?php the_field('tagline'); ?>
           </h2>
 
           <div class="front-summary-link">
+            <?php if (have_rows('links')) : ?>
+            <?php while (have_rows('links')) : the_row(); ?>
+            <?php $link = get_sub_field('link'); ?>
             <div class="link">
-              <a href="/our-firm">Our Approach</a>
+              <a href="<?= $link['url']; ?>"><?= $link['title']; ?></a>
             </div>
-            <div class="link">
-              <a href="/partners">Reliable Partners</a>
-            </div>
-            <div class="link">
-              <a href="/portfolio">Investment Portfolio</a>
-            </div>
-            <div class="link">
-              <a href="/team">A Balanced Team</a>
-            </div>
+            <?php endwhile; ?>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -121,9 +119,10 @@ get_header(); ?>
       <div class="front-project-image" style="background-image: url(<?php the_sub_field('image'); ?>"></div>
       <div class="front-project">
 
-        <h4 class="heading">Project Profile</h4>
+        <h4 class="heading"><?php the_sub_field('subtitle'); ?></h4>
         <h2><?php the_sub_field('text'); ?></h2>
-        <a class="btn" href="<?php the_sub_field('link'); ?>">Learn More</a>
+        <?php $link = get_sub_field('link'); ?>
+        <a class="btn" href="<?= $link['url']; ?>"><?= $link['title']; ?></a>
 
       </div>
       <?php endwhile; ?>

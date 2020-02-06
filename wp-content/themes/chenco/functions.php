@@ -50,7 +50,7 @@ add_filter('generate_copyright', 'chenco_custom_copyright');
 function chenco_custom_copyright()
 {
 ?>
-© 2019 Chenco Holdings. All Rights Reserved.
+© 2020 Chenco Holdings. All Rights Reserved.
 <?php
 }
 

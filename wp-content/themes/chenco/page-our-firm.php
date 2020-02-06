@@ -82,7 +82,7 @@ get_header(); ?>
               </div>
 
               <div class="edge__row edge__middle">
-                <h2 class="heading center sans">Our Track Record</h2>
+                <h2 class="heading center sans"><?php the_field('our_edge_middle_row_heading'); ?></h2>
                 <div class="edge__items">
 
                   <?php if (have_rows('our_edge_middle_row')) : ?>
@@ -101,7 +101,7 @@ get_header(); ?>
               </div>
 
               <div class="edge__row edge__bottom">
-                <h2 class="heading center sans">Our Strengths</h2>
+                <h2 class="heading center sans"><?php the_field('our_edge_bottom_row_heading'); ?></h2>
                 <div class="edge__items">
 
                   <?php if (have_rows('our_edge_bottom_row')) : ?>

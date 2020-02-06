@@ -131,6 +131,19 @@
         }
       }
 
+      .sub-menu {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          border: 0;
+
+          a:before {
+            content: none;
+          }
+        }
+      }
+
       .sub-menu:nth-child(7) a:before {
         content: none;
       }
@@ -225,7 +238,8 @@
       background: #fff;
 
       li {
-        padding: 0.5rem 1rem;
+        // padding: 0.5rem 1rem;
+        padding: 0 !important;
 
         a {
           border: 0 !important;

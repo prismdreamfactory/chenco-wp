@@ -370,6 +370,16 @@ address {
     height: 1rem;
     position: absolute;
     right: 0; }
+  .main-navigation.navigation-stick ul li .sub-menu {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column; }
+    .main-navigation.navigation-stick ul li .sub-menu li {
+      border: 0; }
+      .main-navigation.navigation-stick ul li .sub-menu li a:before {
+        content: none; }
   .main-navigation.navigation-stick ul li .sub-menu:nth-child(7) a:before {
     content: none; }
   .main-navigation.navigation-stick ul li:nth-child(n + 7) a {
@@ -425,7 +435,7 @@ address {
     background: #fff; }
     .secondary-navigation ul.sub-menu li,
     .main-navigation.navigation-stick ul.sub-menu li {
-      padding: 0.5rem 1rem; }
+      padding: 0 !important; }
       .secondary-navigation ul.sub-menu li a,
       .main-navigation.navigation-stick ul.sub-menu li a {
         border: 0 !important;
@@ -1284,8 +1294,7 @@ address {
     font-weight: 500;
     color: #28343c; }
   .bascom__item img {
-    width: 80px;
-    height: 80px; }
+    width: 80px; }
   @media (max-width: 767px) {
     .bascom__item {
       grid-template-columns: 1fr;
