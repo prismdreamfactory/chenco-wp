@@ -25,22 +25,15 @@ get_header(); ?>
     <div class="tabs tabs--firm">
       <div class="container">
         <ul class="tabs-nav">
-          <li class="tab active" data-tab="1" data-tab-name="firm">
-            <img src="/wp-content/uploads/2019/12/noun_firm_2274591.png" class="tab__icon" />
-            <span>Our Firm</span>
+          <?php if (have_rows('our_firm_tabs')) : ?>
+          <?php while (have_rows('our_firm_tabs')) : the_row(); ?>
+          <li class="tab <?= get_row_index() == 1 ? 'active' : '' ?>" data-tab="<?= get_row_index(); ?>"
+            data-tab-name="firm">
+            <img src="<?php the_sub_field('image'); ?>" class="tab__icon" />
+            <span><?php the_sub_field('label'); ?></span>
           </li>
-          <li class="tab tab--alt" data-tab="2" data-tab-name="edge">
-            <img src="/wp-content/uploads/2019/12/noun_performance_1650786.png" class="tab__icon" />
-            <span>Our Edge</span>
-          </li>
-          <li class="tab tab--alt" data-tab="3" data-tab-name="funds">
-            <img src="/wp-content/uploads/2019/12/noun_funds_232470.png" class="tab__icon" />
-            <span>Our Funds</span>
-          </li>
-          <li class="tab tab--alt" data-tab="4" data-tab-name="businesses">
-            <img src="/wp-content/uploads/2019/12/noun_business-to-business_2343503.png" class="tab__icon" />
-            <span>Our Businesses</span>
-          </li>
+          <?php endwhile; ?>
+          <?php endif; ?>
         </ul>
       </div>
 
@@ -142,7 +135,7 @@ get_header(); ?>
           <section class="businesses__section" style="background-image:url(<?= the_field('our_businesses_image'); ?>);">
             <div class="container">
               <div class="our_businesses__item">
-                <h2 class="firm__heading heading alt center">Our Businesses</h2>
+                <h2 class="firm__heading heading alt center"><?php the_field('our_businesses_heading'); ?></h2>
 
                 <?php the_field('our_businesses_text'); ?>
               </div>
