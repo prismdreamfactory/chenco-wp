@@ -16,8 +16,8 @@
     <div class="widget-login-left">
       <img src="/wp-content/uploads/2019/12/Chenco_White.png" />
       <div class="lwa-info">
-        <p>INFO INFO INFO</p>
-        <p>Additional Info <br /> Goes Here 123456</p>
+        <!-- <p>Info</p>
+        <p>Additional Info <br /> 123456</p> -->
       </div>
     </div>
     <div class="widget-login-right">
