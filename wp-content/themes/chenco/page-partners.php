@@ -26,8 +26,8 @@ get_header(); ?>
           <h1 class="heading"><?php the_title(); ?></h1>
 
           <select class="select2 partners__toggle" name="partners">
-            <option value="US">US</option>
-            <option value="Asia">Asia</option>
+            <option value="US">US Partners</option>
+            <option value="Asia">Asia Partners</option>
           </select>
 
           <p><?php the_content(); ?></p>
