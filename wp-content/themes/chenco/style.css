@@ -820,6 +820,11 @@ address {
   .businesses__section .our_businesses__item {
     margin: 2rem; }
 
+.partners .tabs {
+  display: none; }
+  .partners .tabs.active {
+    display: block; }
+
 .partners .tabs-nav {
   display: grid;
   grid-template-columns: repeat(4, -webkit-max-content);
@@ -883,7 +888,7 @@ address {
 
 .partners__section--top {
   display: grid;
-  grid-template-columns: 67% 30%;
+  grid-template-columns: 63% 30%;
   grid-column-gap: 7%; }
   @media (max-width: 768px) {
     .partners__section--top {
@@ -904,6 +909,9 @@ address {
   color: #3a3a3a;
   line-height: 1; }
 
+.partners__contact img {
+  max-height: 200px; }
+
 .partners__address {
   line-height: 1.6;
   padding: 1rem 0; }
@@ -921,7 +929,8 @@ address {
     margin-bottom: 1rem; }
 
 .operators {
-  background: #f2f2f2; }
+  background: #f2f2f2;
+  margin-bottom: 1rem; }
   .operators .slick-prev:before {
     content: '❮';
     color: #a4a4a4;

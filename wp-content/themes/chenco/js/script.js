@@ -37,7 +37,7 @@ function getParameterByName(name) {
   const initSlider = () => {
     if ($('.slick').length) {
       $('.slick').slick({
-        dots: true,
+        dots: false,
         arrows: true,
         infinite: false,
         slidesToShow: 4,
@@ -136,6 +136,19 @@ function getParameterByName(name) {
     $('[data-tab-name=' + activeTab + ']').trigger('click');
 
     // $('[data-tab=2]').trigger('click');
+  };
+
+  const partnersToggle = () => {
+    $('.partners__toggle').change(function() {
+      $('.tabs').removeClass('active');
+
+      if ($(this).val() === 'US') {
+        $('.tabs--us').addClass('active');
+      }
+      if ($(this).val() === 'Asia') {
+        $('.tabs--asia').addClass('active');
+      }
+    });
   };
 
   /**
@@ -526,15 +539,12 @@ function getParameterByName(name) {
     loginModal();
     initTabs();
     initSlider();
+    partnersToggle();
 
     $('select').select2({
       // width: 'resolve',
       minimumResultsForSearch: 'Infinity'
     });
-
-    // if ($('body').hasClass('home')) {
-    // initSlider();
-    // }
 
     if ($('#map').length) {
       $.getJSON('/wp-content/themes/chenco/js/map-styles.json', json => {
