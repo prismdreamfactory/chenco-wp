@@ -101,6 +101,7 @@ function cuar_custom_search($args)
       );
     }
     $_SESSION['selected_document_type'] = $_POST['document_type'];
+
     // $new_args['posts_per_page'] = $_POST['posts_per_page'] * 1;
 
     if (!empty($_POST['file_date'])) {
@@ -124,18 +125,20 @@ function cuar_custom_search($args)
       $_SESSION['file_date'] = $date_range;
     }
 
-    if (!empty($_POST['investment'])) {
-      // $new_args['meta_query'] = array(
-      // 'relation'      => 'AND',
-      // $args['meta_query'],
-      // array(
-      //   'key'       => 'investment',
-      //   'value'     => $_POST('investment'),
-      //   'compare'   => 'LIKE'
-      // ),
-      // );
+    if (isset($_POST['investment'])) {
+      if ($_POST['investment'] !== 'all') {
+        $new_args['meta_query'] = array(
+          'relation'      => 'AND',
+          $args['meta_query'],
+          array(
+            'key'       => 'investment',
+            'value'     => $_POST['investment'],
+            'compare'   => 'LIKE'
+          ),
+        );
+      }
 
-      // $_SESSION['investment'] = $_POST['investment];
+      $_SESSION['selected_investment'] = $_POST['investment'];
     }
   }
 

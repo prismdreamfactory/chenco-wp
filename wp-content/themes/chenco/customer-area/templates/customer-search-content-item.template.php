@@ -31,13 +31,14 @@ $attachments = cuar_get_the_attached_files($post->ID);
 $attachment_count = count($attachments);
 /* only one file per download */
 $file = current($attachments);
+
+$owner = preg_replace('/,(.*)/', '', cuar_get_the_owner());
 ?>
 
 <tr>
-
   <td><?= get_the_date('d M Y') ?></td>
-  <td><?= cuar_get_the_owner(); ?></td>
-  <td>Investment</td>
+  <td><?= $owner ?></td>
+  <td><?php the_field('investment'); ?></td>
   <td><?php the_title(); ?></td>
   <td><?php the_field('document_type') ?></td>
   <td class="cuar-actions">
@@ -47,16 +48,3 @@ $file = current($attachments);
     </a>
   </td>
 </tr>
-
-
-<?php /* <div class="search-result cuar-clearfix<?php echo $extra_class; ?>">
-<div class="cuar-title result-title">
-  <a href="<?php the_permalink(); ?>">
-    <?php the_title(); ?>
-  </a>
-</div>
-<ul class="result-meta">
-  <li><?php echo $published; ?></li>
-</ul>
-<p class="result-excerpt"><?php echo get_the_excerpt(); ?></p>
-</div> */ ?>

@@ -60,13 +60,15 @@ $file = current($attachments);
 $file_categories = get_the_terms($post->ID, 'cuar_private_file_category');
 $file_category = $file_categories[0];
 // echo '<pre>' . $file_category->name . '</pre>';
+
+$owner = preg_replace('/,(.*)/', '', cuar_get_the_owner());
 ?>
 
 <tr>
 
   <td><?= get_the_date('d M Y') ?></td>
-  <td><?= cuar_get_the_owner(); ?></td>
-  <td>Investment</td>
+  <td><?= $owner ?></td>
+  <td><?php the_field('investment'); ?></td>
   <td><?php the_title(); ?></td>
   <td><?php if (isset($file_category)) echo $file_category->name; ?></td>
   <td class="cuar-actions">

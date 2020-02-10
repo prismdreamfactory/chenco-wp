@@ -11,8 +11,11 @@ $terms = get_terms(array(
   'fields'     => 'all'
 ));
 
-// echo '<pre>', var_dump($terms), '</pre>';
+/* Create investments array from ACF field group for select box */
+$field_group_key = 'field_5e002af23371d';
+$investments = get_field_object($field_group_key)['choices'];
 
+// echo '<pre>', var_dump($investments), '</pre>';
 ?>
 
 <div class="investor__search">
@@ -25,7 +28,7 @@ $terms = get_terms(array(
     </div>
 
 
-    <div class=" form-group">
+    <div class="form-group">
       <label class="control-label">Document Type</label>
       <select name="document_type">
         <option value="all" <?php if (($_SESSION['selected_document_type']) == 'all') echo 'selected="selected"'; ?>>
@@ -50,7 +53,15 @@ $terms = get_terms(array(
     <div class="form-group">
       <label class="control-label">Investment</label>
       <select name="investment">
-        <option>Any</option>
+        <option value="all" <?php if (($_SESSION['selected_investment']) == 'all') echo 'selected="selected"'; ?>>
+          All
+        </option>
+        <?php foreach ($investments as $investment) : ?>
+        <option value="<?= $investment; ?>"
+          <?php if (($_SESSION['selected_investment']) == $investment) echo 'selected="selected"'; ?>>
+          <?= $investment ?>
+        </option>
+        <?php endforeach; ?>
       </select>
     </div>
 
