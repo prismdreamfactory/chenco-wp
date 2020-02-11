@@ -425,9 +425,13 @@ function getParameterByName(name) {
    *  @return	n/a
    */
   function addMarkers($markers, map) {
+    const infowindow = new google.maps.InfoWindow({
+      maxWidth: 400
+    });
+
     $markers.each(function() {
       const $this = $(this);
-      addMarker($this, map);
+      addMarker($this, map, infowindow);
     });
   }
 
@@ -441,7 +445,7 @@ function getParameterByName(name) {
    *  @return	n/a
    */
 
-  function addMarker($marker, map) {
+  function addMarker($marker, map, infowindow) {
     const latlng = new google.maps.LatLng($marker.data('lat'), $marker.data('lng'));
     const type = $marker.data('type').toLowerCase();
 
@@ -475,19 +479,19 @@ function getParameterByName(name) {
 
     // if marker contains HTML, add it to an infoWindow
     if ($marker.html()) {
-      // create info window
-      let infowindow = new google.maps.InfoWindow({
-        content: $marker.html(),
-        maxWidth: 400
-      });
-
       // show info window when marker is clicked
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-      });
+      // google.maps.event.addListener(marker, 'click', function() {
+      //   infowindow.setContent($marker.html());
+      //   infowindow.open(map, marker);
+      // });
 
       google.maps.event.addListener(map, 'click', function(event) {
         infowindow.close();
+      });
+
+      marker.addListener('click', function() {
+        infowindow.setContent($marker.html());
+        infowindow.open(map, marker);
       });
     }
   }

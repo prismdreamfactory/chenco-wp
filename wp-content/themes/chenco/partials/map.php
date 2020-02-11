@@ -9,8 +9,8 @@
 <section class="map">
 
   <div class="map__tabs">
-    <div class="map__tab font--alt" data-center="global">Global</div>
-    <div class="map__tab font--alt mod--active" data-center="usa">U.S. <span>Properties</span></div>
+    <div class="map__tab font--alt mod--active" data-center="global">Global</div>
+    <div class="map__tab font--alt" data-center="usa">U.S. <span>Properties</span></div>
     <div class="map__tab font--alt" data-center="asia">Asia <span>Properties</span></div>
   </div>
 
@@ -34,6 +34,8 @@
           $sqft = get_field('sqft');
           $acres = get_field('acres');
 
+          preg_match('/,(.*)/', get_sub_field('address'), $address);
+
           $current = get_field('current_property', false, false);
 
           if ($type['value'] == 'O') {
@@ -53,17 +55,19 @@
       <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>"
         data-type="<?= $type['label'] ?>" data-current="<?= $current; ?>" data-stats="<?= $stats ?>">
         <div class="map__info">
-          <h3 class="map__info__heading"><?php echo $type['label']; ?>
-          </h3>
-          <p class="map__info__item">-
+          <p class="map__info__item">LOCATION: <?php echo $address[1]; ?>
+          </p>
+          <p class="map__info__item">PROPERTY TYPE: <?php echo $type['label']; ?>
+          </p>
+          <p class="map__info__item">
             <?php if ($units) : ?>
-            <span class="units"><?php echo number_format($units); ?> Units</span>
+            <span class="units">UNITS: <?php echo number_format($units); ?></span>
             <?php endif; ?>
             <?php if ($sqft) : ?>
-            <span class="sqft"><?php echo number_format($sqft); ?> Sq. Ft.</span>
+            <span class="sqft">SQ. FEET: <?php echo number_format($sqft); ?></span>
             <?php endif; ?>
             <?php if ($acres) : ?>
-            <span class="acres"><?php echo number_format($acres); ?> Acres</span>
+            <span class="acres">ACRES: <?php echo number_format($acres); ?></span>
             <?php endif; ?>
           </p>
 
