@@ -192,3 +192,11 @@ function wpb_new_menu_conditions($conditions)
 
   return $conditions;
 }
+
+if (function_exists('pll_register_string')) {
+  pll_register_string('investor', 'Investor Login');
+
+  pll_register_string('map', 'Global');
+  pll_register_string('map', 'U.S. Properties');
+  pll_register_string('map', 'Greater China Properties');
+}
