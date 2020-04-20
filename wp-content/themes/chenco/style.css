@@ -2003,8 +2003,10 @@ body.customer-area-active
   margin-bottom: 0;
   font-weight: 700;
   font-size: 0.85rem; }
-  .map__info__item span {
+  .map__info__item div {
     color: #25507b; }
+    .map__info__item div span {
+      text-transform: uppercase; }
 
 .map__info__button {
   color: #fff;

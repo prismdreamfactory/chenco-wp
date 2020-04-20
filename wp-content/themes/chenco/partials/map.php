@@ -56,19 +56,19 @@
       <div class="marker" style="display: none;" data-lat="<?= $lat; ?>" data-lng="<?= $lng; ?>"
         data-type="<?= $type['label'] ?>" data-current="<?= $current; ?>" data-stats="<?= $stats ?>">
         <div class="map__info">
-          <p class="map__info__item">LOCATION: <?php echo $address[1]; ?>
+          <p class="map__info__item"><span><?php pll_e('Location'); ?>:</span> <?php echo $address[1]; ?>
           </p>
-          <p class="map__info__item">PROPERTY TYPE: <?php echo $type['label']; ?>
+          <p class="map__info__item"><span><?php pll_e('Property Type'); ?>:</span> <?php echo $type['label']; ?>
           </p>
           <p class="map__info__item">
             <?php if ($units) : ?>
-            <span class="units">UNITS: <?php echo number_format($units); ?></span>
+            <span class="units"><span><?php pll_e('Units'); ?>:</span> <?php echo number_format($units); ?></span>
             <?php endif; ?>
             <?php if ($sqft) : ?>
-            <span class="sqft">SQ. FEET: <?php echo number_format($sqft); ?></span>
+            <span class="sqft"><span><?php pll_e('Sq. Ft.'); ?>:</span> <?php echo number_format($sqft); ?></span>
             <?php endif; ?>
             <?php if ($acres) : ?>
-            <span class="acres">ACRES: <?php echo number_format($acres); ?></span>
+            <span class="acres"><span><?php pll_e('Acres'); ?>:</span> <?php echo number_format($acres); ?></span>
             <?php endif; ?>
           </p>
 
@@ -84,30 +84,33 @@
 
     <div class="map__legend">
       <div class="map__legend--main">
-        <h3 class="map__legend-region">United States</h3>
-        <p class="map__legend-row mod--office"><span><i>5,900,000</i> Sq. Ft.</span><span>Commercial Properties</span>
+        <!-- <h3 class="map__legend-region"><?php pll_e('United States'); ?></h3> -->
+        <p class="map__legend-row mod--office"><span><i>5,900,000</i>
+            <?php pll_e('Sq. Ft.'); ?></span><span><?php pll_e('Commercial Properties'); ?></span>
         </p>
-        <p class="map__legend-row mod--multifamily"><span><i>24,000</i> Units</span><span>Multifamily Properties</span>
+        <p class="map__legend-row mod--multifamily"><span><i>24,000</i>
+            <?php pll_e('Units'); ?></span><span><?php pll_e('Multifamily Properties'); ?></span>
         </p>
-        <p class="map__legend-row mod--land"><span><i>4,000</i> Acres</span><span>Land Acres</span></p>
-        <p class="map__legend-row mod--industrial"><span><i>3,540,000</i> Sq. Ft.</span><span>Industrial
-            Properties</span>
+        <p class="map__legend-row mod--land"><span><i>4,000</i>
+            <?php pll_e('Acres'); ?></span><span><?php pll_e('Land Acres'); ?></span></p>
+        <p class="map__legend-row mod--industrial"><span><i>3,540,000</i>
+            <?php pll_e('Sq. Ft.'); ?></span><span><?php pll_e('Industrial Properties'); ?></span>
         </p>
       </div>
       <div class="map__legend--bottom">
-        <label class="legend__label">Legend:</label>
+        <label class="legend__label"><?php pll_e('Legend'); ?>:</label>
         <ul class="legend__list">
-          <li class="legend__list-item mod--office">Office (SF)</li>
-          <li class="legend__list-item mod--multifamily">Multifamily (Units)</li>
-          <li class="legend__list-item mod--land">Land (Acres)</li>
-          <li class="legend__list-item mod--industrial">Industrial (SF)</li>
+          <li class="legend__list-item mod--office"><?php pll_e('Office (SF)'); ?></li>
+          <li class="legend__list-item mod--multifamily"><?php pll_e('Multifamily (Units)'); ?></li>
+          <li class="legend__list-item mod--land"><?php pll_e('Land (Acres)'); ?></li>
+          <li class="legend__list-item mod--industrial"><?php pll_e('Industrial (SF)'); ?></li>
         </ul>
       </div>
     </div>
 
     <div class="map__switch">
-      <div class="map__switch-item mod--active" data-current="true"><i></i>Current</div>
-      <div class="map__switch-item" data-current="false"><i></i>Historical</div>
+      <div class="map__switch-item mod--active" data-current="true"><i></i><?php pll_e('Current'); ?></div>
+      <div class="map__switch-item" data-current="false"><i></i><?php pll_e('Historical'); ?></div>
     </div>
 
   </div>

@@ -199,4 +199,25 @@ if (function_exists('pll_register_string')) {
   pll_register_string('map', 'Global');
   pll_register_string('map', 'U.S. Properties');
   pll_register_string('map', 'Greater China Properties');
+
+  pll_register_string('map', 'United States');
+  pll_register_string('map', 'Sq. Ft.');
+  pll_register_string('map', 'Units');
+  pll_register_string('map', 'Acres');
+  pll_register_string('map', 'Commercial Properties');
+  pll_register_string('map', 'Multifamily Properties');
+  pll_register_string('map', 'Land Acres');
+  pll_register_string('map', 'Industrial Properties');
+
+  pll_register_string('map', 'Legend');
+  pll_register_string('map', 'Office (SF)');
+  pll_register_string('map', 'Multifamily (Units)');
+  pll_register_string('map', 'Land (Acres)');
+  pll_register_string('map', 'Industrial (SF)');
+
+  pll_register_string('map', 'Location');
+  pll_register_string('map', 'Property Type');
+
+  pll_register_string('map', 'Current');
+  pll_register_string('map', 'Historical');
 }

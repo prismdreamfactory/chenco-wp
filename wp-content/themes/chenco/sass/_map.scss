@@ -285,8 +285,12 @@
   font-weight: 700;
   font-size: 0.85rem;
 
-  span {
+  div {
     color: $aegean;
+
+    span {
+      text-transform: uppercase;
+    }
   }
 }
 

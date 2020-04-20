@@ -523,10 +523,12 @@ function getParameterByName(name) {
       $(this).on('click', () => {
         let country = $(this).data('center');
 
+        country === 'asia' ? $('.map__legend').hide() : $('.map__legend').show();
+
         $tabs.removeClass('mod--active');
         $(this).addClass('mod--active');
 
-        $region.text(countryNames[country]);
+        // $region.text(countryNames[country]);
 
         country === 'global' ? map.setZoom(3) : map.setZoom(5);
         map.setCenter(new google.maps.LatLng(center[country][0], center[country][1]));
