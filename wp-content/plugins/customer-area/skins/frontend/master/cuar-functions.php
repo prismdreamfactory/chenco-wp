@@ -261,63 +261,69 @@ if ( ! function_exists( 'cuar_custom_excerpt_more' ) ) {
 }
 
 if ( ! function_exists( 'cuar_trim_excerpt' ) ) {
-	/**
-	 * Generates an excerpt from the content, if needed.
-	 *
-	 * The excerpt word amount will be 55 words and if the amount is greater than
-	 * that, then the string ' [&hellip;]' will be appended to the excerpt. If the string
-	 * is less than 55 words, then the content will be returned as is.
-	 *
-	 * The 55 word limit can be modified by plugins/themes using the excerpt_length filter
-	 * The ' [&hellip;]' string can be modified by plugins/themes using the excerpt_more filter
-	 *
-	 * @since 1.5.0
-	 *
-	 * @param string $text Optional. The excerpt. If set to empty, an excerpt is generated.
-	 *
-	 * @return string The excerpt.
-	 */
-	function cuar_trim_excerpt( $text = '' )
+    /**
+     * Generates an excerpt from the content, if needed.
+     *
+     * Returns a maximum of 55 words with an ellipsis appended if necessary.
+     *
+     * The 55 word limit can be modified by plugins/themes using the {@see 'excerpt_length'} filter
+     * The ' [&hellip;]' string can be modified by plugins/themes using the {@see 'excerpt_more'} filter
+     *
+     * @since 1.5.0
+     * @since 5.2.0 Added the `$post` parameter.
+     *
+     * @param string             $text Optional. The excerpt. If set to empty, an excerpt is generated.
+     * @param WP_Post|object|int $post Optional. WP_Post instance or Post ID/object. Default is null.
+     * @return string The excerpt.
+     */
+    function cuar_trim_excerpt( $text = '', $post = null )
 	{
-		$raw_excerpt = $text;
-		if ( '' == $text ) {
-			$text = get_the_content( '' );
+        $raw_excerpt = $text;
+        if ( '' == $text ) {
+            $post = get_post( $post );
+            $text = get_the_content( '', false, $post );
 
-			$text = strip_shortcodes( $text );
+            $text = strip_shortcodes( $text );
+            $text = excerpt_remove_blocks( $text );
 
-			/** This filter is documented in wp-includes/post-template.php */
-			// We do not want this
-			// $text = apply_filters('the_content', $text);
-			$text = str_replace( ']]>', ']]&gt;', $text );
+            /** This filter is documented in wp-includes/post-template.php */
+            if ( ! ( cuar_is_customer_area_page( get_queried_object() ) || cuar_is_customer_area_private_content( get_the_ID() )) ) {
+                $text = apply_filters( 'the_content', $text );
+            }
+            $text = str_replace( ']]>', ']]&gt;', $text );
 
-			/**
-			 * Filter the number of words in an excerpt.
-			 *
-			 * @since 2.7.0
-			 *
-			 * @param int $number The number of words. Default 55.
-			 */
-			$excerpt_length = apply_filters( 'cuar_excerpt_length', 55 );
-			/**
-			 * Filter the string in the "more" link displayed after a trimmed excerpt.
-			 *
-			 * @since 2.9.0
-			 *
-			 * @param string $more_string The string shown within the more link.
-			 */
-			$excerpt_more = apply_filters( 'cuar_excerpt_more', ' ' . '[&hellip;]' );
-			$text         = wp_trim_words( $text, $excerpt_length, $excerpt_more );
-		}
+            /* translators: Maximum number of words used in a post excerpt. */
+            $excerpt_length = intval( _x( '55', 'excerpt_length' ) );
 
-		/**
-		 * Filter the trimmed excerpt string.
-		 *
-		 * @since 2.8.0
-		 *
-		 * @param string $text The trimmed text.
-		 * @param string $raw_excerpt The text prior to trimming.
-		 */
-		return apply_filters( 'cuar_trim_excerpt', $text, $raw_excerpt );
+            /**
+             * Filters the maximum number of words in a post excerpt.
+             *
+             * @since 2.7.0
+             *
+             * @param int $number The maximum number of words. Default 55.
+             */
+            $excerpt_length = (int) apply_filters( 'excerpt_length', $excerpt_length );
+
+            /**
+             * Filters the string in the "more" link displayed after a trimmed excerpt.
+             *
+             * @since 2.9.0
+             *
+             * @param string $more_string The string shown within the more link.
+             */
+            $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+            $text         = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+        }
+
+        /**
+         * Filters the trimmed excerpt string.
+         *
+         * @since 2.8.0
+         *
+         * @param string $text        The trimmed text.
+         * @param string $raw_excerpt The text prior to trimming.
+         */
+        return apply_filters( 'wp_trim_excerpt', $text, $raw_excerpt );
 	}
 }
 
@@ -326,12 +332,14 @@ if ( ! function_exists( 'cuar_remove_auto_excerpt' ) ) {
 	 * Prevent the excerpt to be generated from the_content
 	 */
 	function cuar_remove_auto_excerpt()
-	{
-		remove_filter( 'get_the_excerpt', 'wp_trim_excerpt' );
-		add_filter( 'get_the_excerpt', 'cuar_trim_excerpt' );
+    {
+        if (cuar_is_customer_area_page(get_queried_object_id()) || cuar_is_customer_area_private_content(get_the_ID())) {
+            remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+            add_filter('get_the_excerpt', 'cuar_trim_excerpt', 30, 2);
+        }
 	}
 
-	add_action( 'after_setup_theme', 'cuar_remove_auto_excerpt' );
+	add_action( 'loop_start', 'cuar_remove_auto_excerpt' );
 }
 
 if ( ! function_exists( 'cuar_acf_field_group_class' ) ) {

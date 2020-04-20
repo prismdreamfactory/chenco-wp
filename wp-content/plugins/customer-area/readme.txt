@@ -5,7 +5,7 @@ Donate link:        http://www.marvinlabs.com/donate/
 Tags:               private files,client area,customer area,client portal,customer portal,user files,secure area,crm,project,project management,access control,files
 Requires at least:  4.7
 Tested up to:       5.3.2
-Stable tag:         7.8.1
+Stable tag:         7.8.6
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,37 @@ Contributions are welcome. The plugin has a [GitHub repository for contributors]
 feel free to fork the project and send us pull requests!
 
 == Changelog ==
+
+= 7.8.6 (2020/03/03) =
+
+* New: action 'cuar/private-content/files/before-ob-end-clean'
+* Fix: stop end flushing while downloading files because it is not working on some server configurations
+
+= 7.8.5 (2020/03/02) =
+
+* Fix: files could not be downloaded in some cases
+
+= 7.8.4 (2020/03/02) =
+
+* Fix: files could not be downloaded in some cases
+
+= 7.8.3 (2020/02/21) =
+
+* Fix: excerpts on site could be affected by WPCA's excerpts and vice-versa
+
+= 7.8.2 (2020/02/10) =
+
+* New: filter 'cuar/core/user-profile/password-min-length' to customize password length on Edit Account page
+* Tweak: add code suggestion to improve compatibility with cache plugins
+* Tweak change default collection listings post_per_pages to 12
+  Note: for an optimized display, we recommend that you manually change this settings to 12 in WP Customer Area settings for each content type
+* Fix: posts not displaying when sidebar was disabled
+* Fix: PHP warning 'Warning: array_search() expects parameter 2 to be array'
+* Fix: excerpt lengths were affected on non-WPCA pages
+
+** Add-on changes **
+
+* **Design Extras** - Tweak: Support for new styles from WP Customer Area 7.8.2
 
 = 7.8.1 (2020/01/17) =
 

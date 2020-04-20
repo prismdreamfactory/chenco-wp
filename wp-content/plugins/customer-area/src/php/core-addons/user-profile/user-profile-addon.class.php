@@ -121,7 +121,7 @@ if (!class_exists('CUAR_UserProfileAddOn')) :
                     'confirm_label'       => __('Password (confirm)', 'cuar'),
                     'confirm_inline_help' => __('The password must at least be composed of 5 characters. You will be requested to login again after your password gets changed. Leave these fields empty if you want to keep your current password',
                         'cuar'),
-                    'min_length'          => 5,
+                    'min_length'          => apply_filters('cuar/core/user-profile/password-min-length', 5),
                     'group'               => 'account',
                 ]),
             ];

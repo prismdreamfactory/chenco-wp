@@ -572,14 +572,16 @@ if (!class_exists('CUAR_CustomerPagesAddOn')) :
                 // Filter all items which are marked as private
                 if (!empty($item->classes))
                 {
+                    $itemClasses = is_array($item->classes) ? $item->classes : [$item->classes];
+
                     $is_user_logged_in = is_user_logged_in();
-                    if ($is_user_logged_in && false !== array_search("wpca-guest-only", $item->classes))
+                    if ($is_user_logged_in && false !== array_search("wpca-guest-only", $itemClasses))
                     {
                         $exclude = true;
                     }
                     else
                     {
-                        if (!$is_user_logged_in && false !== array_search("wpca-logged-only", $item->classes))
+                        if (!$is_user_logged_in && false !== array_search("wpca-logged-only", $itemClasses))
                         {
                             $exclude = true;
                         }

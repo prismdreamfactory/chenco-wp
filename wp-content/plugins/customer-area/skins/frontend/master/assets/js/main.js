@@ -363,6 +363,8 @@
                         }
                         //console.log('cuar:tray:initialized');
                         $(wrapperJS).trigger('cuar:tray:initialized');
+                    } else {
+                        $(wrapperJS).trigger('cuar:tray:initialized');
                     }
 
                     // Perform a custom animation if tray-nav has data attribute
@@ -392,18 +394,18 @@
                     var dataTray = $('#cuar-js-tray');
                     var dataAppend = $('#cuar-js-tray-scroller-wrapper');
                     var fcRefreshCurrentPos = false;
+
                     function fcRefresh() {
                         var cntWidth = $('#cuar-js-content-container').innerWidth();
                         if (($('body').hasClass('disable-tray-rescale') && cntWidth < 700) || cntWidth < 550) {
-                            if(fcRefreshCurrentPos === 'desktop' || fcRefreshCurrentPos === false) {
+                            if (fcRefreshCurrentPos === 'desktop' || fcRefreshCurrentPos === false) {
                                 $(dataTray.data('tray-mobile')).empty();
                                 dataAppend.appendTo($(dataTray.data('tray-mobile')));
                                 dataTray.hide();
                                 fcRefreshCurrentPos = 'mobile';
                             }
-                        }
-                        else {
-                            if(fcRefreshCurrentPos === 'mobile') {
+                        } else {
+                            if (fcRefreshCurrentPos === 'mobile') {
                                 dataTray.empty().show();
                                 dataAppend.appendTo(dataTray);
                                 fcRefreshCurrentPos = 'desktop';
@@ -411,14 +413,16 @@
                         }
                     }
 
-                    fcRefresh();
-
-                    // Attach debounced resize handler
-                    var fcResize = function () {
+                    if (dataTray.length) {
                         fcRefresh();
-                    };
-                    var fcLayout = _.debounce(fcResize, 200);
-                    $(window).resize(fcLayout);
+
+                        // Attach debounced resize handler
+                        var fcResize = function () {
+                            fcRefresh();
+                        };
+                        var fcLayout = _.debounce(fcResize, 200);
+                        $(window).resize(fcLayout);
+                    }
 
                 }
 

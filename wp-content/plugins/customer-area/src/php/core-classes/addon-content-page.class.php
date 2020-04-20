@@ -91,7 +91,7 @@ if ( !class_exists('CUAR_AbstractContentPageAddOn')) :
             $defaults[$slug . self::$OPTION_SHOW_IN_SINGLE_POST_FOOTER] = true;
             $defaults[$slug . self::$OPTION_SHOW_IN_DASHBOARD] = true;
             $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_DASHBOARD] = 5;
-            $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_LISTING] = 10;
+            $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_LISTING] = 12;
 
             return $defaults;
         }
@@ -129,7 +129,7 @@ if ( !class_exists('CUAR_AbstractContentPageAddOn')) :
         {
             $value = $this->plugin->get_option($this->get_slug() . self::$OPTION_MAX_ITEM_NUMBER_ON_LISTING);
 
-            return empty($value) ? 10 : $value;
+            return empty($value) ? 12 : $value;
         }
 
         /*------- ARCHIVES ----------------------------------------------------------------------------------------------*/

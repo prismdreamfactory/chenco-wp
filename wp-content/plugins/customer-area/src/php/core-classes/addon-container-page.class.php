@@ -89,7 +89,7 @@ if ( !class_exists('CUAR_AbstractContainerPageAddOn')) :
             $defaults[$slug . self::$OPTION_SHOW_IN_SINGLE_POST_FOOTER] = true;
             $defaults[$slug . self::$OPTION_SHOW_IN_DASHBOARD] = true;
             $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_DASHBOARD] = 5;
-            $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_LISTING] = 10;
+            $defaults[$slug . self::$OPTION_MAX_ITEM_NUMBER_ON_LISTING] = 12;
 
             return $defaults;
         }

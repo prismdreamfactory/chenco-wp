@@ -934,8 +934,11 @@ class CUAR_PrivateFilesDefaultHandlers
             $mime_type = $this->get_mime_type_from_extension($file_extension);
         }
 
+        do_action('cuar/private-content/files/before-ob-end-clean', $filepath, $filename);
+
         // Fix http://wordpress.org/support/topic/problems-with-image-files
-        @ob_end_clean(); //turn off output buffering to decrease cpu usage
+		// Turn off output buffering to decrease cpu usage
+        @ob_end_clean(); 
         @ob_clean();
 
         // required for IE, otherwise Content-Disposition may be ignored
