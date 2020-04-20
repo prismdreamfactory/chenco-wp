@@ -194,6 +194,12 @@ function wpb_new_menu_conditions($conditions)
 }
 
 if (function_exists('pll_register_string')) {
+  pll_register_string('login', 'Log In');
+  pll_register_string('login', 'Email or Username');
+  pll_register_string('login', 'Password');
+  pll_register_string('login', 'Remember Me');
+  pll_register_string('login', 'Lost your password');
+
   pll_register_string('investor', 'Investor Login');
 
   pll_register_string('map', 'Global');

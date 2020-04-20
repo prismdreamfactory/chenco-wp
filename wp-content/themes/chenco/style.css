@@ -406,7 +406,7 @@ address {
       padding-top: 1rem;
       padding-bottom: 1rem; }
       .secondary-navigation .inside-navigation .main-nav > ul > li:nth-child(2) a {
-        margin-right: 2rem; }
+        padding-right: 2rem; }
       .secondary-navigation .inside-navigation .main-nav > ul > li:nth-child(3) a, .secondary-navigation .inside-navigation .main-nav > ul > li:nth-child(4) a {
         border-left: 1px solid #3a3a3a;
         color: #3a3a3a;
@@ -1573,6 +1573,9 @@ body.customer-area-active
   .inside-left-sidebar input {
     border-radius: 20px; }
 
+.sidebar .widget {
+  background-color: transparent; }
+
 .sitemap-aside {
   border-right: 1px solid #ccc;
   padding-right: 3rem; }
@@ -1704,6 +1707,9 @@ body.customer-area-active
     .lwa-modal {
       display: block !important;
       padding: 1rem; } }
+
+.lwa-status a {
+  color: #25507b; }
 
 .lwa-info {
   margin-top: 2rem;

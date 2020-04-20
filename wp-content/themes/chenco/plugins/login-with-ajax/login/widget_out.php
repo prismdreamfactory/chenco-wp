@@ -8,7 +8,7 @@
 <div class="lwa login-modal"><?php //class must be here, and if this is a template, class name should be that of template directory
                               ?>
   <a href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>"
-    class="lwa-links-modal"><?php esc_html_e('Log In', 'login-with-ajax'); ?></a>
+    class="lwa-links-modal"><?php pll_e('Log In', 'login-with-ajax'); ?></a>
   <?php
   //FOOTER - once the page loads, this will be moved automatically to the bottom of the document.
   ?>
@@ -27,7 +27,7 @@
           <h1 class="heading alt"><?php pll_e('Investor Login'); ?></h1>
           <tr class="lwa-username">
             <td class="username_label">
-              <label><?php esc_html_e('Email', 'login-with-ajax'); ?></label>
+              <label><?php pll_e('Email or Username', 'login-with-ajax'); ?></label>
             </td>
             <td class="username_input">
               <input type="text" name="log" id="lwa_user_login" class="input" />
@@ -35,7 +35,7 @@
           </tr>
           <tr class="lwa-password">
             <td class="password_label">
-              <label><?php esc_html_e('Password', 'login-with-ajax'); ?></label>
+              <label><?php pll_e('Password', 'login-with-ajax'); ?></label>
             </td>
             <td class="password_input">
               <input type="password" name="pwd" id="lwa_user_pass" class="input" value="" />
@@ -47,7 +47,7 @@
           <tr class="lwa-submit">
             <td class="lwa-submit-button">
               <input type="submit" name="wp-submit" class="lwa-wp-submit btn"
-                value="<?php esc_attr_e('SIGN IN', 'login-with-ajax'); ?>" tabindex="100" />
+                value="<?php pll_e('Log In', 'login-with-ajax'); ?>" tabindex="100" />
               <input type="hidden" name="lwa_profile_link"
                 value="<?php echo !empty($lwa_data['profile_link']) ? 1 : 0; ?>" />
               <input type="hidden" name="login-with-ajax" value="login" />
@@ -57,16 +57,16 @@
             </td>
             <td class="lwa-links">
               <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" />
-              <label><?php esc_html_e('Remember Me', 'login-with-ajax'); ?></label>
+              <label><?php pll_e('Remember Me', 'login-with-ajax'); ?></label>
               <br />
               <?php if (!empty($lwa_data['remember'])) : ?>
               <a class="lwa-links-remember" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>"
-                title="<?php esc_attr_e('Password Lost and Found', 'login-with-ajax'); ?>"><?php esc_attr_e('Lost your password?', 'login-with-ajax'); ?></a>
+                title="<?php esc_attr_e('Password Lost and Found', 'login-with-ajax'); ?>"><?php pll_e('Lost your password?', 'login-with-ajax'); ?></a>
               <?php endif; ?>
               <?php if (get_option('users_can_register') && !empty($lwa_data['registration'])) : ?>
               <br />
               <a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>"
-                class="lwa-links-register-inline"><?php esc_html_e('Register', 'login-with-ajax'); ?></a>
+                class="lwa-links-register-inline"><?php pll_e('Register', 'login-with-ajax'); ?></a>
               <?php endif; ?>
             </td>
           </tr>
@@ -79,7 +79,7 @@
         <table>
           <tr>
             <td>
-              <strong><?php esc_html_e('Forgotten Password', 'login-with-ajax'); ?></strong>
+              <strong><?php pll_e('Forgotten Password', 'login-with-ajax'); ?></strong>
             </td>
           </tr>
           <tr class="lwa-remember-email">
@@ -96,7 +96,7 @@
           <tr>
             <td>
               <input type="submit" value="<?php esc_attr_e('Get New Password', 'login-with-ajax'); ?>" />
-              <a href="#" class="lwa-links-remember-cancel"><?php esc_html_e('Cancel', 'login-with-ajax'); ?></a>
+              <a href="#" class="lwa-links-remember-cancel"><?php pll_e('Cancel', 'login-with-ajax'); ?></a>
               <input type="hidden" name="login-with-ajax" value="remember" />
             </td>
           </tr>
@@ -111,7 +111,7 @@
           <table>
             <tr>
               <td>
-                <strong><?php esc_html_e('Register For This Site', 'login-with-ajax'); ?></strong>
+                <strong><?php pll_e('Register For This Site', 'login-with-ajax'); ?></strong>
               </td>
             </tr>
             <tr class="lwa-username">
@@ -144,10 +144,9 @@
             </tr>
             <tr>
               <td>
-                <?php esc_html_e('A password will be e-mailed to you.', 'login-with-ajax'); ?><br />
+                <?php pll_e('A password will be e-mailed to you.', 'login-with-ajax'); ?><br />
                 <input type="submit" value="<?php esc_attr_e('Register', 'login-with-ajax'); ?>" tabindex="100" />
-                <a href="#"
-                  class="lwa-links-register-inline-cancel"><?php esc_html_e('Cancel', 'login-with-ajax'); ?></a>
+                <a href="#" class="lwa-links-register-inline-cancel"><?php pll_e('Cancel', 'login-with-ajax'); ?></a>
                 <input type="hidden" name="login-with-ajax" value="register" />
               </td>
             </tr>
