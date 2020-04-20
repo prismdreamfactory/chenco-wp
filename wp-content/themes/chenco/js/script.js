@@ -1,6 +1,6 @@
 function debounced(delay, fn) {
   let timerId;
-  return function(...args) {
+  return function (...args) {
     if (timerId) {
       clearTimeout(timerId);
     }
@@ -16,7 +16,7 @@ function getParameterByName(name) {
     decodeURIComponent(
       (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [
         ,
-        ''
+        '',
       ])[1].replace(/\+/g, '%20')
     ) || null
   );
@@ -45,22 +45,22 @@ function getParameterByName(name) {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3
-            }
+              slidesToShow: 3,
+            },
           },
           {
             breakpoint: 768,
             settings: {
-              slidesToShow: 2
-            }
+              slidesToShow: 2,
+            },
           },
           {
             breakpoint: 480,
             settings: {
-              slidesToShow: 1
-            }
-          }
-        ]
+              slidesToShow: 1,
+            },
+          },
+        ],
       });
     }
   };
@@ -68,7 +68,7 @@ function getParameterByName(name) {
   const ourFirm = () => {
     const $edgeCircles = $('.edge__circle');
 
-    $edgeCircles.each(function(index) {
+    $edgeCircles.each(function (index) {
       const $number = $(this).find('.edge__circle-number');
       const countToNumber = $number.html();
 
@@ -82,12 +82,12 @@ function getParameterByName(name) {
         //   value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         //   return value;
         // },
-        onUpdate: function(value) {
+        onUpdate: function (value) {
           console.debug(this);
         },
-        onComplete: function(value) {
+        onComplete: function (value) {
           console.debug(this);
-        }
+        },
       });
     });
   };
@@ -98,11 +98,8 @@ function getParameterByName(name) {
     const $tabs = $('.tabs');
 
     if ($tabs.length) {
-      $('[data-tab]').on('click', function(e) {
-        $(this)
-          .addClass('active')
-          .siblings('[data-tab]')
-          .removeClass('active');
+      $('[data-tab]').on('click', function (e) {
+        $(this).addClass('active').siblings('[data-tab]').removeClass('active');
         $('.tab-container')
           .find('[data-content=' + $(this).data('tab') + ']')
           .addClass('active')
@@ -114,21 +111,15 @@ function getParameterByName(name) {
     }
 
     if ($('.tabs--firm').length) {
-      $('[data-tab]').on('click', function(e) {
+      $('[data-tab]').on('click', function (e) {
         if ($(this).data('tab') === 1) {
-          $(this)
-            .parent()
-            .removeClass('tabs-nav--alt');
+          $(this).parent().removeClass('tabs-nav--alt');
         } else if ($(this).data('tab') === 2) {
-          $(this)
-            .parent()
-            .addClass('tabs-nav--alt');
+          $(this).parent().addClass('tabs-nav--alt');
 
           ourFirm();
         } else {
-          $(this)
-            .parent()
-            .addClass('tabs-nav--alt');
+          $(this).parent().addClass('tabs-nav--alt');
         }
       });
     }
@@ -139,14 +130,19 @@ function getParameterByName(name) {
   };
 
   const partnersToggle = () => {
-    $('.partners__toggle').change(function() {
+    $('.partners__toggle').change(function (e) {
+      e.preventDefault();
+
       $('.tabs').removeClass('active');
+      $('.tab-container').removeClass('active');
 
       if ($(this).val() === 'US') {
         $('.tabs--us').addClass('active');
+        $('.tab-container--us').addClass('active');
       }
       if ($(this).val() === 'Asia') {
         $('.tabs--asia').addClass('active');
+        $('.tab-container--asia').addClass('active');
       }
     });
   };
@@ -155,7 +151,7 @@ function getParameterByName(name) {
    * Login Modal
    */
   const loginModal = () => {
-    $('a.login-link').on('click', function(e) {
+    $('a.login-link').on('click', function (e) {
       const target = $('div.login-modal').data('modal');
 
       if (target && target.length > 0) {
@@ -165,7 +161,7 @@ function getParameterByName(name) {
 
         target.reveal({
           modalbgclass: 'lwa-modal-bg',
-          dismissmodalclass: 'lwa-modal-close'
+          dismissmodalclass: 'lwa-modal-close',
         });
 
         // $('a.lwa-modal-close', '.lwa-modal-bg').on('click', function(e) {
@@ -181,47 +177,47 @@ function getParameterByName(name) {
   const center = {
     usa: [38.901187, -110.914306],
     asia: [28.441223, -238.391588],
-    global: [40.141496, -168.588005]
+    global: [40.141496, -168.588005],
   };
   const regions = {
     Northern_California: {
       coords: [37.481569, -122.19576],
-      zoom: 8
+      zoom: 8,
     },
     Southern_California: {
       coords: [33.155, -118.033081],
-      zoom: 8
+      zoom: 8,
     },
     Hawaii: {
       coords: [31.906707, -132.501246],
       zoom: 6,
-      coordsAlt: [21.289373, -157.91748]
+      coordsAlt: [21.289373, -157.91748],
     },
     South: {
       coords: [30.705239, -98.67815],
-      zoom: 7
+      zoom: 7,
     },
     Mountain: {
       coords: [39.05847, -105.706326],
-      zoom: 7
+      zoom: 7,
     },
     Midwest: {
       coords: [41.65778, -90.853814],
-      zoom: 8
+      zoom: 8,
     },
     Southeast: {
       coords: [28.082342, -82.767718],
-      zoom: 7
+      zoom: 7,
     },
     Northeast: {
       coords: [40.56669, -76.621757],
-      zoom: 7
-    }
+      zoom: 7,
+    },
   };
   const countryNames = {
     usa: 'United States',
     global: 'Global',
-    asia: 'Asia'
+    asia: 'Asia',
   };
 
   /*
@@ -249,7 +245,7 @@ function getParameterByName(name) {
             mapTypeControl: false,
             streetViewControl: false,
             // disableDefaultUI: true,
-            styles
+            styles,
           }
         : {
             minZoom: 3,
@@ -260,7 +256,7 @@ function getParameterByName(name) {
             mapTypeControl: false,
             streetViewControl: false,
             // disableDefaultUI: true,
-            styles
+            styles,
           };
 
     // Create map
@@ -278,11 +274,11 @@ function getParameterByName(name) {
 
     // Switch between current/historical
     const $options = $('.map__switch-item');
-    $options.each(function() {
+    $options.each(function () {
       const $this = $(this);
       const showCurrent = $this.data('current');
 
-      $this.on('click', function() {
+      $this.on('click', function () {
         $options.removeClass('mod--active');
         $this.addClass('mod--active');
 
@@ -382,7 +378,7 @@ function getParameterByName(name) {
 
     // Update legend values
     const $legendRows = $('.map__legend-row span:first-child i');
-    $legendRows.each(function(index) {
+    $legendRows.each(function (index) {
       const $this = $(this);
       const currentStat = parseFloat($this.text().replace(/,/g, ''));
 
@@ -393,17 +389,17 @@ function getParameterByName(name) {
           to: legendStats[index],
           speed: 500,
           refreshInterval: 50,
-          formatter: function(value, options) {
+          formatter: function (value, options) {
             value = value.toFixed(options.decimals);
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             return value;
           },
-          onUpdate: function(value) {
+          onUpdate: function (value) {
             console.debug(this);
           },
-          onComplete: function(value) {
+          onComplete: function (value) {
             console.debug(this);
-          }
+          },
         });
       }
 
@@ -426,10 +422,10 @@ function getParameterByName(name) {
    */
   function addMarkers($markers, map) {
     const infowindow = new google.maps.InfoWindow({
-      maxWidth: 400
+      maxWidth: 400,
     });
 
-    $markers.each(function() {
+    $markers.each(function () {
       const $this = $(this);
       addMarker($this, map, infowindow);
     });
@@ -454,13 +450,14 @@ function getParameterByName(name) {
       office: 'rgb(37, 79, 123)',
       multifamily: 'rgb(191, 144, 1)',
       land: 'rgb(87, 135, 171)',
-      industrial: 'rgb(121, 175, 153)'
+      industrial: 'rgb(121, 175, 153)',
     };
 
     // marker svg allowing options
     const createMarker = (color, size) => {
-      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${size /
-        2}" cy="${size / 2}" r="${size / 2}" fill="${color}"/></svg>`;
+      const svg = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}"><circle cx="${
+        size / 2
+      }" cy="${size / 2}" r="${size / 2}" fill="${color}"/></svg>`;
 
       return svg;
     };
@@ -471,7 +468,7 @@ function getParameterByName(name) {
       map: map,
       icon:
         $(window).width() <= 768 ? createMarker(icons[type], 10) : createMarker(icons[type], 14),
-      title: $marker.data('stats').toString()
+      title: $marker.data('stats').toString(),
     });
 
     // add to array
@@ -485,11 +482,11 @@ function getParameterByName(name) {
       //   infowindow.open(map, marker);
       // });
 
-      google.maps.event.addListener(map, 'click', function(event) {
+      google.maps.event.addListener(map, 'click', function (event) {
         infowindow.close();
       });
 
-      marker.addListener('click', function() {
+      marker.addListener('click', function () {
         infowindow.setContent($marker.html());
         infowindow.open(map, marker);
       });
@@ -522,7 +519,7 @@ function getParameterByName(name) {
     const $tabs = $('.map__tab');
     const $region = $('.map__legend-region');
 
-    $tabs.each(function() {
+    $tabs.each(function () {
       $(this).on('click', () => {
         let country = $(this).data('center');
 
@@ -547,7 +544,7 @@ function getParameterByName(name) {
 
     $('select').select2({
       // width: 'resolve',
-      minimumResultsForSearch: 'Infinity'
+      minimumResultsForSearch: 'Infinity',
     });
 
     if ($('#map').length) {

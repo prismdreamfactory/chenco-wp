@@ -820,71 +820,39 @@ address {
   .businesses__section .our_businesses__item {
     margin: 2rem; }
 
+.partners .select2 {
+  min-width: 150px; }
+
 .partners .tabs {
   display: none; }
   .partners .tabs.active {
     display: block; }
 
-.partners .tabs-nav {
+.partners .tabs--index {
   display: grid;
-  grid-template-columns: repeat(4, -webkit-max-content);
-  grid-template-columns: repeat(4, max-content);
-  border-bottom: 1px solid #898989; }
+  grid-template-columns: 20% 1fr;
+  grid-gap: 2rem;
+  padding: 4rem 2rem; }
+
+.partners .tab-container {
+  display: none; }
+  .partners .tab-container.active {
+    display: block; }
+
+.partners .tabs-nav {
+  display: block; }
+
+.partners .tabs__sidebar {
+  padding: 0 2rem; }
 
 .partners .tab-content {
-  background: transparent; }
+  min-height: 60vh; }
 
-.partners .tab {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 2rem 0;
-  border-bottom: 0; }
-  .partners .tab:last-child .tab__image-wrap {
-    border-right: 0; }
-
-.partners .tab__image-wrap {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  padding: 0 2rem;
-  border-right: 1px solid #898989;
-  height: 100%; }
-
-.partners .tab__logo {
-  max-height: 42px; }
-  .partners .tab__logo-2 {
-    max-height: 52px; }
-  .partners .tab__logo-3 {
-    max-height: 45px; }
-  .partners .tab__logo-4 {
-    max-height: 34px; }
-
-@media (max-width: 1024px) {
-  .partners .tabs-nav {
-    grid-template-columns: repeat(4, 1fr); } }
-
-@media (max-width: 768px) {
-  .partners .tabs-nav {
-    grid-template-columns: repeat(2, 1fr); }
-  .partners .tab__image-wrap {
-    border-right: 0;
-    padding: 0;
-    margin: 0;
-    -webkit-box-align: center;
-    align-items: center; }
-  .partners .tab {
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 1rem;
-    opacity: 0.5; }
-    .partners .tab.active {
-      opacity: 1; }
-      .partners .tab.active:before, .partners .tab.active:after {
-        content: none; } }
+.partners .tab__text {
+  cursor: pointer; }
 
 .partners__section {
-  min-height: 50vh; }
+  padding: 0 !important; }
 
 .partners__section--top {
   display: grid;
