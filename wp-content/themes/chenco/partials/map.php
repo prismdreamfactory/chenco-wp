@@ -9,9 +9,10 @@
 <section class="map">
 
   <div class="map__tabs">
-    <div class="map__tab font--alt mod--active" data-center="global">Global</div>
-    <div class="map__tab font--alt" data-center="usa">U.S. <span>Properties</span></div>
-    <div class="map__tab font--alt" data-center="asia">Asia <span>Properties</span></div>
+    <div class="map__tab font--alt mod--active" data-center="global"><?php pll_e('Global'); ?>
+    </div>
+    <div class="map__tab font--alt" data-center="usa"><?php pll_e('U.S. Properties'); ?></div>
+    <div class="map__tab font--alt" data-center="asia"><?php pll_e('Greater China Properties'); ?></div>
   </div>
 
   <div class="map-wrapper">

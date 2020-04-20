@@ -24,7 +24,7 @@
       <form name="lwa-form" class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
         <span class="lwa-status"></span>
         <table>
-          <h1 class="heading alt">Investor Login</h1>
+          <h1 class="heading alt"><?php pll_e('Investor Login'); ?></h1>
           <tr class="lwa-username">
             <td class="username_label">
               <label><?php esc_html_e('Email', 'login-with-ajax'); ?></label>

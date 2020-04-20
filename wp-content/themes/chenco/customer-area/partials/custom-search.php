@@ -21,7 +21,7 @@ $investments = get_field_object($field_group_key)['choices'];
 <div class="investor__search">
   <form name="search" method="post">
     <div class="form-group">
-      <label class="control-label">Date Range</label>
+      <label class="control-label"><?php pll_e('Date Range'); ?></label>
       <input type="text" class="datepicker-here" data-language='en' data-range="true"
         data-multiple-dates-separator=" - " data-language="en" data-date-format="dd-mm-yyyy" name="file_date"
         value="<?php if (isset($_SESSION['file_date'])) echo $_SESSION['file_date']; ?>" />
@@ -29,7 +29,7 @@ $investments = get_field_object($field_group_key)['choices'];
 
 
     <div class="form-group">
-      <label class="control-label">Document Type</label>
+      <label class="control-label"><?php pll_e('Document Type'); ?></label>
       <select name="document_type">
         <option value="all" <?php if (($_SESSION['selected_document_type']) == 'all') echo 'selected="selected"'; ?>>
           All
