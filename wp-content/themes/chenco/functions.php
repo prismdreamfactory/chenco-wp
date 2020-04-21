@@ -146,7 +146,7 @@ if (!is_admin()) {
   add_filter('walker_nav_menu_start_el', function ($item_output, $item) {
     if ($item->type === 'custom' && strpos($item->url, 'wp-login.php') !== false) {
       if (is_user_logged_in()) {
-        $item_output = sprintf('<a href="%s">Logout</a>', wp_logout_url(get_permalink()));
+        $item_output = sprintf('<a href="%s">%s</a>', wp_logout_url(get_permalink()), pll__('Logout'));
       } else {
         if (class_exists('LoginWithAjax')) {
           $item_output = sprintf('<a class="login-link" href="%s">%s</a>', esc_url(wp_login_url(get_permalink())), esc_html($item->title));
@@ -195,6 +195,7 @@ function wpb_new_menu_conditions($conditions)
 
 if (function_exists('pll_register_string')) {
   pll_register_string('login', 'Log In');
+  pll_register_string('login', 'Logout');
   pll_register_string('login', 'Email or Username');
   pll_register_string('login', 'Password');
   pll_register_string('login', 'Remember Me');

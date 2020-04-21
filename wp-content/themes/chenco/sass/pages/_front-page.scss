@@ -1,11 +1,28 @@
 .front {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 720px auto 600px;
-  grid-template-areas:
-    'top top top'
-    'mid-left mid-right mid-right'
-    'bot-left bot-left bot-right';
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 720px auto 600px;
+  // grid-template-areas:
+  //   'top top top'
+  //   'mid-left mid-right mid-right'
+  //   'bot-left bot-left bot-right';
+
+  .slick-prev,
+  .slick-next {
+    z-index: 1;
+  }
+
+  .slick-next {
+    right: 25px;
+  }
+
+  .slick-prev {
+    left: 25px;
+  }
+
+  .slick-track {
+    min-height: 500px;
+  }
 
   h2 {
     font-weight: 400;
@@ -48,6 +65,7 @@
   background-color: #666;
   background-size: cover;
   background-position: center;
+  height: 100%;
 
   h1 {
     color: #fff;

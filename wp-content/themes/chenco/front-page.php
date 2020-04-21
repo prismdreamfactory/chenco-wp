@@ -25,7 +25,36 @@ get_header(); ?>
     do_action('generate_before_main_content'); ?>
 
     <div class="front">
-      <?php if (have_rows('hero')) : ?>
+      <?php if (have_rows('slider')) : ?>
+      <div class="slick">
+
+        <?php while (have_rows('slider')) : the_row(); ?>
+        <div class="front-hero" style="background-image: url(<?php the_sub_field('image'); ?>);">
+          <div class="front-hero-content">
+
+            <div class="container">
+
+              <h1><?php the_sub_field('heading'); ?></h1>
+              <h3><?php the_sub_field('tagline'); ?></h3>
+
+              <?php $link = get_sub_field('link');
+                  if ($link) :
+                    $link_url = $link['url'];
+                    $link_title = $link['title']; ?>
+
+              <a href="<?= $link_url; ?>" class="btn"><?= $link_title; ?></a>
+              <? endif; ?>
+
+            </div>
+
+          </div>
+        </div>
+        <?php endwhile; ?>
+
+      </div>
+      <?php endif; ?>
+
+      <?/*<?php if (have_rows('hero')) : ?>
       <?php while (have_rows('hero')) : the_row(); ?>
 
       <div class="front-hero" style="background-image: url(<?php the_sub_field('image'); ?>);">
@@ -126,7 +155,7 @@ get_header(); ?>
 
       </div>
       <?php endwhile; ?>
-      <?php endif; ?>
+      <?php endif; ?>*/ ?>
 
     </div>
 

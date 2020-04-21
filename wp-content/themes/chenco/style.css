@@ -284,6 +284,9 @@ address {
   font-family: "Maven Pro", sans-serif;
   margin-bottom: 0; }
 
+.inside-header {
+  padding: 30px; }
+
 .main-navigation .main-nav ul {
   /* active */ }
   .main-navigation .main-nav ul li[class*='current-menu-'] a {
@@ -1105,35 +1108,47 @@ address {
   .contact-location-item a {
     line-height: 1.5; }
 
-.front {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 720px auto 600px;
-  grid-template-areas: 'top top top' 'mid-left mid-right mid-right' 'bot-left bot-left bot-right'; }
-  .front h2 {
-    font-weight: 400;
-    margin-bottom: 2rem;
-    color: #25507b;
-    line-height: 1.4;
-    font-size: 1.8rem; }
-    @media (max-width: 768px) {
-      .front h2 {
-        font-size: 1.5rem; } }
-  .front h4 {
-    color: #25507b;
-    text-transform: uppercase;
-    font-size: 0.8rem; }
-  .front a {
-    letter-spacing: 1px; }
+.front .slick-prev,
+.front .slick-next {
+  z-index: 1; }
+
+.front .slick-next {
+  right: 25px; }
+
+.front .slick-prev {
+  left: 25px; }
+
+.front .slick-track {
+  min-height: 500px; }
+
+.front h2 {
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #25507b;
+  line-height: 1.4;
+  font-size: 1.8rem; }
   @media (max-width: 768px) {
-    .front {
-      display: block; } }
+    .front h2 {
+      font-size: 1.5rem; } }
+
+.front h4 {
+  color: #25507b;
+  text-transform: uppercase;
+  font-size: 0.8rem; }
+
+.front a {
+  letter-spacing: 1px; }
+
+@media (max-width: 768px) {
+  .front {
+    display: block; } }
 
 .front-hero {
   grid-area: top;
   background-color: #666;
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  height: 100%; }
   .front-hero h1 {
     color: #fff; }
   .front-hero h3 {

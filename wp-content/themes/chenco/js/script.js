@@ -34,33 +34,48 @@ function getParameterByName(name) {
       .attr('target', '_blank');
   };
 
+  const adaptiveHeroHeight = () => {
+    const height =
+      $('#secondary-navigation').height() +
+      $('#masthead').height() +
+      $('.site-footer').height() +
+      $('#wpadminbar').height();
+    const $page = $('#page');
+    const $slider = $('.slick-track');
+
+    $slider.css('height', $(window).height() - height);
+    $page.css('height', $(window).height() - height);
+  };
+
   const initSlider = () => {
     if ($('.slick').length) {
       $('.slick').slick({
-        dots: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: true,
         arrows: true,
-        infinite: false,
-        slidesToShow: 4,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-            },
-          },
-        ],
+        infinite: true,
+        slidesToShow: 1,
+        // responsive: [
+        //   {
+        //     breakpoint: 1024,
+        //     settings: {
+        //       slidesToShow: 3,
+        //     },
+        //   },
+        //   {
+        //     breakpoint: 768,
+        //     settings: {
+        //       slidesToShow: 2,
+        //     },
+        //   },
+        //   {
+        //     breakpoint: 480,
+        //     settings: {
+        //       slidesToShow: 1,
+        //     },
+        //   },
+        // ],
       });
     }
   };
@@ -553,6 +568,11 @@ function getParameterByName(name) {
       $.getJSON('/wp-content/themes/chenco/js/map-styles.json', json => {
         newMap(json);
       });
+    }
+
+    if ($('.home').length) {
+      $(window).on('load', adaptiveHeroHeight);
+      $(window).on('resize', debounced(200, adaptiveHeroHeight));
     }
 
     $('body, html').animate({ scrollTop: 0 }, 0);
