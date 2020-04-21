@@ -151,14 +151,8 @@ function getParameterByName(name) {
       $('.tabs').removeClass('active');
       $('.tab-container').removeClass('active');
 
-      if ($(this).val() === 'US') {
-        $('.tabs--us').addClass('active');
-        $('.tab-container--us').addClass('active');
-      }
-      if ($(this).val() === 'Asia') {
-        $('.tabs--asia').addClass('active');
-        $('.tab-container--asia').addClass('active');
-      }
+      $(`.tabs--${$(this).val()}`).addClass('active');
+      $(`.tab-container--${$(this).val()}`).addClass('active');
     });
   };
 

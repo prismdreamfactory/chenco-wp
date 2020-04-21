@@ -1,6 +1,7 @@
 .partners {
   .select2 {
     min-width: 150px;
+    width: 100%;
   }
 
   .tabs {
@@ -13,7 +14,7 @@
 
   .tabs--index {
     display: grid;
-    grid-template-columns: 20% 1fr;
+    grid-template-columns: 300px 1fr;
     grid-gap: 2rem;
     padding: 4rem 2rem;
   }
@@ -31,7 +32,7 @@
   }
 
   .tabs__sidebar {
-    padding: 0 2rem;
+    padding: 0;
   }
 
   .tab-content {

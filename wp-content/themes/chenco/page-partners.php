@@ -32,15 +32,16 @@ get_header(); ?>
       <div class="tabs--index">
         <div class="tabs__sidebar">
           <select class="select2 partners__toggle" name="partners">
-            <option value="US">US Operating Partners</option>
-            <option value="US-Capital">US Capital Partners</option>
-            <option value="Asia">Greater China Operating Partners</option>
-            <option value="Asia-Capital">Greater China Capital Partners</option>
+            <?php while (have_rows('partners')) : the_row(); ?>
+            <option value="<?php echo get_row_index(); ?>"><?php the_sub_field('region'); ?></option>
+            <?php endwhile; ?>
           </select>
 
-          <div class="tabs tabs--us active">
+          <?php while (have_rows('partners')) : the_row(); ?>
+          <div
+            class="tabs tabs--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>">
             <ul class="tabs-nav">
-              <?php while (have_rows('company')) : the_row(); ?>
+              <?php while (have_rows('companies')) : the_row(); ?>
               <li class="tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
                 data-tab="<?php echo get_row_index(); ?>">
                 <span class="tab__text"><?php the_sub_field('name'); ?></span>
@@ -48,21 +49,13 @@ get_header(); ?>
               <?php endwhile; ?>
             </ul>
           </div>
-
-          <div class="tabs tabs--asia">
-            <ul class="tabs-nav">
-              <?php while (have_rows('company_asia')) : the_row(); ?>
-              <li class="tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
-                data-tab="<?php echo get_row_index(); ?>">
-                <span class="tab__text"><?php the_sub_field('name'); ?></span>
-              </li>
-              <?php endwhile; ?>
-            </ul>
-          </div>
+          <?php endwhile; ?>
         </div>
 
-        <div class="tab-container tab-container--us active">
-          <?php while (have_rows('company')) : the_row(); ?>
+        <?php while (have_rows('partners')) : the_row(); ?>
+        <div
+          class="tab-container tab-container--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>">
+          <?php while (have_rows('companies')) : the_row(); ?>
           <div class="tab-content <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
             data-content="<?php echo get_row_index(); ?>">
             <section class="partners__section">
@@ -75,13 +68,14 @@ get_header(); ?>
                   <img src="<?php the_sub_field('logo'); ?>" />
 
                   <div class="partners__address">
-                    <h4>HEADQUARTERS</h4>
+                    <?php if (the_sub_field('description')) : ?><h4>HEADQUARTERS</h4>
+                    <? endif; ?>
                     <address><?php the_sub_field('address'); ?></address>
                     <?php $link = get_sub_field('website');
-                        if ($link) :
-                          $link_url = $link['url'];
-                          $link_title = $link['title'];
-                        ?>
+                          if ($link) :
+                            $link_url = $link['url'];
+                            $link_title = $link['title'];
+                          ?>
                     <a href="<?php echo esc_url($link_url); ?>" target="_blank" rel=”noopener”
                       rel=”noreferrer”><?php echo esc_html($link_title); ?></a>
                     <?php endif; ?>
@@ -93,39 +87,7 @@ get_header(); ?>
           </div>
           <?php endwhile; ?>
         </div>
-
-        <div class="tab-container tab-container--asia">
-          <?php while (have_rows('company_asia')) : the_row(); ?>
-          <div class="tab-content <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
-            data-content="<?php echo get_row_index(); ?>">
-            <section class="partners__section">
-              <div class="partners__section--top">
-                <div>
-                  <p class="highlight"><?php the_sub_field('description'); ?></p>
-                  <p><?php the_sub_field('details'); ?></p>
-                </div>
-                <div class="partners__contact">
-                  <img src="<?php the_sub_field('logo'); ?>" />
-
-                  <div class="partners__address">
-                    <h4>HEADQUARTERS</h4>
-                    <address><?php the_sub_field('address'); ?></address>
-                    <?php $link = get_sub_field('website');
-                        if ($link) :
-                          $link_url = $link['url'];
-                          $link_title = $link['title'];
-                        ?>
-                    <a href="<?php echo esc_url($link_url); ?>" target="_blank" rel=”noopener”
-                      rel=”noreferrer”><?php echo esc_html($link_title); ?></a>
-                    <?php endif; ?>
-                  </div>
-                </div>
-              </div>
-
-            </section>
-          </div>
-          <?php endwhile; ?>
-        </div>
+        <?php endwhile; ?>
 
       </div>
     </div>
