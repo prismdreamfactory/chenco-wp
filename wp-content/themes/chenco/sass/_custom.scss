@@ -3,6 +3,10 @@
   // font-size: 1rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .grid-container {
   box-sizing: border-box;
   max-width: 100% !important;
