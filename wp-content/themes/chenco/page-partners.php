@@ -44,7 +44,7 @@ get_header(); ?>
               <?php while (have_rows('companies')) : the_row(); ?>
               <li class="tab--<?php echo get_row_index(); ?> <?php if (get_row_index() == 1) : ?>active<?php endif; ?>"
                 data-tab="<?php echo get_row_index(); ?>">
-                <span class="tab__text"><?php the_sub_field('name'); ?></span>
+                <a class="tab__text"><?php the_sub_field('name'); ?></a>
               </li>
               <?php endwhile; ?>
             </ul>

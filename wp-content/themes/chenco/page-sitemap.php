@@ -20,46 +20,31 @@ get_header(); ?>
 
     <div class="container sitemap-main">
       <div class="page__header">
-        <h1 class="heading">Sitemap</h1>
+        <h1 class="heading"><?php the_title(); ?></h1>
       </div>
 
       <?php while (have_posts()) : the_post(); ?>
       <div class="sitemap-side-container">
         <aside class="sitemap-aside">
-          <h4 class="sitemap-side-title">Global Offices</h4>
-          <div class="sitemap-side">
-            <div class="sitemap-side-item">
-              <h4>TAIWAN</h4>
-              <p>SF, #248, Sec. 3</p>
-              <p>Nanjing E. Rd</p>
-              <p>Taipei 105, Taiwan</p>
-            </div>
-            <div class="sitemap-side-item">
-              <h4>BEIJING</h4>
-              <p>Suite 1901, China World</p>
-              <p>Office 2</p>
-              <p>No. 1 Jian Guo Men Wai Ave.,</p>
-              <p>Chaoyang District,</p>
-              <p>Beijing 1000004, China</p>
-            </div>
-            <div class="sitemap-side-item">
-              <h4>SHANGHAI</h4>
-              <p>Suite 1702A, 17/F,</p>
-              <p>Lippo Plaza, No. 222 Huaihai Middle Road,</p>
-              <p>Huangpu District,</p>
-              <p>Shanghai 200021, China</p>
-            </div>
-            <div class="sitemap-side-item">
-              <h4>SEOUL</h4>
-              <p>19/F, 159-9
-                <p>Samseong-dong, Gangnam-gu,</p>
-                <p>Seoul, South Korea</p>
-            </div>
-            <div class="sitemap-side-item">
-              <h4>HONG KONG</h4>
-              <p>On hold for now</p>
-            </div>
+          <!-- <h4 class="sitemap-side-title">Global Offices</h4> -->
+          <?php while (have_rows('contact_locations')) : the_row(); ?>
+          <div class="contact__location">
+            <h4 class="sitemap-side-title"><?php the_sub_field('region'); ?></h2>
+              <div class="sitemap-side">
+
+                <?php while (have_rows('region_info')) : the_row(); ?>
+                <div class="sidemap-side-item">
+                  <h4><?php the_sub_field('location'); ?></h4>
+                  <p class="contact-address"><?php the_sub_field('address'); ?></p>
+                </div>
+                <?php endwhile; ?>
+
+              </div>
           </div>
+
+          <?php endwhile; ?>
+
+
         </aside>
 
 
