@@ -227,4 +227,9 @@ if (function_exists('pll_register_string')) {
 
   pll_register_string('map', 'Current');
   pll_register_string('map', 'Historical');
+
+  pll_register_string('about', 'Overview');
+  pll_register_string('about', 'Our Vision');
+  pll_register_string('about', 'Our Performance');
+  pll_register_string('about', 'Our Funds');
 }

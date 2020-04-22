@@ -47,14 +47,16 @@ get_header(); ?>
         <div class="container">
           <section class="firm__section">
             <div class="overview__section">
-              <h2 class="firm__heading heading">OVERVIEW</h2>
+              <h2 class="firm__heading heading"><?php pll_e('Overview'); ?></h2>
 
               <?php the_content(); ?>
             </div>
           </section>
+        </div>
 
-          <section class="vision__section" id="1">
-            <h2 class="firm__heading heading">Our Vision</h2>
+        <div class="vision__section" id="1">
+          <div class="container">
+            <h2 class="firm__heading heading"><?php pll_e('Our Vision'); ?></h2>
 
             <div class="firm__section--top">
               <div class="firm__subheading highlight">
@@ -63,13 +65,13 @@ get_header(); ?>
 
               <img src="<?php the_field('our_vision_image'); ?>" />
             </div>
-
-          </section>
+          </div>
         </div>
+
 
         <section class="edge__section" id="2">
           <div class="container">
-            <h2 class="firm__heading heading center">Our Performance</h2>
+            <h2 class="firm__heading heading center"><?php pll_e('Our Performance'); ?></h2>
 
 
             <div class="edge__row edge__top">
@@ -140,7 +142,7 @@ get_header(); ?>
             <img src="<?php the_field('our_funds_image'); ?>" />
             <?php endif; ?>
             <div class="fund__section__text">
-              <h2 class="firm__heading heading">Our Funds</h2>
+              <h2 class="firm__heading heading"><?php pll_e('Our Funds'); ?></h2>
               <p class="highlight">
                 <?php the_field('our_funds_highlight'); ?>
               </p>
