@@ -34,6 +34,12 @@ function getParameterByName(name) {
       .attr('target', '_blank');
   };
 
+  $('a.smooth-scroll').on('click', () => {
+    document.querySelector(this.href).scrollIntoView({
+      behavior: 'smooth',
+    });
+  });
+
   const adaptiveHeroHeight = () => {
     const height =
       $('#secondary-navigation').height() +

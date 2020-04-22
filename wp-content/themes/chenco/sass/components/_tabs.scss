@@ -9,6 +9,12 @@
   @include media('<tablet') {
     flex-wrap: wrap;
   }
+
+  .tabs__sidebar & {
+    display: block;
+    padding: 0;
+    position: relative;
+  }
 }
 
 .tabs-nav--alt {

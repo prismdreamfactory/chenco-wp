@@ -4,6 +4,47 @@
   }
 }
 
+// .tabs--firm {
+//   display: grid;
+//   grid-template-columns: 200px 1fr;
+//   grid-gap: 2rem;
+//   padding: 4rem 2rem;
+
+//   .tabs-nav {
+//     position: fixed;
+//   }
+
+//   @include media('<tablet') {
+//     display: block;
+
+//     .tabs-nav {
+//       position: relative;
+//     }
+//   }
+// }
+
+.tabs--firm {
+  .tab span,
+  .tab img {
+    opacity: 1;
+  }
+
+  .tab > a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #3a3a3a;
+  }
+}
+
+.firm__section,
+.edge__section,
+.businesses__section,
+.fund__section {
+  padding: 4rem 0;
+}
+
 .firm__heading {
   font-family: $sans;
 }
@@ -28,8 +69,11 @@
   }
 }
 
+.firm__section--bottom {
+  padding-bottom: 4rem;
+}
+
 .edge__section {
-  padding: 2rem 0;
   background-color: #eef1f5;
 
   img {
@@ -65,6 +109,11 @@
       padding: 2rem 0 0 0;
     }
   }
+
+  .highlight {
+    font-size: 3rem;
+    text-align: center;
+  }
 }
 
 .edge__items {
@@ -72,7 +121,7 @@
   grid-template-columns: 1fr 1fr 1fr;
 
   .edge__middle & {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 
   @include media('<tablet') {
@@ -167,10 +216,11 @@
 .fund__section {
   background-color: $offwhite;
 
-  .container {
+  .fund__section__content {
     display: grid;
     grid-template-columns: 25% 70%;
     grid-column-gap: 5%;
+    margin: 2rem 0;
 
     @include media('<tablet') {
       display: block;

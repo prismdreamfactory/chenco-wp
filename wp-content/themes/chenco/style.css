@@ -500,6 +500,10 @@ address {
   @media (max-width: 767px) {
     .tabs-nav {
       flex-wrap: wrap; } }
+  .tabs__sidebar .tabs-nav {
+    display: block;
+    padding: 0;
+    position: relative; }
 
 .tabs-nav--alt .tab {
   border: 0; }
@@ -641,6 +645,28 @@ address {
   -webkit-box-align: start;
   align-items: flex-start; }
 
+.tabs--firm .tab span,
+.tabs--firm .tab img {
+  opacity: 1; }
+
+.tabs--firm .tab > a {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  color: #3a3a3a; }
+
+.firm__section,
+.edge__section,
+.businesses__section,
+.fund__section {
+  padding: 4rem 0; }
+
 .firm__heading {
   font-family: "Maven Pro", sans-serif; }
 
@@ -654,8 +680,10 @@ address {
       display: block;
       margin-bottom: 1rem; } }
 
+.firm__section--bottom {
+  padding-bottom: 4rem; }
+
 .edge__section {
-  padding: 2rem 0;
   background-color: #eef1f5; }
   .edge__section img {
     padding: 0;
@@ -680,12 +708,13 @@ address {
     @media (max-width: 767px) {
       .edge__row .heading {
         padding: 2rem 0 0 0; } }
+  .edge__row .highlight {
+    font-size: 3rem;
+    text-align: center; }
 
 .edge__items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; }
-  .edge__middle .edge__items {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
   @media (max-width: 767px) {
     .edge__items {
       display: block; } }
@@ -774,14 +803,15 @@ address {
 
 .fund__section {
   background-color: #f7f5f5; }
-  .fund__section .container {
+  .fund__section .fund__section__content {
     display: grid;
     grid-template-columns: 25% 70%;
-    grid-column-gap: 5%; }
+    grid-column-gap: 5%;
+    margin: 2rem 0; }
     @media (max-width: 767px) {
-      .fund__section .container {
+      .fund__section .fund__section__content {
         display: block; }
-        .fund__section .container .fund__section__text {
+        .fund__section .fund__section__content .fund__section__text {
           margin-top: 1rem; } }
 
 .businesses__section {
@@ -847,7 +877,7 @@ address {
   display: block; }
 
 .partners .tabs__sidebar {
-  padding: 0 2rem; }
+  padding: 0; }
 
 .partners .tab-content {
   min-height: 60vh; }
