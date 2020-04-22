@@ -721,6 +721,9 @@ address {
   .edge__row .highlight {
     font-size: 2.5rem;
     text-align: center; }
+    @media (max-width: 768px) {
+      .edge__row .highlight {
+        font-size: 1.5rem; } }
 
 .edge__items {
   display: grid;
@@ -880,6 +883,9 @@ address {
   padding: 2rem 2rem;
   max-width: 1200px;
   margin: 0 auto; }
+  @media (max-width: 768px) {
+    .partners .tabs--index {
+      display: block; } }
 
 .partners .tab-container {
   display: none; }
@@ -887,7 +893,8 @@ address {
     display: block; }
 
 .partners .tabs-nav {
-  display: block; }
+  display: block;
+  margin-bottom: 2rem; }
 
 .partners .tabs__sidebar {
   padding: 0; }

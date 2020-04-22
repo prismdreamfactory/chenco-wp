@@ -24,6 +24,10 @@
 
     max-width: 1200px;
     margin: 0 auto;
+
+    @include media('<=tablet') {
+      display: block;
+    }
   }
 
   .tab-container {
@@ -36,6 +40,7 @@
 
   .tabs-nav {
     display: block;
+    margin-bottom: 2rem;
   }
 
   .tabs__sidebar {
