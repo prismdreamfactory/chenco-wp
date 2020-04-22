@@ -877,7 +877,9 @@ address {
   display: grid;
   grid-template-columns: 300px 1fr;
   grid-gap: 2rem;
-  padding: 4rem 2rem; }
+  padding: 2rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto; }
 
 .partners .tab-container {
   display: none; }

@@ -24,7 +24,7 @@ get_header(); ?>
       <div class="container">
         <div class="page__header">
           <h1 class="heading"><?php the_title(); ?></h1>
-          <p><?php the_content(); ?></p>
+          <?php the_content(); ?>
         </div>
       </div>
 
