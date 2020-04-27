@@ -20,8 +20,12 @@
     left: 25px;
   }
 
-  .slick-track {
-    min-height: 500px;
+  // .slick-track {
+  //   min-height: 500px;
+  // }
+
+  .slick-dotted.slick-slider {
+    margin: 0 !important;
   }
 
   h2 {
@@ -66,6 +70,7 @@
   background-size: cover;
   background-position: center;
   height: 100%;
+  min-height: 70vh;
 
   h1 {
     color: #fff;

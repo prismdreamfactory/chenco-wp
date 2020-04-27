@@ -570,10 +570,10 @@ function getParameterByName(name) {
       });
     }
 
-    if ($('.home').length) {
-      $(window).on('load', adaptiveHeroHeight);
-      $(window).on('resize', debounced(200, adaptiveHeroHeight));
-    }
+    // if ($('.home').length) {
+    //   $(window).on('load', adaptiveHeroHeight);
+    //   $(window).on('resize', debounced(200, adaptiveHeroHeight));
+    // }
 
     $('body, html').animate({ scrollTop: 0 }, 0);
 
