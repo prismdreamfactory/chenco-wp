@@ -41,25 +41,26 @@ function generatepress_parent_theme_enqueue_styles()
 /**
  * Remove bottom footer bar & copyright
  */
-// add_action('after_setup_theme', 'chenco_remove_footer_area');
-// function chenco_remove_footer_area()
-// {
-//   remove_action('generate_footer', 'generate_construct_footer');
-// }
+add_action('after_setup_theme', 'chenco_remove_footer_area');
+function chenco_remove_footer_area()
+{
+  remove_action('generate_footer', 'generate_construct_footer');
+}
+/*
 add_filter('generate_copyright', 'chenco_custom_copyright');
 function chenco_custom_copyright()
 {
 ?>
 © 2020 Chenco Holdings. All Rights Reserved.
 <?php
-}
+}*/
 
 add_filter('generate_footer_widget_1_width', function () {
-  return '20';
+  return '40';
 });
 
 add_filter('generate_footer_widget_2_width', function () {
-  return '80';
+  return '60';
 });
 
 /**

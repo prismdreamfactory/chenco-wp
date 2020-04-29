@@ -13,7 +13,7 @@
 
 .footer-widgets {
   background: transparent;
-  padding-bottom: 0 !important;
+  padding: 20px 40px 10px 40px;
 }
 
 .inside-footer-widgets {
@@ -24,6 +24,10 @@
 .footer-widget-1 {
   img {
     max-width: 150px !important;
+  }
+
+  .textwidget {
+    font-size: 0.9rem;
   }
 }
 
@@ -44,10 +48,10 @@
 
 @include media('<=desktop') {
   .footer-widget-1 {
-    width: 20%;
+    width: 40%;
   }
   .footer-widget-2 {
-    width: 80%;
+    width: 60%;
   }
 }
 
