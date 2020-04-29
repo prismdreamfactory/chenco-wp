@@ -12,7 +12,8 @@
     <div class="map__tab font--alt mod--active" data-center="global"><?php pll_e('Global'); ?>
     </div>
     <div class="map__tab font--alt" data-center="usa"><?php pll_e('U.S. Properties'); ?></div>
-    <div class="map__tab font--alt" data-center="asia"><?php pll_e('Greater China Properties'); ?></div>
+    <?php /* <div class="map__tab font--alt" data-center="asia"><?php pll_e('Greater China Properties'); ?>
+  </div> */ ?>
   </div>
 
   <div class="map-wrapper">

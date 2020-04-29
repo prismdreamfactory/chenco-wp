@@ -259,6 +259,7 @@ function getParameterByName(name) {
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
             streetViewControl: false,
+            zoomControl: true,
             // disableDefaultUI: true,
             styles,
           }
@@ -269,6 +270,7 @@ function getParameterByName(name) {
             center: new google.maps.LatLng(center['global'][0], center['global'][1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
+            zoomControl: true,
             streetViewControl: false,
             // disableDefaultUI: true,
             styles,
