@@ -11,7 +11,8 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<a href="<?= get_permalink(pll_get_post(229)); ?>">Back to News</a>
+<a href="<?= get_permalink(pll_get_post(229)); ?>"><img
+    src="<?= get_stylesheet_directory_uri() . '/assets/chevron-left.svg'; ?>" style="width: 10px;" /> Back to News</a>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata('article'); ?>>
   <div class="inside-article">
