@@ -1,4 +1,4 @@
-PHP 5.2 Autoloading for Composer
+anPHP 5.2 Autoloading for Composer
 ================================
 
 This package provides an easy way to get a PHP 5.2 compatible autoloader out of Composer. The generated autoloader is fully compatible to the original and is written into separate files, each ending with `_52.php`.
