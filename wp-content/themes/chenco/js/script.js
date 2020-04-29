@@ -62,6 +62,8 @@ function getParameterByName(name) {
         arrows: true,
         infinite: true,
         slidesToShow: 1,
+        prevArrow: $('.slick--prev'),
+        nextArrow: $('.slick--next'),
         // responsive: [
         //   {
         //     breakpoint: 1024,

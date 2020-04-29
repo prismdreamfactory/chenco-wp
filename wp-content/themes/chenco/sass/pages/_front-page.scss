@@ -7,18 +7,69 @@
   //   'mid-left mid-right mid-right'
   //   'bot-left bot-left bot-right';
 
-  .slick-prev,
-  .slick-next {
-    z-index: 1;
+  .slick-wrapper {
+    position: relative;
   }
 
-  .slick-next {
-    right: 25px;
+  .slick--prev,
+  .slick--next {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    bottom: 0;
+    cursor: pointer;
   }
 
-  .slick-prev {
-    left: 25px;
+  .slick--prev {
+    left: 20px;
+
+    i {
+      display: block;
+      height: 50px;
+      width: 50px;
+      background: url('assets/chevron-left-white.svg') no-repeat;
+      opacity: 0.5;
+      transition: 0.1s ease;
+    }
+
+    &:hover i {
+      opacity: 1;
+    }
   }
+
+  .slick--next {
+    right: 20px;
+
+    i {
+      display: block;
+      height: 50px;
+      width: 50px;
+      background: url('assets/chevron-right-white.svg') no-repeat;
+      position: absolute;
+      right: 0;
+      opacity: 0.5;
+      transition: 0.1s ease;
+    }
+
+    &:hover i {
+      opacity: 1;
+    }
+  }
+
+  // .slick-prev,
+  // .slick-next {
+  //   z-index: 1;
+  // }
+
+  // .slick-next {
+  //   right: 25px;
+  // }
+
+  // .slick-prev {
+  //   left: 25px;
+  // }
 
   // .slick-track {
   //   min-height: 500px;

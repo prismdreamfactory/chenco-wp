@@ -1163,15 +1163,48 @@ address {
   .contact-location-item a {
     line-height: 1.5; }
 
-.front .slick-prev,
-.front .slick-next {
-  z-index: 1; }
+.front .slick-wrapper {
+  position: relative; }
 
-.front .slick-next {
-  right: 25px; }
+.front .slick--prev,
+.front .slick--next {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  cursor: pointer; }
 
-.front .slick-prev {
-  left: 25px; }
+.front .slick--prev {
+  left: 20px; }
+  .front .slick--prev i {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background: url("assets/chevron-left-white.svg") no-repeat;
+    opacity: 0.5;
+    -webkit-transition: 0.1s ease;
+    transition: 0.1s ease; }
+  .front .slick--prev:hover i {
+    opacity: 1; }
+
+.front .slick--next {
+  right: 20px; }
+  .front .slick--next i {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background: url("assets/chevron-right-white.svg") no-repeat;
+    position: absolute;
+    right: 0;
+    opacity: 0.5;
+    -webkit-transition: 0.1s ease;
+    transition: 0.1s ease; }
+  .front .slick--next:hover i {
+    opacity: 1; }
 
 .front .slick-dotted.slick-slider {
   margin: 0 !important; }
