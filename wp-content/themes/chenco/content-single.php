@@ -11,6 +11,8 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
+<a href="<?= get_permalink(pll_get_post(229)); ?>">Back to News</a>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata('article'); ?>>
   <div class="inside-article">
     <?php

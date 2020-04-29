@@ -1644,6 +1644,12 @@ body.customer-area-active
 .sidebar .widget {
   background-color: transparent; }
 
+.inside-left-sidebar .widget-title {
+  display: none; }
+
+.inside-left-sidebar .widget ul li {
+  list-style: inside; }
+
 .sitemap-aside {
   border-right: 1px solid #ccc;
   padding-right: 3rem; }
@@ -1738,6 +1744,9 @@ body.customer-area-active
   @media (max-width: 768px) {
     .single-width {
       max-width: 550px; } }
+
+.single-post .single-width {
+  margin: 0; }
 
 .lwa {
   margin: 0; }

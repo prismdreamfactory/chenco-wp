@@ -13,3 +13,11 @@
 .sidebar .widget {
   background-color: transparent;
 }
+
+.inside-left-sidebar .widget-title {
+  display: none;
+}
+
+.inside-left-sidebar .widget ul li {
+  list-style: inside;
+}

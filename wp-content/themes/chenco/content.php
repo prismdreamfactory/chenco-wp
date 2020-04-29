@@ -41,7 +41,7 @@ if (!defined('ABSPATH')) {
           the_title(sprintf('<h2 class="entry-title post__title" itemprop="headline"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>');
           ?>
 
-          <!-- <a href="<?php the_permalink(); ?>">Read More</a> -->
+          <?php /* <a href="<?php the_permalink(); ?>">Read More</a> */ ?>
         </div>
 
 
