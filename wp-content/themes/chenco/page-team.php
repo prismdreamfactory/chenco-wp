@@ -3,7 +3,7 @@
 /* Template Name: Team Page */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 get_header(); ?>
@@ -44,7 +44,7 @@ get_header(); ?>
           <a href="#modal--<?= get_the_ID(); ?>" rel="modal:open">
             <?php the_post_thumbnail(); ?>
           </a>
-          <a href="javascript:">
+          <a href="#modal--<?= get_the_ID(); ?>" rel="modal:open">
             <h5><?php the_title(); ?></h5>
           </a>
           <h6><?php the_field('role'); ?></h6>
@@ -59,9 +59,14 @@ get_header(); ?>
       <div class="team__modal">
         <div class="team__modal-left">
           <?php the_post_thumbnail(); ?>
-          <a href="javascript:">Connect with me</a>
+          <!-- <a href="javascript:">Connect with me</a> -->
           <div class="team__modal-left-info">
-            <p>Joined in <?php the_field('join_date'); ?></p>
+            <?php if (get_field('join_date')) : ?><p>Joined in
+              <?php
+                  $date_string = get_field('join_date');
+                  $date = DateTime::createFromFormat('Ymd', $date_string);
+                  echo $date->format('j M Y'); ?></p>
+            <?php endif; ?>
           </div>
         </div>
         <div class="team__modal-right">
