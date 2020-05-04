@@ -194,6 +194,12 @@ function wpb_new_menu_conditions($conditions)
   return $conditions;
 }
 
+add_filter('generate_back_to_top_scroll_speed', 'chenco_back_to_top_scroll_speed');
+function chenco_back_to_top_scroll_speed()
+{
+  return 50; // milliseconds
+}
+
 if (function_exists('pll_register_string')) {
   pll_register_string('login', 'Log In');
   pll_register_string('login', 'Logout');

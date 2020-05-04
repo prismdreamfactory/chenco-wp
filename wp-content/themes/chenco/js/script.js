@@ -34,11 +34,11 @@ function getParameterByName(name) {
       .attr('target', '_blank');
   };
 
-  $('a.smooth-scroll').on('click', () => {
-    document.querySelector(this.href).scrollIntoView({
-      behavior: 'smooth',
-    });
-  });
+  // $('a.smooth-scroll').on('click', () => {
+  //   document.querySelector(this.href).scrollIntoView({
+  //     behavior: 'smooth',
+  //   });
+  // });
 
   const adaptiveHeroHeight = () => {
     const height =
@@ -583,7 +583,7 @@ function getParameterByName(name) {
     //   $(window).on('resize', debounced(200, adaptiveHeroHeight));
     // }
 
-    $('body, html').animate({ scrollTop: 0 }, 0);
+    // $('body, html').animate({ scrollTop: 0 }, 0);
 
     if ($('body').hasClass('touch')) {
       //
