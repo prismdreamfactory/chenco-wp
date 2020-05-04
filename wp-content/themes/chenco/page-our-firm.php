@@ -32,7 +32,7 @@ get_header(); ?>
           <?php if (have_rows('our_firm_tabs')) : ?>
           <?php while (have_rows('our_firm_tabs')) : the_row(); ?>
           <li class="tab" data-tab-name="firm">
-            <a href="#<?= get_row_index(); ?>" class="smooth-scroll">
+            <a href="#<?php print(str_replace(' ', '-', strtolower(get_sub_field('label')))); ?>" class="smooth-scroll">
               <img src="<?php the_sub_field('image'); ?>" class="tab__icon" />
               <span><?php the_sub_field('label'); ?></span>
             </a>
@@ -54,7 +54,7 @@ get_header(); ?>
           </section>
         </div>
 
-        <div class="vision__section" id="1">
+        <div class="vision__section" id="our-vision">
           <div class="container">
             <h2 class="firm__heading heading"><?php pll_e('Our Vision'); ?></h2>
 
@@ -69,7 +69,7 @@ get_header(); ?>
         </div>
 
 
-        <section class="edge__section" id="2">
+        <section class="edge__section" id="our-performance">
           <div class="container">
             <h2 class="firm__heading heading center"><?php pll_e('Our Performance'); ?></h2>
 
@@ -125,7 +125,7 @@ get_header(); ?>
           </div>
         </section>
 
-        <section class="businesses__section" id="3"
+        <section class="businesses__section" id="our-businesses"
           style="background-image:url(<?= the_field('our_businesses_image'); ?>);">
           <div class="container">
             <div class="our_businesses__item">
@@ -136,7 +136,7 @@ get_header(); ?>
           </div>
         </section>
 
-        <section class="fund__section" id="4">
+        <section class="fund__section" id="our-funds">
           <div class="container fund__section__content">
             <?php if (get_field('our_funds_image')) : ?>
             <img src="<?php the_field('our_funds_image'); ?>" />
