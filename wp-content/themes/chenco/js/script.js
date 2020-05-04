@@ -256,7 +256,7 @@ function getParameterByName(name) {
     const args =
       $(window).width() <= 768
         ? {
-            minZoom: 3,
+            minZoom: 2,
             maxZoom: 9,
             zoom: 3,
             // center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
