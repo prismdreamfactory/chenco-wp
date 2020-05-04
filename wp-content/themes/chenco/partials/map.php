@@ -9,10 +9,10 @@
 <section class="map">
 
   <div class="map__tabs">
-    <div class="map__tab font--alt mod--active" data-center="global"><?php pll_e('Global'); ?>
-    </div>
-    <div class="map__tab font--alt" data-center="usa"><?php pll_e('U.S. Properties'); ?></div>
-    <?php /* <div class="map__tab font--alt" data-center="asia"><?php pll_e('Greater China Properties'); ?>
+    <?php /* <div class="map__tab font--alt mod--active" data-center="global"><?php pll_e('Global'); ?>
+  </div> */ ?>
+  <div class="map__tab font--alt" data-center="usa"><?php pll_e('U.S. Properties'); ?></div>
+  <?php /* <div class="map__tab font--alt" data-center="asia"><?php pll_e('Greater China Properties'); ?>
   </div> */ ?>
   </div>
 
@@ -101,10 +101,10 @@
       <div class="map__legend--bottom">
         <label class="legend__label"><?php pll_e('Legend'); ?>:</label>
         <ul class="legend__list">
-          <li class="legend__list-item mod--office"><?php pll_e('Office (SF)'); ?></li>
-          <li class="legend__list-item mod--multifamily"><?php pll_e('Multifamily (Units)'); ?></li>
-          <li class="legend__list-item mod--land"><?php pll_e('Land (Acres)'); ?></li>
-          <li class="legend__list-item mod--industrial"><?php pll_e('Industrial (SF)'); ?></li>
+          <li class="legend__list-item mod--office"><?php pll_e('Office'); ?> (<?php pll_e('SF'); ?>)</li>
+          <li class="legend__list-item mod--multifamily"><?php pll_e('Multifamily'); ?> (<?php pll_e('Units'); ?>)</li>
+          <li class="legend__list-item mod--land"><?php pll_e('Land'); ?> (<?php pll_e('Acres'); ?>)</li>
+          <li class="legend__list-item mod--industrial"><?php pll_e('Industrial'); ?> (<?php pll_e('SF'); ?>)</li>
         </ul>
       </div>
     </div>

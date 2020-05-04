@@ -251,13 +251,16 @@ function getParameterByName(name) {
     const $currentMarkers = $(`.marker[data-current=1]`);
     const $historicalMarkers = $(`.marker[data-current=0]`);
 
+    const usCoords = [39.901187, -96.613168];
+
     const args =
       $(window).width() <= 768
         ? {
-            minZoom: 2,
+            minZoom: 3,
             maxZoom: 9,
-            zoom: 2,
-            center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
+            zoom: 3,
+            // center: new google.maps.LatLng(center['usa'][0], center['usa'][1]),
+            center: new google.maps.LatLng(usCoords[0], usCoords[1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
             streetViewControl: false,
@@ -266,10 +269,11 @@ function getParameterByName(name) {
             styles,
           }
         : {
-            minZoom: 3,
+            minZoom: 4,
             maxZoom: 9,
-            zoom: 3,
-            center: new google.maps.LatLng(center['global'][0], center['global'][1]),
+            zoom: 4,
+            // center: new google.maps.LatLng(center['global'][0], center['global'][1]),
+            center: new google.maps.LatLng(usCoords[0], usCoords[1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             mapTypeControl: false,
             zoomControl: true,

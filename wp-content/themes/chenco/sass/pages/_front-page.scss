@@ -37,6 +37,10 @@
     &:hover i {
       opacity: 1;
     }
+
+    @include media('<=tablet') {
+      left: 0;
+    }
   }
 
   .slick--next {
@@ -55,6 +59,10 @@
 
     &:hover i {
       opacity: 1;
+    }
+
+    @include media('<=tablet') {
+      right: 0;
     }
   }
 
@@ -108,7 +116,7 @@
   background-size: cover;
   background-position: top;
   height: 100%;
-  min-height: 80vh;
+  min-height: 75vh;
 
   h1 {
     color: #fff;

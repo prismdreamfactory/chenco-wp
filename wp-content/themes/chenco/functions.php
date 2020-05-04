@@ -218,10 +218,11 @@ if (function_exists('pll_register_string')) {
   pll_register_string('map', 'Industrial Properties');
 
   pll_register_string('map', 'Legend');
-  pll_register_string('map', 'Office (SF)');
-  pll_register_string('map', 'Multifamily (Units)');
-  pll_register_string('map', 'Land (Acres)');
-  pll_register_string('map', 'Industrial (SF)');
+  pll_register_string('map', 'Office');
+  pll_register_string('map', 'Multifamily');
+  pll_register_string('map', 'Land');
+  pll_register_string('map', 'Industrial');
+  pll_register_string('map', 'SF');
 
   pll_register_string('map', 'Location');
   pll_register_string('map', 'Property Type');
