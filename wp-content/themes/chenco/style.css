@@ -1675,7 +1675,7 @@ body.customer-area-active
   margin: 1rem 0 2rem; }
 
 .inside-left-sidebar {
-  padding: 2rem 2rem 2rem 0; }
+  padding: 0 2rem 2rem 0; }
   .inside-left-sidebar input {
     border-radius: 20px; }
 
@@ -2437,11 +2437,13 @@ select {
 .blog .site-content,
 .single-post .site-content {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-top: 2rem; }
 
 .blog h1.heading {
   font-size: 2rem !important;
-  text-transform: normal !important; }
+  text-transform: normal !important;
+  margin-top: 0; }
 
 .single-post #primary {
   padding-top: 2rem; }

@@ -400,11 +400,13 @@ select {
 .single-post .site-content {
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 2rem;
 }
 
 .blog h1.heading {
   font-size: 2rem !important;
   text-transform: normal !important;
+  margin-top: 0;
 }
 
 .single-post #primary {
