@@ -57,7 +57,8 @@ function getParameterByName(name) {
     if ($('.slick').length) {
       $('.slick').slick({
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 6000,
+        pauseOnHover: false,
         dots: true,
         arrows: true,
         infinite: true,
@@ -271,7 +272,7 @@ function getParameterByName(name) {
         : {
             minZoom: 4,
             maxZoom: 9,
-            zoom: 4,
+            zoom: 5,
             // center: new google.maps.LatLng(center['global'][0], center['global'][1]),
             center: new google.maps.LatLng(usCoords[0], usCoords[1]),
             mapTypeId: google.maps.MapTypeId.ROADMAP,

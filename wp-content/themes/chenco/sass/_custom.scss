@@ -67,6 +67,7 @@ body {
 
 .site-content {
   padding: 0 !important;
+  min-height: 75vh;
 }
 
 .container {
@@ -393,4 +394,30 @@ select {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 35px;
+}
+
+.blog .site-content,
+.single-post .site-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog h1.heading {
+  font-size: 2rem !important;
+  text-transform: normal !important;
+}
+
+.single-post #primary {
+  padding-top: 2rem;
+}
+
+.widget_recent_entries {
+  ul li {
+    line-height: 1.4;
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.8rem;
+  }
 }

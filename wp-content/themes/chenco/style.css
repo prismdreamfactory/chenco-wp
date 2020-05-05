@@ -1675,11 +1675,7 @@ body.customer-area-active
   margin: 1rem 0 2rem; }
 
 .inside-left-sidebar {
-  background: #eaeaea;
-  padding: 2rem; }
-  .inside-left-sidebar #archives-3,
-  .inside-left-sidebar form {
-    background: #eaeaea; }
+  padding: 2rem 2rem 2rem 0; }
   .inside-left-sidebar input {
     border-radius: 20px; }
 
@@ -1690,7 +1686,8 @@ body.customer-area-active
   display: none; }
 
 .inside-left-sidebar .widget ul li {
-  list-style: inside; }
+  list-style: outside;
+  margin-left: 1em; }
 
 .sitemap-aside {
   border-right: 1px solid #ccc;
@@ -2199,7 +2196,8 @@ body {
   background: #fff; }
 
 .site-content {
-  padding: 0 !important; }
+  padding: 0 !important;
+  min-height: 75vh; }
 
 .container {
   max-width: 1200px;
@@ -2435,3 +2433,22 @@ select {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 35px; }
+
+.blog .site-content,
+.single-post .site-content {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.blog h1.heading {
+  font-size: 2rem !important;
+  text-transform: normal !important; }
+
+.single-post #primary {
+  padding-top: 2rem; }
+
+.widget_recent_entries ul li {
+  line-height: 1.4; }
+
+.widget_recent_entries .post-date {
+  display: block;
+  font-size: 0.8rem; }

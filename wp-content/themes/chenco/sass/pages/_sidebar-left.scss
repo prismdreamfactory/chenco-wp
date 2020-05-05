@@ -1,9 +1,9 @@
 .inside-left-sidebar {
-  background: #eaeaea;
-  padding: 2rem;
+  // background: #eaeaea;
+  padding: 2rem 2rem 2rem 0;
   #archives-3,
   form {
-    background: #eaeaea;
+    // background: #eaeaea;
   }
   input {
     border-radius: 20px;
@@ -19,5 +19,6 @@
 }
 
 .inside-left-sidebar .widget ul li {
-  list-style: inside;
+  list-style: outside;
+  margin-left: 1em;
 }
