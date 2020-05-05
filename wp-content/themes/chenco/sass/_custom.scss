@@ -413,7 +413,12 @@ select {
 
 .widget_recent_entries {
   ul li {
-    line-height: 1.4;
+    line-height: 1.2;
+    margin-bottom: 0.7em;
+
+    span {
+      margin-top: 0.4em;
+    }
   }
 
   .post-date {
