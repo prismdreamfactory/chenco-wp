@@ -68,8 +68,7 @@ get_header(); ?>
                   <img src="<?php the_sub_field('logo'); ?>" />
 
                   <div class="partners__address">
-                    <?php if (the_sub_field('description')) : ?><h4>HEADQUARTERS</h4>
-                    <? endif; ?>
+
                     <address><?php the_sub_field('address'); ?></address>
                     <?php $link = get_sub_field('website');
                           if ($link) :
