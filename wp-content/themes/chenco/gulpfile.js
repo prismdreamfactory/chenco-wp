@@ -11,8 +11,8 @@ function browserSyncRun(done) {
 
   // Initialize Browsersync with a PHP server.
   browserSync.init(files, {
-    proxy: 'http://localhost/',
-    reloadDelay: 200
+    proxy: 'http://chenco.test/',
+    reloadDelay: 200,
   });
 
   done();
@@ -36,7 +36,7 @@ function styles() {
     )
     .pipe(
       autoprefixer({
-        cascade: false
+        cascade: false,
       })
     )
     .pipe(gulp.dest('./'))
@@ -49,7 +49,7 @@ function scripts() {
     .src('js/script.js')
     .pipe(
       babel({
-        presets: ['env']
+        presets: ['env'],
       })
     )
     .pipe(uglify())
@@ -66,10 +66,7 @@ function watchFiles() {
 const css = gulp.series(styles);
 const js = gulp.series(scripts);
 const build = gulp.parallel(styles, scripts);
-const watch = gulp.series(
-  browserSyncRun,
-  gulp.parallel(watchFiles, browserSyncReload)
-);
+const watch = gulp.series(browserSyncRun, gulp.parallel(watchFiles, browserSyncReload));
 
 // Default task
 exports.build = build;
