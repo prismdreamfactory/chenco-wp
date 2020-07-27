@@ -387,7 +387,7 @@ address {
     content: none; }
   .main-navigation.navigation-stick ul li:nth-child(n + 7) a {
     font-family: "Maven Pro", sans-serif;
-    font-size: 0.9rem;
+    font-size: 13px;
     letter-spacing: 0.02em;
     text-transform: uppercase; }
   @media (max-width: 1024px) {
@@ -413,7 +413,7 @@ address {
       .secondary-navigation .inside-navigation .main-nav > ul > li:nth-child(3) a, .secondary-navigation .inside-navigation .main-nav > ul > li:nth-child(4) a {
         border-left: 1px solid #3a3a3a;
         color: #3a3a3a;
-        padding: 0 2rem; }
+        padding: 0.5rem 2rem; }
       .secondary-navigation .inside-navigation .main-nav > ul > li a {
         color: #25507b;
         font-family: "Maven Pro", sans-serif;
@@ -442,12 +442,17 @@ address {
       .secondary-navigation ul.sub-menu li a,
       .main-navigation.navigation-stick ul.sub-menu li a {
         border: 0 !important;
-        padding: 0.5rem 1rem !important;
-        font-size: 0.9rem !important;
-        text-transform: initial !important; }
+        font-size: 13px !important;
+        letter-spacing: 0.02em; }
         .secondary-navigation ul.sub-menu li a:hover,
         .main-navigation.navigation-stick ul.sub-menu li a:hover {
           background: transparent; } }
+
+@media (min-width: 768px) {
+  .secondary-navigation ul.sub-menu li a {
+    padding: 0.5rem 2rem !important; }
+  .main-navigation.navigation-stick ul.sub-menu li a {
+    padding: 0 1rem 0.5rem 1rem !important; } }
 
 @media (max-width: 1024px) {
   .inside-header {
@@ -475,17 +480,26 @@ address {
 #site-navigation.toggled .sub-menu {
   background: #efefef; }
 
+#site-navigation.toggled .main-nav li.current-lang {
+  display: none !important; }
+
 #site-navigation.toggled a {
   color: #3a3a3a !important;
   opacity: 1 !important;
   font-family: "Maven Pro", sans-serif;
   font-weight: 700;
-  -webkit-font-smoothing: antialiased; }
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase; }
 
 .mobile-menu {
   font-family: "Maven Pro", sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased; }
+
+.main-navigation.navigation-stick ul li .sub-menu li.current-lang,
+.secondary-navigation ul.sub-menu li.current-lang {
+  display: none; }
 
 .tabs-nav {
   margin: 0;
@@ -2385,8 +2399,7 @@ tbody td {
       /* Top/left values mimic padding */
       left: 6px;
       width: 45%;
-      padding-right: 10px;
-      white-space: nowrap; }
+      padding-right: 10px; }
     .investor__files td:nth-of-type(1):before {
       content: 'Date'; }
     .investor__files td:nth-of-type(2):before {
