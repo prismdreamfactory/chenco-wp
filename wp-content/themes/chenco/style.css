@@ -2174,6 +2174,9 @@ body.customer-area-active
   .gm-style-pbc {
     opacity: 0 !important; } }
 
+html {
+  scroll-behavior: unset; }
+
 .grid-container {
   box-sizing: border-box;
   max-width: 100% !important; }
