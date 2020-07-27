@@ -197,7 +197,7 @@ function wpb_new_menu_conditions($conditions)
 add_filter('generate_back_to_top_scroll_speed', 'chenco_back_to_top_scroll_speed');
 function chenco_back_to_top_scroll_speed()
 {
-  return 10; // milliseconds
+  return 100; // milliseconds
 }
 
 if (function_exists('pll_register_string')) {
@@ -240,4 +240,16 @@ if (function_exists('pll_register_string')) {
   pll_register_string('about', 'Our Vision');
   pll_register_string('about', 'Our Performance');
   pll_register_string('about', 'Our Funds');
+}
+
+add_filter('generate_right_sidebar_width', 'tu_custom_right_sidebar_width');
+function tu_custom_right_sidebar_width($width)
+{
+  // If we're on the home page
+  if (is_front_page()) {
+    return 40;
+  }
+
+  // Return the default
+  return $width;
 }

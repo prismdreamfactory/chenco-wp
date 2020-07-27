@@ -2160,9 +2160,6 @@ body.customer-area-active
   .gm-style-pbc {
     opacity: 0 !important; } }
 
-html {
-  scroll-behavior: smooth; }
-
 .grid-container {
   box-sizing: border-box;
   max-width: 100% !important; }
