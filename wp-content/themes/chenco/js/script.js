@@ -386,7 +386,7 @@ function getParameterByName(name) {
   }
 
   /*
-   * Grab marker data using title field and calculate legend
+   * Grab marker data using custom stats field and calculate legend
    * [office sqft, units, acres, ind sqft]
    */
   function calculateLegend(map, legendStats) {
@@ -395,7 +395,7 @@ function getParameterByName(name) {
     for (let i = 0; i < map.markers.length; i++) {
       if (map.getBounds().contains(map.markers[i].getPosition())) {
         for (let j = 0; j < legendStats.length; j++) {
-          legendStats[j] += Number(map.markers[i].title.split(',')[j]);
+          legendStats[j] += Math.abs(Number(map.markers[i].stats.split(',')[j]));
         }
       }
     }
@@ -492,7 +492,7 @@ function getParameterByName(name) {
       map: map,
       icon:
         $(window).width() <= 768 ? createMarker(icons[type], 10) : createMarker(icons[type], 14),
-      title: $marker.data('stats').toString(),
+      stats: $marker.data('stats').toString(),
     });
 
     // add to array
